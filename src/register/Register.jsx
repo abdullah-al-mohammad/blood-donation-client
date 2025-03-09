@@ -26,7 +26,7 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Name</span>
           </label>
-          <input type="name" placeholder="Your Name" {...register('name')} className="input input-bordered" required />
+          <input type="name" placeholder="Your Name" {...register('namegit add README.md')} className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
