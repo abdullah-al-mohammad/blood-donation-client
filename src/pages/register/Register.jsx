@@ -6,6 +6,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    control,
     watch,
     formState: { errors },
   } = useForm();
@@ -111,14 +112,14 @@ const Register = () => {
                   control={control}
                   name="sub-district"
                   render={({ field }) => {
-                    <Select
+                   return <Select
+                    {...field}
                       options={subDistricts.map((subDistrict) => ({
                         value: subDistrict.name,
                         label: subDistrict.name,
                       }))}
                       placeholder={"select district"}
-                      {...register("sub-district")}
-                      defaultValue={"default"}
+                      // {...register("sub-district")}
                     ></Select>;
                   }}
                 ></Controller>
