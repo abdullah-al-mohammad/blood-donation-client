@@ -96,18 +96,6 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Sub District</span>
                 </label>
-                {/* <select
-                  defaultValue="default"
-                  className="select"
-                  {...register("sub-district")}
-                >
-                  <option disabled={true} value="default">Sub District</option>
-                  {
-                    subDistricts.map(subDistrict => (
-                      <option key={subDistrict.id} value={subDistrict.name}>{subDistrict.name}</option>
-                    ))
-                  }
-                </select> */}
                 <Controller
                   control={control}
                   name="sub-district"
@@ -152,7 +140,7 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Upload Profile</span>
                 </label>
-                <input type="file" className="file-input w-full max-w-xs" />
+                <input type="file" {...register('image')} className="file-input w-full max-w-xs" />
               </div>
               {/* password field */}
               <div className="form-control">
