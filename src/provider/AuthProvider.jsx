@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-import app from "./../../firebase.config";
+import {app} from "../../firebase.config"
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app);
@@ -24,10 +24,13 @@ const AuthProvider = ({ children }) => {
   }
   // check if the user is logged in
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser => {
+    const unsubsCribe =  onAuthStateChanged(auth, (currentUser => {
       setUser(currentUser)
       setLoading(false)
     }))
+    return ()=> {
+      return unsubsCribe()
+    }
   }, [])
 
   const userInfo = {
@@ -37,9 +40,9 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
   }
   return (
-    <AuthProvider.Provider value={userInfo}>
+    <AuthContext.Provider value={userInfo}>
       {children}
-    </AuthProvider.Provider>
+    </AuthContext.Provider>
   )
 }
 

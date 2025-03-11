@@ -1,10 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { Result } from "postcss";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import useAuth from "../../hooks/useAuth";
-import { data } from "autoprefixer";
-import useAxiosPublic from "../../../../../../mileston-11/assaignment-11/online-group-study/src/Hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const {
@@ -108,20 +106,6 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">District</span>
                 </label>
-                {/* <select
-                defaultValue="default"
-                className="select"
-                {...register("district")}
-              >
-                <option value="default" disabled={true}>
-                  District
-                </option>
-                {districts.map((district) => (
-                  <option key={district.id} value={district.name}>
-                    {district.name}
-                  </option>
-                ))}
-              </select> */}
                 <Controller
                   control={control}
                   name="district"
@@ -151,8 +135,6 @@ const Register = () => {
                         value: subDistrict.name,
                         label: subDistrict.name,
                       }))}
-                      placeholder={"select district"}
-                    // {...register("sub-district")}
                     ></Select>;
                   }}
                 ></Controller>
