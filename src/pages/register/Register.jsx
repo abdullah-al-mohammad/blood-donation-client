@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import { Result } from "postcss";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
+import useAuth from "../../hooks/useAuth";
+import { data } from "autoprefixer";
+import useAxiosPublic from "../../../../../../mileston-11/assaignment-11/online-group-study/src/Hooks/useAxiosPublic";
 
 const Register = () => {
   const {
@@ -10,6 +14,8 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const { registerUser, updateUserProfile } = useAuth()
+  const axiosPublic = useAxiosPublic()
 
   const { data = {}, isLoading: loading } = useQuery({
     queryKey: ["district"],
@@ -30,6 +36,32 @@ const Register = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    const email = data.email;
+    const password = data.password;
+    const name = data.name;
+    const image = data.image[0];
+    registerUser(email, password)
+      .then(Result => {
+        console.log(Result.user);
+        updateUserProfile(name, image)
+          .then(() => {
+            const userInfo = {
+              name: name,
+              email: email,
+              image: image,
+              district: data.district,
+              subDistrict: data.subDistrict,
+              blood: data.blood - group
+            }
+            axiosPublic.post('/users', userInfo)
+          }).catch(error => {
+            console.log(error);
+
+          })
+      }).catch(error => {
+        console.error(error);
+
+      })
   };
   return (
     <div>
@@ -53,7 +85,7 @@ const Register = () => {
                 <input
                   type="name"
                   placeholder="Your Name"
-                  {...register("namegit add README.md")}
+                  {...register("name")}
                   className="input input-bordered"
                   required
                 />
@@ -76,20 +108,33 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">District</span>
                 </label>
-                <select
-                  defaultValue="default"
-                  className="select"
-                  {...register("district")}
-                >
-                  <option value="default" disabled={true}>
-                    District
+                {/* <select
+                defaultValue="default"
+                className="select"
+                {...register("district")}
+              >
+                <option value="default" disabled={true}>
+                  District
+                </option>
+                {districts.map((district) => (
+                  <option key={district.id} value={district.name}>
+                    {district.name}
                   </option>
-                  {districts.map((district) => (
-                    <option key={district.id} value={district.name}>
-                      {district.name}
-                    </option>
-                  ))}
-                </select>
+                ))}
+              </select> */}
+                <Controller
+                  control={control}
+                  name="district"
+                  render={({ field }) => {
+                    return <Select
+                      {...field}
+                      options={districts.map(district => ({
+                        value: district.name,
+                        label: district.name
+                      }))}
+                    ></Select>
+                  }}
+                ></Controller>
               </div>
               {/* sub- district dropdown */}
               <div className="form-control">
@@ -100,14 +145,14 @@ const Register = () => {
                   control={control}
                   name="sub-district"
                   render={({ field }) => {
-                   return <Select
-                    {...field}
+                    return <Select
+                      {...field}
                       options={subDistricts.map((subDistrict) => ({
                         value: subDistrict.name,
                         label: subDistrict.name,
                       }))}
                       placeholder={"select district"}
-                      // {...register("sub-district")}
+                    // {...register("sub-district")}
                     ></Select>;
                   }}
                 ></Controller>
