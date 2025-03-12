@@ -4,6 +4,9 @@ import Select from "react-select";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
+// image hosting api key
+const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const Register = () => {
   const {
     register,
@@ -32,30 +35,33 @@ const Register = () => {
   const { districts = [], subDistricts = [] } = data || {};
   console.log(data);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     const email = data.email;
     const password = data.password;
     const name = data.name;
-    const image = data.image[0];
+    const imageFile = { image: data.image[0] };
     registerUser(email, password)
-      .then(Result => {
+      .then(async (Result) => {
         console.log(Result.user);
-        updateUserProfile(name, image)
-          .then(() => {
-            const userInfo = {
-              name: name,
-              email: email,
-              image: image,
-              district: data.district,
-              subDistrict: data.subDistrict,
-              blood: data.blood - group
-            }
-            axiosPublic.post('/users', userInfo)
-          }).catch(error => {
-            console.log(error);
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+          headers: { 'content-type': "multipart/form-data" }
+        })
+        console.log(res);
 
-          })
+        if (res.data.success) {
+          const imageUrl = res.data.display_url
+          updateUserProfile(name, imageFile)
+          const userInfo = {
+            name: name,
+            email: email,
+            image: imageUrl,
+            district: data.district,
+            subDistrict: data.subDistrict,
+            blood: data.blood - group
+          }
+          axiosPublic.post('/users', userInfo)
+        }
       }).catch(error => {
         console.error(error);
 
