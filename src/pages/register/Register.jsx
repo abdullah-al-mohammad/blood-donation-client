@@ -33,34 +33,36 @@ const Register = () => {
   }
 
   const { districts = [], subDistricts = [] } = data || {};
-  console.log(data);
+  // console.log(data);
 
   const onSubmit = async (data) => {
     console.log(data);
     const email = data.email;
     const password = data.password;
     const name = data.name;
-    const imageFile = { image: data.image[0] };
+    const formData = new FormData()
+    formData.append('image', data.image[0])
+
     registerUser(email, password)
       .then(async (Result) => {
         console.log(Result.user);
-        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+        const res = await axiosPublic.post(image_hosting_api, formData, {
           headers: { 'content-type': "multipart/form-data" }
         })
         console.log(res);
 
         if (res.data.success) {
-          const imageUrl = res.data.display_url
-          updateUserProfile(name, imageFile)
+          const imageUrl = res.data.data.display_url
+          updateUserProfile(name, imageUrl)
           const userInfo = {
             name: name,
             email: email,
             image: imageUrl,
             district: data.district,
             subDistrict: data.subDistrict,
-            blood: data.blood - group
+            blood: data.bloodGroup
           }
-          axiosPublic.post('/users', userInfo)
+          await axiosPublic.post('/users', userInfo)
         }
       }).catch(error => {
         console.error(error);
@@ -133,7 +135,7 @@ const Register = () => {
                 </label>
                 <Controller
                   control={control}
-                  name="sub-district"
+                  name="subDistrict"
                   render={({ field }) => {
                     return <Select
                       {...field}
@@ -153,7 +155,7 @@ const Register = () => {
                 <select
                   defaultValue={"default"}
                   className="select select-ghost w-full max-w-xs"
-                  {...register("blood-group")}
+                  {...register("bloodGroup")}
                 >
                   <option value={"default"} disabled>
                     Select Group
@@ -201,7 +203,7 @@ const Register = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  {...register("confirm-password")}
+                  {...register("confirmPassword")}
                   className="input input-bordered"
                   required
                 />
