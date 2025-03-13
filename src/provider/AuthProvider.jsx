@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {app} from "../../firebase.config"
 
 export const AuthContext = createContext(null)
@@ -22,6 +22,11 @@ const AuthProvider = ({ children }) => {
       photoURL: photo
     })
   }
+  // create a function to handle the login
+  const loginUser = (email, password) => {
+    setLoading(true)
+ return signInWithEmailAndPassword(auth, email, password)
+  }
   // check if the user is logged in
   useEffect(() => {
     const unsubsCribe =  onAuthStateChanged(auth, (currentUser => {
@@ -38,6 +43,7 @@ const AuthProvider = ({ children }) => {
     loading,
     registerUser,
     updateUserProfile,
+    loginUser
   }
   return (
     <AuthContext.Provider value={userInfo}>
