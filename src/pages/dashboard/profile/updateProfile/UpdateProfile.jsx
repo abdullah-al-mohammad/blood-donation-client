@@ -1,14 +1,17 @@
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import { Controller, useForm } from "react-hook-form";
-import { Select } from "react-select";
+import Select from "react-select";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 
+// image hosting api key
+const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 export const UpdateProfile = () => {
-  const { _id, name, email, image, district, subDistrict, blood } = useLoaderData()
+  const { _id, name, email, district, subDistrict, blood } = useLoaderData()
 
   const [isEditing, setIsEditing] = useState(false)
   const axiosPublic = useAxiosPublic()
@@ -17,16 +20,15 @@ export const UpdateProfile = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
   } = useForm();
 
   // district subdistrict fetch json data file
-  const { data = {}, isLoading: loading } = useQuery({
+  const { data = {}, isLoading: loading, refetch } = useQuery({
     queryKey: ["district"],
     queryFn: async () => {
       const [district, subDistrict] = await Promise.all([
-        fetch("district.json").then((res) => res.json()),
-        fetch("sub-district.json").then((res) => res.json()),
+        fetch("/district.json").then((res) => res.json()),
+        fetch("/sub-district.json").then((res) => res.json()),
       ]);
       return { districts: district, subDistricts: subDistrict };
     },
@@ -37,6 +39,7 @@ export const UpdateProfile = () => {
 
   const { districts = [], subDistricts = [] } = data || {};
 
+console.log(data);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -47,6 +50,7 @@ export const UpdateProfile = () => {
     const res = await axiosPublic.post(image_hosting_api, formData, {
       headers: { "content-type": "multipart/form-data" },
     });
+console.log(res);
 
     if (res.data.success) {
       const imageUrl = res.data.data.display_url;
@@ -67,18 +71,19 @@ export const UpdateProfile = () => {
       };
       await axiosPublic.patch(`/users/${_id}`, userInfo);
       setIsEditing(false)
+      // refetch()
     }
   };
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <div>
+    <div className="bg-base-200">
+      <div className="">
+        <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+          <div className="text-end p-5">
             {
-              <button onClick={() => setIsEditing(!isEditing)} className={`btn ${isEditing ? 'btn-active' : 'btn-disabled'}`}>{isEditing ? 'save' : 'Edit'}</button>
+              <button onClick={() => setIsEditing(!isEditing)} className={`btn ${isEditing ? 'btn-primary' : 'btn-success'}`}>{isEditing ? 'save' : 'Edit'}</button>
             }
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             {/* name field */}
             <div className="form-control">
               <label className="label">
@@ -116,7 +121,7 @@ export const UpdateProfile = () => {
               </label>
               <Controller
                 control={control}
-                defaultValue={{ value: district, label: district }}
+                defaultValue={district}
                 disabled={!isEditing}
                 name="district"
                 render={({ field }) => {
@@ -127,7 +132,7 @@ export const UpdateProfile = () => {
                         value: district.name,
                         label: district.name,
                       }))}
-                      isDisabled={!isEditing}
+                      // isDisabled={!isEditing}
                     ></Select>
                   );
                 }}
@@ -151,7 +156,7 @@ export const UpdateProfile = () => {
                         value: subDistrict.name,
                         label: subDistrict.name,
                       }))}
-                      isDisabled={!isEditing}
+                      // isDisabled={!isEditing}
                     ></Select>
                   );
                 }}
@@ -168,7 +173,7 @@ export const UpdateProfile = () => {
                 {...register("bloodGroup")}
                 disabled={!isEditing}
               >
-                <option value={"default"} disabled>
+                <option value={blood} disabled>
                   Select Group
                 </option>
                 <option value={"A+"}>A+</option>
@@ -187,15 +192,11 @@ export const UpdateProfile = () => {
                 <span className="label-text">Upload Profile</span>
               </label>
               <input
-                defaultValue={image}
                 type="file"
                 {...register("image")}
                 className="file-input w-full max-w-xs"
               />
             </div>}
-            {/* <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
-            </div> */}
           </form>
         </div>
       </div>

@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 // image hosting api key
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+console.log(image_hosting_api);
+
 const Register = () => {
   const {
     register,
@@ -49,6 +51,8 @@ const Register = () => {
     const name = data.name;
     const formData = new FormData();
     formData.append("image", data.image[0]);
+    console.log(formData);
+    
     if (password !== confirmPass) {
       return setError("password don't match");
     }
@@ -58,7 +62,7 @@ const Register = () => {
         const res = await axiosPublic.post(image_hosting_api, formData, {
           headers: { "content-type": "multipart/form-data" },
         });
-        console.log(res);
+        console.log(res.data);
 
         if (res.data.success) {
           const imageUrl = res.data.data.display_url;

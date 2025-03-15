@@ -26,7 +26,7 @@ export const ProfileTable = ({ user }) => {
       <td>{email}</td>
       <td>{blood}</td>
       <th>
-        <Link to={`/updateProfile/${_id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
+        <Link to={`/dashboard/updateProfile/${_id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
       </th>
     </tr>
   )
