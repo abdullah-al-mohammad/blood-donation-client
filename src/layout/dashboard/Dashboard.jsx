@@ -5,15 +5,11 @@ const Dashboard = () => {
   return (
     <div>
       <div className="flex min-h-screen">
-        <div className="w-1/5 bg-orange-400 p-4">
-          <h1>Dashboard</h1>
+        <div className="w-1/5 bg-orange-200 p-4">
+          {/* <h1>Dashboard</h1> */}
           <nav>
             <ul>
-                <li><NavLink to= "dashboard/profile"></NavLink></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+              <li className="text-black"><NavLink to="profile">Profile</NavLink></li>
             </ul>
           </nav>
         </div>
