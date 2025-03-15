@@ -4,7 +4,7 @@ import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import Dashboard from "../layout/dashboard/Dashboard";
 import Profile from "../pages/dashboard/profile/profile/Profile";
-// import { UpdateProfile } from "../pages/dashboard/profile/updateProfile/UpdateProfile";
+import { UpdateProfile } from "../pages/dashboard/profile/updateProfile/UpdateProfile";
 
 
 
@@ -31,11 +31,11 @@ export const router = createBrowserRouter([
         path: 'profile',
         element: <Profile></Profile>
       },
-      // {
-      //   path: 'updateProfile/:id',
-      //   element: <UpdateProfile></UpdateProfile>,
-      //   loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
-      // }
+      {
+        path: 'updateProfile/:id',
+        element: <UpdateProfile></UpdateProfile>,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+      }
     ]
   }
 ]);
