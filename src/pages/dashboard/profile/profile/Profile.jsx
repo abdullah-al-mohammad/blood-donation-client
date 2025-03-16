@@ -4,7 +4,6 @@ import { ProfileTable } from "../profileTable/ProfileTable";
 
 const Profile = () => {
   const [users, loading, refetch] = useUsersProfile()
-  console.log(users);
 
 
   return (
