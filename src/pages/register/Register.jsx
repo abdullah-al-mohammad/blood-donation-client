@@ -52,7 +52,7 @@ const Register = () => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
     console.log(formData);
-    
+
     if (password !== confirmPass) {
       return setError("password don't match");
     }
@@ -211,16 +211,16 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="password"
-                  {...register("password", {minLength: 6, maxLength: 20, pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/})}
-                  className="input input-bordered"
-                  required
-                />
-                <p className="absolute right-7 bottom-3" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-                </p>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="password"
+                    {...register("password", { minLength: 6, maxLength: 20, pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/ })}
+                    className="input input-bordered"
+                    required
+                  />
+                  <p className="absolute right-7 bottom-3" onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </p>
                 </div>
                 {errors.password?.type === 'required' && <span className="text-red-500">password is required</span>}
                 {errors.password?.type === 'minLength' && <span className="text-red-500">password must be 6 characters</span>}

@@ -39,7 +39,7 @@ export const UpdateProfile = () => {
 
   const { districts = [], subDistricts = [] } = data || {};
 
-console.log(data);
+  console.log(data);
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -50,7 +50,7 @@ console.log(data);
     const res = await axiosPublic.post(image_hosting_api, formData, {
       headers: { "content-type": "multipart/form-data" },
     });
-console.log(res);
+    console.log(res);
 
     if (res.data.success) {
       const imageUrl = res.data.data.display_url;
@@ -71,22 +71,22 @@ console.log(res);
       };
       await axiosPublic.patch(`/users/${_id}`, userInfo);
       setIsEditing(false)
-      // refetch()
+      refetch()
     }
   };
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 w-full">
       <div className="">
-        <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+        <div className="card bg-base-100 w-full shrink-0">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-          <div className="text-end p-5">
-            {
-              <button onClick={() => setIsEditing(!isEditing)} className={`btn ${isEditing ? 'btn-primary' : 'btn-success'}`}>{isEditing ? 'save' : 'Edit'}</button>
-            }
-          </div>
+            <div className="text-end p-5">
+              {
+                <button onClick={() => setIsEditing(!isEditing)} className={`btn ${isEditing ? 'btn-primary' : 'btn-success'}`}>{isEditing ? 'save' : 'Edit'}</button>
+              }
+            </div>
             {/* name field */}
             <div className="form-control">
-              <label className="label">
+              <label className="label mr-3">
                 <span className="label-text">Name</span>
               </label>
               <input
@@ -100,8 +100,8 @@ console.log(res);
               />
             </div>
             {/* email field */}
-            <div className="form-control">
-              <label className="label">
+            <div className="form-control py-5">
+              <label className="label mr-3">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -121,8 +121,6 @@ console.log(res);
               </label>
               <Controller
                 control={control}
-                defaultValue={district}
-                disabled={!isEditing}
                 name="district"
                 render={({ field }) => {
                   return (
@@ -132,21 +130,19 @@ console.log(res);
                         value: district.name,
                         label: district.name,
                       }))}
-                      // isDisabled={!isEditing}
+                      isDisabled={!isEditing}
                     ></Select>
                   );
                 }}
               ></Controller>
             </div>
             {/* sub- district dropdown */}
-            <div className="form-control">
+            <div className="form-control py-5">
               <label className="label">
                 <span className="label-text">Sub District</span>
               </label>
               <Controller
                 control={control}
-                defaultValue={subDistrict}
-                disabled={!isEditing}
                 name="subDistrict"
                 render={({ field }) => {
                   return (
@@ -156,7 +152,7 @@ console.log(res);
                         value: subDistrict.name,
                         label: subDistrict.name,
                       }))}
-                      // isDisabled={!isEditing}
+                      isDisabled={!isEditing}
                     ></Select>
                   );
                 }}
@@ -165,7 +161,7 @@ console.log(res);
             {/* blood group */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Blood-Group</span>
+                <span className="label-text mr-3">Blood-Group</span>
               </label>
               <select
                 defaultValue={blood}
