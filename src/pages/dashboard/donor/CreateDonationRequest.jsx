@@ -3,6 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Select from "react-select";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const CreateDonationRequest = () => {
   const {
@@ -12,6 +13,7 @@ const CreateDonationRequest = () => {
     formState: { errors },
   } = useForm();
   const { user } = useAuth()
+  const axiosPublic = useAxiosPublic()
 
 
   const { data = {}, isLoading: loading } = useQuery({
@@ -37,12 +39,21 @@ const CreateDonationRequest = () => {
   const onSubmit = async (data) => {
     console.log(data);
 
-    // const donationInfo = {
-    //   name: user?.displayName,
-    //   email: user?.email,
-    //   recipientName: data.recipientName
+    const donationInfo = {
+      name: user?.displayName,
+      email: user?.email,
+      recipientName: data.recipientName,
+      district: data.district,
+      subDistrict: data.subDistrict,
+      bloodGroup: data.bloodGroup,
+      hospitalName: data.hospitalName,
+      hospitalAddress: data.hospitalAddress,
+      message: data.message,
+      donationDateTime: data.donationDateTime
 
-    // }
+    }
+   await axiosPublic.post('/donations', donationInfo)
+
 
   };
   return (
@@ -51,6 +62,20 @@ const CreateDonationRequest = () => {
         <div className="hero-content">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              {/* date field */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                aria-label="Date and time"
+                 type="datetime-local"
+                  placeholder="donation date & time"
+                  {...register("donationDateTime")}
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               {/* name field */}
               <div className="form-control">
                 <label className="label">
@@ -141,7 +166,7 @@ const CreateDonationRequest = () => {
                   className="file-input w-full max-w-xs"
                 />
               </div>
-              {/* password field */}
+              {/* Address field */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Full Address</span>
@@ -150,13 +175,13 @@ const CreateDonationRequest = () => {
                   <input
                     type="text"
                     placeholder="full address"
-                    {...register("address")}
+                    {...register("hospitalAddress")}
                     className="input input-bordered"
                     required
                   />
                 </div>
               </div>
-              {/* confirm password field */}
+              {/* request message field */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Request Message</span>
