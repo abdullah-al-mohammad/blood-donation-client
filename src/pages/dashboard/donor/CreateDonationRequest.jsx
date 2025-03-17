@@ -1,20 +1,49 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+
+import { Controller, useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import Select from "react-select";
+import { useQuery } from "@tanstack/react-query";
 
 const CreateDonationRequest = () => {
   const {
     register,
     handleSubmit,
     control,
-    watch,
     formState: { errors },
   } = useForm();
-  const {user} = useAuth()
+  const { user } = useAuth()
+
+
+  const { data = {}, isLoading: loading } = useQuery({
+    queryKey: ["district"],
+    queryFn: async () => {
+      const [district, subDistrict] = await Promise.all([
+        fetch("/district.json").then((res) => res.json()),
+        fetch("/sub-district.json").then((res) => res.json()),
+      ]);
+      return { districts: district, subDistricts: subDistrict };
+    },
+  });
+
+  if (loading) {
+    return <span>loading....</span>;
+  }
+
+  const { districts = [], subDistricts = [] } = data || {};
+  console.log(data);
+
+
 
   const onSubmit = async (data) => {
     console.log(data);
-    
+
+    // const donationInfo = {
+    //   name: user?.displayName,
+    //   email: user?.email,
+    //   recipientName: data.recipientName
+
+    // }
+
   };
   return (
     <div>
@@ -28,22 +57,9 @@ const CreateDonationRequest = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                  type="name"
-                  placeholder="Your Name"
-                  {...register("name")}
-                  className="input input-bordered"
-                  required
-                />
-              </div>
-              {/* email field */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  type="email"
-                  placeholder="email"
-                  {...register("email")}
+                  type="text"
+                  placeholder="recipient name"
+                  {...register("recipientName")}
                   className="input input-bordered"
                   required
                 />
@@ -53,26 +69,42 @@ const CreateDonationRequest = () => {
                 <label className="label">
                   <span className="label-text">District</span>
                 </label>
-                <input
-                    type="text"
-                    placeholder="password"
-                    {...register("password")}
-                    className="input input-bordered"
-                    required
-                  />
+                <Controller
+                  control={control}
+                  name="district"
+                  render={({ field }) => {
+                    return (
+                      <Select
+                        {...field}
+                        options={districts.map((district) => ({
+                          value: district.name,
+                          label: district.name,
+                        }))}
+                      ></Select>
+                    );
+                  }}
+                ></Controller>
               </div>
               {/* sub- district dropdown */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Sub District</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="password"
-                  {...register("password")}
-                  className="input input-bordered"
-                  required
-                />
+                <Controller
+                  control={control}
+                  name="subDistrict"
+                  render={({ field }) => {
+                    return (
+                      <Select
+                        {...field}
+                        options={subDistricts.map((subDistrict) => ({
+                          value: subDistrict.name,
+                          label: subDistrict.name,
+                        }))}
+                      ></Select>
+                    );
+                  }}
+                ></Controller>
               </div>
               {/* blood group */}
               <div className="form-control">
@@ -97,27 +129,28 @@ const CreateDonationRequest = () => {
                   <option value={"O-"}>O-</option>
                 </select>
               </div>
-              {/* upload photo */}
+              {/* hospital name */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Upload Profile</span>
+                  <span className="label-text">Hospital Name</span>
                 </label>
                 <input
-                  type="file"
-                  {...register("image")}
+                  placeholder="hospital name"
+                  type="text"
+                  {...register("hospitalName")}
                   className="file-input w-full max-w-xs"
                 />
               </div>
               {/* password field */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Full Address</span>
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    placeholder="password"
-                    {...register("password")}
+                    placeholder="full address"
+                    {...register("address")}
                     className="input input-bordered"
                     required
                   />
@@ -126,18 +159,12 @@ const CreateDonationRequest = () => {
               {/* confirm password field */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Confirm Password</span>
+                  <span className="label-text">Request Message</span>
                 </label>
-                <input
-                  type="password"
-                  placeholder="confirm password"
-                  {...register("confirmPassword")}
-                  className="input input-bordered"
-                  required
-                />
+                <textarea className="textarea" placeholder="request message" {...register('message')} required></textarea>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn btn-primary">Create Donation</button>
               </div>
             </form>
           </div>
