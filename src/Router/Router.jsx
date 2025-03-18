@@ -9,6 +9,7 @@ import DashBoardHome from "../layout/donorDashboard/DashBoardHome";
 import DonorDashBoard from "../pages/dashboard/donor/DonorDashBoard";
 import MyDonationRequestPage from "../pages/dashboard/donor/MyDonationRequestPage";
 import CreateDonationRequest from "../pages/dashboard/donor/CreateDonationRequest";
+import UpdateDonation from "../pages/dashboard/donor/UpdateDonation";
 
 
 
@@ -57,6 +58,11 @@ export const router = createBrowserRouter([
       {
         path: 'createDonationRequest',
         element: <CreateDonationRequest></CreateDonationRequest>
+      },
+      {
+        path: 'updateDonationRequest/:id',
+        element: <UpdateDonation></UpdateDonation>,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
       }
     ]
   }

@@ -14,6 +14,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 console.log(image_hosting_api);
 
 const Register = () => {
+
   const {
     register,
     handleSubmit,

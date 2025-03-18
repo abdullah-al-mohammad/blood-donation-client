@@ -8,7 +8,7 @@ const DonorDashBoard = () => {
   console.log(user);
   const axiosPublic = useAxiosPublic();
 
-  const { data: donations = [], refetch, isLoading: loading} = useQuery({
+  const { data: donations = [], refetch, isLoading: loading } = useQuery({
     queryKey: ["donor", user?.email],
     queryFn: async () => {
       const response = await axiosPublic.get(
@@ -19,7 +19,7 @@ const DonorDashBoard = () => {
   });
 
   console.log(donations);
-  if(loading){
+  if (loading) {
     return <p>data is loading</p>
   }
 
@@ -36,11 +36,12 @@ const DonorDashBoard = () => {
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Location</th>
+                  <th>Email</th>
                   <th>Date</th>
                   <th>Time</th>
+                  <th>Location</th>
                   <th>Status</th>
-                  <th></th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody className="relative">
