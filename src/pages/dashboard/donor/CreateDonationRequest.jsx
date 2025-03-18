@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import Select from "react-select";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const CreateDonationRequest = () => {
   const {
@@ -52,12 +53,23 @@ const CreateDonationRequest = () => {
       donationDateTime: data.donationDateTime
 
     }
-   await axiosPublic.post('/donations', donationInfo)
+   const res = await axiosPublic.post('/donations', donationInfo)
+   console.log(res);
+   if(res.data){
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Donation has been Creatated Successfully",
+      showConfirmButton: false,
+      timer: 1500
+    });
+   }
 
 
   };
   return (
     <div>
+      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">Request For Donation</h1>
       <div className="">
         <div className="hero-content">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
