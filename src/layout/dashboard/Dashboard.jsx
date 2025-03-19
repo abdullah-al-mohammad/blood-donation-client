@@ -1,5 +1,8 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { MdBloodtype } from "react-icons/md";
+import { BiSolidDonateBlood } from "react-icons/bi";
 
 const Dashboard = () => {
   return (
@@ -9,6 +12,12 @@ const Dashboard = () => {
           <nav>
             <ul>
               <li className="text-black"><NavLink to="profile">Profile</NavLink></li>
+              <div className="divider divider-success">****</div>
+              <>
+                <li className="text-black"><NavLink to="/dashboard/dashboardHome"><FaHome></FaHome> Donor Home</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/myPage"><MdBloodtype /> My Donation Page</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li>
+              </>
             </ul>
           </nav>
         </div>

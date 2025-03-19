@@ -31,10 +31,10 @@ const DonorDashboardTable = ({ donation }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await axiosPublic.delete(`/donations/${_id}`)
-        if(res.data.deletedCount> 0){
+        if (res.data.deletedCount > 0) {
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",
@@ -51,8 +51,8 @@ const DonorDashboardTable = ({ donation }) => {
           <div>
             <div className="font-bold">
               {status === "inprogress" ||
-              status === "done" ||
-              status === "cancelled"
+                status === "done" ||
+                status === "cancelled"
                 ? recipientName
                 : "inprogress"}
             </div>
@@ -62,8 +62,8 @@ const DonorDashboardTable = ({ donation }) => {
       <td>
         <div className="text-sm opacity-50">
           {status === "inprogress" ||
-          status === "done" ||
-          status === "cancelled"
+            status === "done" ||
+            status === "cancelled"
             ? email
             : "inprogress"}
         </div>
@@ -82,13 +82,12 @@ const DonorDashboardTable = ({ donation }) => {
       <th>
         <details className="dropdown">
           <summary
-            className={`btn m-1 ${
-              status === "done"
-                ? "text-success"
-                : status === "cancelled"
+            className={`btn m-1 ${status === "done"
+              ? "text-success"
+              : status === "cancelled"
                 ? "text-red-500"
                 : "text-primary"
-            }`}
+              }`}
           >
             {status}
           </summary>
@@ -134,7 +133,7 @@ const DonorDashboardTable = ({ donation }) => {
                 </li>
               )}
               <li>
-                <Link to={`/dashboardHome/updateDonationRequest/${_id}`}>
+                <Link to={`/dashboard/updateDonationRequest/${_id}`}>
                   Edit
                 </Link>
               </li>
