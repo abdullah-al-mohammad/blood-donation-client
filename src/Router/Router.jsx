@@ -10,6 +10,8 @@ import DonorDashBoard from "../pages/dashboard/donor/DonorDashBoard";
 import MyDonationRequestPage from "../pages/dashboard/donor/MyDonationRequestPage";
 import CreateDonationRequest from "../pages/dashboard/donor/CreateDonationRequest";
 import UpdateDonation from "../pages/dashboard/donor/UpdateDonation";
+import AdminHome from "../pages/dashboard/Admin/AdminHome";
+import AllUsersPage from "../pages/dashboard/Admin/AllUsersPage";
 
 
 
@@ -58,6 +60,15 @@ export const router = createBrowserRouter([
         path: 'updateDonationRequest/:id',
         element: <UpdateDonation></UpdateDonation>,
         loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
+      },
+      // Admin route page
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: 'allUsers',
+        element: <AllUsersPage></AllUsersPage>
       }
     ]
   }

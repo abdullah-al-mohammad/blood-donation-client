@@ -37,7 +37,7 @@ const MyDonationRequestPage = () => {
               </thead>
               <tbody className="relative">
                 {myDonation.map((donation) => (
-                  <MyDonation key={donation._id} donation={donation}></MyDonation>
+                  <MyDonation key={donation._id} donation={donation} refetch={refetch}></MyDonation>
                 ))}
               </tbody>
             </table>

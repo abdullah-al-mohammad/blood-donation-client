@@ -2,7 +2,7 @@ import useAxiosPublic from "./../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyDonation = ({ donation }) => {
+const MyDonation = ({ donation, refetch }) => {
   const {
     status,
     email,
@@ -34,6 +34,7 @@ const MyDonation = ({ donation }) => {
       if (result.isConfirmed) {
         const res = await axiosPublic.delete(`/donations/${_id}`)
         if (res.data.deletedCount > 0) {
+          refetch()
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",

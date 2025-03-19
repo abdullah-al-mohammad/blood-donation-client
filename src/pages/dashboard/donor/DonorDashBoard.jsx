@@ -18,7 +18,6 @@ const DonorDashBoard = () => {
     },
   });
 
-  console.log(donations);
   if (loading) {
     return <p>data is loading</p>
   }
