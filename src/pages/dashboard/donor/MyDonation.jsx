@@ -19,6 +19,9 @@ const MyDonation = ({ donation, refetch }) => {
     const res = await axiosPublic.patch(`/donations/${_id}`, newStatus, {
       headers: { "Content-Type": "text/plain" },
     });
+    if (res.data.modifiedCount > 0) {
+      refetch()
+    }
     console.log(res.data);
   };
   const handleDeleteDonation = async () => {

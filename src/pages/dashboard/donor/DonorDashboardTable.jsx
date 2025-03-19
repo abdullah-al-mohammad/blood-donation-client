@@ -3,7 +3,7 @@ import useAxiosPublic from "./../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const DonorDashboardTable = ({ donation }) => {
+const DonorDashboardTable = ({ donation, refetch }) => {
   const {
     status,
     email,
@@ -21,6 +21,9 @@ const DonorDashboardTable = ({ donation }) => {
       headers: { "Content-Type": "text/plain" },
     });
     console.log(res.data);
+    if (res.data.modifiedCount > 0) {
+      refetch()
+    }
   };
   const handleDeleteDonation = async () => {
     Swal.fire({
@@ -35,6 +38,7 @@ const DonorDashboardTable = ({ donation }) => {
       if (result.isConfirmed) {
         const res = await axiosPublic.delete(`/donations/${_id}`)
         if (res.data.deletedCount > 0) {
+          refetch()
           Swal.fire({
             title: "Deleted!",
             text: "Your file has been deleted.",

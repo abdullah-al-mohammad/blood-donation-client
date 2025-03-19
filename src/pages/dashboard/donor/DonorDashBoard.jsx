@@ -48,6 +48,7 @@ const DonorDashBoard = () => {
                   <DonorDashboardTable
                     key={donation._id}
                     donation={donation}
+                    refetch={refetch}
                   ></DonorDashboardTable>
                 ))}
               </tbody>

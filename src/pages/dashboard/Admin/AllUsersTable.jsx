@@ -1,32 +1,48 @@
 import React from 'react'
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
-const AllUsersTable = ({user, loading, refetch}) => {
-    const {name, email, status, image, _id, role} = user
-    console.log(user);
+const AllUsersTable = ({ user, loading, refetch }) => {
+  const { name, email, status, image, _id, role, district, subDistrict, blood } = user
+  console.log(user);
+  const axiosPublic = useAxiosPublic()
 
-    const handleUpdateStatus = async (newStatus) => {
-      const res = await axiosPublic.patch(`/users/${_id}`, newStatus, {
-        headers: { "Content-Type": "text/plain" },
-      });
-      console.log(res.data);
+  const handleUpdateRole = async (newRole) => {
+    const userRole = {
+      role: newRole
     };
-    
+    const res = await axiosPublic.patch(`/users/${_id}`, userRole);
+    if (res.data.modifiedCount > 0) {
+      refetch()
+    }
+    console.log(res.data);
+  };
+  const handleUpdateStatus = async (newStatus) => {
+    const userStatus = {
+      status: newStatus,
+    };
+    const res = await axiosPublic.patch(`/users/${_id}`, userStatus);
+    if (res.data.modifiedCount > 0) {
+      refetch()
+    }
+    console.log(res.data);
+  };
+
   return (
     <tr>
       <td>
         <div className="flex items-center gap-3">
-        <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img
-                  src={image}
-                  alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
-          <div>
-            <div className="font-bold">
-              {name}
+          <div className="avatar">
+            <div className="mask mask-squircle h-12 w-12">
+              <img
+                src={image}
+                alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
+        </div>
+      </td>
+      <td>
+        <div className="text-sm opacity-50">
+          {name}
         </div>
       </td>
       <td>
@@ -35,7 +51,7 @@ const AllUsersTable = ({user, loading, refetch}) => {
         </div>
       </td>
       <td>
-        <div className="text-sm opacity-50">{status}</div>
+        <div className="text-sm opacity-50">{role}</div>
       </td>
       <td>{status}</td>
       <th>
@@ -48,48 +64,44 @@ const AllUsersTable = ({user, loading, refetch}) => {
                 : "text-primary"
               }`}
           >
-            {status === "active" && "block"}
+            {status === "active" ? "block" : status === "block" ? "unBlock" : status === "unBlock" ? "active" : "volunteer"}
           </summary>
-          {status === "active"  ? (
-            ""
-          ) : (
-            <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm">
-                <>
-                 {status === "active" && <li>
-                    <button
-                      onClick={() => handleUpdateStatus("block")}
-                      type="button"
-                    >
-                      Block
-                    </button>
-                  </li>}
-                </>
-                <li>
-                  <button
-                    onClick={() => handleUpdateStatus("unBlock")}
-                    type="button"
-                  >
-                    UnBlock
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleUpdateStatus("admin")}
-                    type="button"
-                  >
-                    Admin
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleUpdateStatus("volunteer")}
-                    type="button"
-                  >
-                    Volunteer
-                  </button>
-                </li>
-            </ul>
-          )}
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm">
+            {role === "admin" ? <>
+              <li>
+                <button
+                  onClick={() => handleUpdateRole("admin")}
+                  type="button"
+                >
+                  Admin
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleUpdateRole("volunteer")}
+                  type="button"
+                >
+                  Volunteer
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleUpdateStatus("block")}
+                  type="button"
+                >
+                  Block
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleUpdateStatus("unBlock")}
+                  type="button"
+                >
+                  UnBlock
+                </button>
+              </li>
+            </> : ''}
+          </ul>
         </details>
       </th>
     </tr>

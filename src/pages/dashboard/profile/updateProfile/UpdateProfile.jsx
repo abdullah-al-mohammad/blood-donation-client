@@ -11,7 +11,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 export const UpdateProfile = () => {
-  const { _id, name, email, district, subDistrict, blood } = useLoaderData()
+  const { _id, name, email, district, subDistrict, blood, status, role } = useLoaderData()
 
   const [isEditing, setIsEditing] = useState(false)
   const axiosPublic = useAxiosPublic()
@@ -68,10 +68,14 @@ export const UpdateProfile = () => {
         district: data.district,
         subDistrict: data.subDistrict,
         blood: data.bloodGroup,
+        status: status,
+        role: role
       };
-      await axiosPublic.patch(`/users/${_id}`, userInfo);
+      const res = await axiosPublic.patch(`/users/${_id}`, userInfo);
+      if (res.data.modifiedCount > 0) {
+        refetch()
+      }
       setIsEditing(false)
-      refetch()
     }
   };
   return (

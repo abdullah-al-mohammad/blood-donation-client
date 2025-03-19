@@ -17,8 +17,7 @@ const UpdateDonation = () => {
   } = useForm();
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()
-  const { donationDateTime, _id, recipientName, district, subDistrict,bloodGroup, hospitalAddress, hospitalName,message} = useLoaderData()
-  
+  const { donationDateTime, _id, recipientName, district, subDistrict, bloodGroup, hospitalAddress, hospitalName, message } = useLoaderData()
 
 
   const { data = {}, isLoading: loading, refetch } = useQuery({
@@ -57,7 +56,7 @@ const UpdateDonation = () => {
 
     }
     const res = await axiosPublic.patch(`/donations/${_id}`, donationInfo)
-    if(res.data.modifiedCount > 0){
+    if (res.data.modifiedCount > 0) {
       refetch()
       Swal.fire({
         position: "top-end",
@@ -74,7 +73,7 @@ const UpdateDonation = () => {
   return (
     <div>
       <div>
-      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">Update For Donation</h1>
+        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">Update For Donation</h1>
         <div className="hero-content">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -98,7 +97,7 @@ const UpdateDonation = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                defaultValue={recipientName}
+                  defaultValue={recipientName}
                   type="text"
                   placeholder="recipient name"
                   {...register("recipientName")}
@@ -178,7 +177,7 @@ const UpdateDonation = () => {
                   <span className="label-text">Hospital Name</span>
                 </label>
                 <input
-                defaultValue={hospitalName}
+                  defaultValue={hospitalName}
                   placeholder="hospital name"
                   type="text"
                   {...register("hospitalName")}
@@ -192,7 +191,7 @@ const UpdateDonation = () => {
                 </label>
                 <div className="relative">
                   <input
-                  defaultValue={hospitalAddress}
+                    defaultValue={hospitalAddress}
                     type="text"
                     placeholder="full address"
                     {...register("hospitalAddress")}
