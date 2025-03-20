@@ -8,7 +8,7 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
   const navigate = useNavigate()
   // Add a request interceptor
-  axios.interceptors.request.use(function (config) {
+  axiosSecure.interceptors.request.use(function (config) {
 
     const token = localStorage.getItem('access-token')
     config.headers.authorization = `Bearer ${token}`
@@ -18,7 +18,7 @@ const useAxiosSecure = () => {
     return Promise.reject(error);
   });
 
-  axios.interceptors.response.use(function (response) {
+  axiosSecure.interceptors.response.use(function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response;

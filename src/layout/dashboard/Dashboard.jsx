@@ -21,8 +21,10 @@ const Dashboard = () => {
                 <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li>
               </>
               {isAdmin && <>
-                <li className="text-black"><NavLink to="/dashboard/adminHome"><BiSolidDonateBlood />Admin Home</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
                 <li className="text-black"><NavLink to="/dashboard/allUsers"><FaUser></FaUser>All Users</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/allDonationPage"><BiSolidDonateBlood />All Donation</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/contentManagement"><BiSolidDonateBlood />Content Management</NavLink></li>
               </>}
             </ul>
           </nav>

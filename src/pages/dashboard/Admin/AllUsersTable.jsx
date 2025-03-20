@@ -67,7 +67,7 @@ const AllUsersTable = ({ user, loading, refetch }) => {
             {status === "active" ? "block" : status === "block" ? "unBlock" : status === "unBlock" ? "active" : "volunteer"}
           </summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm">
-            {role === "admin" ? <>
+             <>
               <li>
                 <button
                   onClick={() => handleUpdateRole("admin")}
@@ -100,7 +100,7 @@ const AllUsersTable = ({ user, loading, refetch }) => {
                   UnBlock
                 </button>
               </li>
-            </> : ''}
+            </>
           </ul>
         </details>
       </th>

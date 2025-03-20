@@ -13,6 +13,9 @@ import AdminHome from "../pages/dashboard/Admin/AdminHome";
 import AllUsersPage from "../pages/dashboard/Admin/AllUsersPage";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import AllBloodDonationPage from "../pages/dashboard/Admin/AllBloodDonationPage";
+import ContentManagementPage from "../pages/dashboard/Admin/ContentManagementPage";
+import CreateContentManagement from "../pages/dashboard/Admin/CreateContentManagement";
 
 
 
@@ -70,6 +73,18 @@ export const router = createBrowserRouter([
       {
         path: 'allUsers',
         element: <AdminRoute><AllUsersPage></AllUsersPage></AdminRoute>
+      },
+      {
+        path:"allDonationPage",
+        element: <AllBloodDonationPage></AllBloodDonationPage>
+      },
+      {
+        path:"contentManagement",
+        element: <ContentManagementPage></ContentManagementPage>
+      },
+      {
+        path:"CreateContent",
+        element: <CreateContentManagement></CreateContentManagement>
       }
     ]
   }
