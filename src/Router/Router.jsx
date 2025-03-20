@@ -5,13 +5,14 @@ import Login from "../pages/login/Login";
 import Dashboard from "../layout/dashboard/Dashboard";
 import Profile from "../pages/dashboard/profile/profile/Profile";
 import { UpdateProfile } from "../pages/dashboard/profile/updateProfile/UpdateProfile";
-// import DashBoardHome from "../layout/donorDashboard/DashBoardHome";
 import DonorDashBoard from "../pages/dashboard/donor/DonorDashBoard";
 import MyDonationRequestPage from "../pages/dashboard/donor/MyDonationRequestPage";
 import CreateDonationRequest from "../pages/dashboard/donor/CreateDonationRequest";
 import UpdateDonation from "../pages/dashboard/donor/UpdateDonation";
 import AdminHome from "../pages/dashboard/Admin/AdminHome";
 import AllUsersPage from "../pages/dashboard/Admin/AllUsersPage";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -32,15 +33,15 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'profile',
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
       },
       {
         path: 'updateProfile/:id',
-        element: <UpdateProfile></UpdateProfile>,
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
       },
       // donor page route
@@ -64,11 +65,11 @@ export const router = createBrowserRouter([
       // Admin route page
       {
         path: 'adminHome',
-        element: <AdminHome></AdminHome>
+        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
       },
       {
         path: 'allUsers',
-        element: <AllUsersPage></AllUsersPage>
+        element: <AdminRoute><AllUsersPage></AllUsersPage></AdminRoute>
       }
     ]
   }

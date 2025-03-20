@@ -3,8 +3,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUser } from "react-icons/fa";
 import { MdBloodtype } from "react-icons/md";
 import { BiSolidDonateBlood } from "react-icons/bi";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin()
   return (
     <div>
       <div className="flex min-h-screen">
@@ -18,10 +20,10 @@ const Dashboard = () => {
                 <li className="text-black"><NavLink to="/dashboard/myPage"><MdBloodtype /> My Donation Page</NavLink></li>
                 <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li>
               </>
-              <>
-              <li className="text-black"><NavLink to="/dashboard/adminHome"><BiSolidDonateBlood />Admin Home</NavLink></li>
-              <li className="text-black"><NavLink to="/dashboard/allUsers"><FaUser></FaUser>All Users</NavLink></li>
-              </>
+              {isAdmin && <>
+                <li className="text-black"><NavLink to="/dashboard/adminHome"><BiSolidDonateBlood />Admin Home</NavLink></li>
+                <li className="text-black"><NavLink to="/dashboard/allUsers"><FaUser></FaUser>All Users</NavLink></li>
+              </>}
             </ul>
           </nav>
         </div>

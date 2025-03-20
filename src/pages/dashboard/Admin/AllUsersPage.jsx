@@ -1,20 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useUsersProfile from "../../../hooks/useUsersProfile";
 import AllUsersTable from "./AllUsersTable";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsersPage = () => {
-  // const [users, loading, refetch] = useUsersProfile();
-  const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
 
   const { data: users = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await axiosPublic.get("/users", {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('access-token')}`
-        }
-      })
+      const res = await axiosSecure.get("/users")
       return res.data
     }
   })

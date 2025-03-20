@@ -10,7 +10,7 @@ const MyDonationRequestPage = () => {
   const { data: myDonation = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['myDonation'],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/donations?email=${user?.email}`)
+      const res = await axiosPublic.get(`/donations?donor=${user?.email}`)
       return res.data
     }
   })
