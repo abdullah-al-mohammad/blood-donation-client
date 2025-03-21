@@ -30,9 +30,11 @@ const AuthProvider = ({ children }) => {
   }
   // check if the user is logged in
   useEffect(() => {
+    setLoading(true); // Start loading while checking auth state
     const unsubsCribe = onAuthStateChanged(auth, (currentUser => {
       setUser(currentUser)
-      setLoading(true)
+
+
       if (currentUser) {
         // get token and store client
         const userInfo = { email: currentUser?.email }
@@ -40,17 +42,15 @@ const AuthProvider = ({ children }) => {
           .then(res => {
             if (res.data.token) {
               localStorage.setItem('access-token', res.data.token)
-              setLoading(false)
             }
           })
       } else {
         localStorage.removeItem('access-token')
       }
+      setLoading(false); // Stop loading once auth state is confirmed
     }))
-    return () => {
-      return unsubsCribe()
-    }
-  }, [])
+    return () => unsubsCribe(); // Properly clean up listener
+  }, [auth])
 
   const userInfo = {
     user,

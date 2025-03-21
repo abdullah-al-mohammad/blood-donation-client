@@ -16,6 +16,7 @@ import AdminRoute from "./AdminRoute";
 import AllBloodDonationPage from "../pages/dashboard/Admin/AllBloodDonationPage";
 import ContentManagementPage from "../pages/dashboard/Admin/ContentManagementPage";
 import CreateContentManagement from "../pages/dashboard/Admin/CreateContentManagement";
+import UpdateContent from "../pages/dashboard/Admin/UpdateContent";
 
 
 
@@ -75,16 +76,21 @@ export const router = createBrowserRouter([
         element: <AdminRoute><AllUsersPage></AllUsersPage></AdminRoute>
       },
       {
-        path:"allDonationPage",
-        element: <AllBloodDonationPage></AllBloodDonationPage>
+        path: "allDonationPage",
+        element: <AdminRoute><AllBloodDonationPage></AllBloodDonationPage></AdminRoute>
       },
       {
-        path:"contentManagement",
-        element: <ContentManagementPage></ContentManagementPage>
+        path: "contentManagement",
+        element: <AdminRoute><ContentManagementPage></ContentManagementPage></AdminRoute>
       },
       {
-        path:"CreateContent",
-        element: <CreateContentManagement></CreateContentManagement>
+        path: "CreateContent",
+        element: <AdminRoute> <CreateContentManagement></CreateContentManagement></AdminRoute>
+      },
+      {
+        path: 'updateContent/:id',
+        element: <UpdateContent></UpdateContent>,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
       }
     ]
   }

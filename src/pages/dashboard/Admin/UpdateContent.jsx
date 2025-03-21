@@ -1,18 +1,21 @@
-import React from "react";
+import React from 'react'
+import { useLoaderData } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useState, useRef, useMemo } from "react";
 import JoditEditor from "jodit-react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
-import ContentManagementTable from "./ContentManagementTable";
-import striptags from "striptags";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import striptags from "striptags";
+
+
+
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const CreateContentManagement = ({ placeholder }) => {
+const UpdateContent = ({ placeholder }) => {
+  const { title, image, plainTextContent, _id, status } = useLoaderData()
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const axiosPublic = useAxiosPublic();
@@ -69,20 +72,11 @@ const CreateContentManagement = ({ placeholder }) => {
       });
     }
   };
-
-  // fetch data
-  const { data: contents = [], refetch, isLoading: loading } = useQuery({
-    queryKey: ['contents'],
-    queryFn: async () => {
-      const res = await axiosSecure.get('/blogs')
-      return res.data
-    }
-  })
   return (
     <div>
       <section>
         <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
-          Content Management Page
+          Update Content
         </h1>
         <div className="">
           <div className="hero-content">
@@ -94,6 +88,7 @@ const CreateContentManagement = ({ placeholder }) => {
                     <span className="label-text">Title</span>
                   </label>
                   <input
+                    defaultValue={title}
                     type="text"
                     placeholder="Title"
                     {...register("title")}
@@ -107,6 +102,7 @@ const CreateContentManagement = ({ placeholder }) => {
                     <span className="label-text">Upload Profile</span>
                   </label>
                   <input
+                    defaultValue={image}
                     type="file"
                     {...register("image")}
                     className="file-input w-full max-w-xs"
@@ -119,6 +115,7 @@ const CreateContentManagement = ({ placeholder }) => {
                   </label>
                   <div className="relative">
                     <JoditEditor
+                      defaultValue={plainTextContent}
                       ref={editor}
                       value={content}
                       config={config}
@@ -129,45 +126,15 @@ const CreateContentManagement = ({ placeholder }) => {
                   </div>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Create Blog</button>
+                  <button className="btn btn-primary">Update Blog</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </section>
-      {/* content table */}
-      <section>
-        <div>
-          <div>
-            <div className="overflow-x-auto">
-              <table className="table">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody className="relative">
-                  {contents.map((contentBlog) => (
-                    <ContentManagementTable
-                      key={contentBlog._id}
-                      contentBlog={contentBlog}
-                      loading={loading}
-                      refetch={refetch}
-                    ></ContentManagementTable>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
-  );
-};
+  )
+}
 
-export default CreateContentManagement;
+export default UpdateContent
