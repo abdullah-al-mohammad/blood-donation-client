@@ -18,10 +18,12 @@ const Dashboard = () => {
             <ul>
               <li className="text-black"><NavLink to="profile">Profile</NavLink></li>
               <div className="divider divider-success">****</div>
-              {isDonor && <>
+              <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li>
+              {
+              isDonor && <>
                 <li className="text-black"><NavLink to="/dashboard/dashboardHome"><FaHome></FaHome> Donor Home</NavLink></li>
                 <li className="text-black"><NavLink to="/dashboard/myPage"><MdBloodtype /> My Donation Page</NavLink></li>
-                <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li>
+                {/* <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li> */}
               </>}
               {isAdmin && <>
                 <li className="text-black"><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>

@@ -19,7 +19,6 @@ const Register = () => {
     register,
     handleSubmit,
     control,
-    watch,
     formState: { errors },
   } = useForm();
   const { registerUser, updateUserProfile } = useAuth();
@@ -45,14 +44,12 @@ const Register = () => {
   // console.log(data);
 
   const onSubmit = async (data) => {
-    console.log(data);
     const email = data.email;
     const password = data.password;
     const confirmPass = data.confirmPassword;
     const name = data.name;
     const formData = new FormData();
     formData.append("image", data.image[0]);
-    console.log(formData);
 
     if (password !== confirmPass) {
       return setError("password don't match");
@@ -84,6 +81,7 @@ const Register = () => {
             blood: data.bloodGroup,
           };
           await axiosPublic.post("/users", userInfo);
+
         }
       })
       .catch((error) => {
@@ -245,6 +243,7 @@ const Register = () => {
                     {errors.confirmPassword.message}
                   </p>
                 )}
+                {error}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
@@ -255,7 +254,7 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
-            <p className="p-5">Already have an account please ? <Link className="text-success" to={'/login'}>Login</Link></p>
+            <p className="p-5">Already have an account please ? <Link className="text-success" to={'/login'}>Login</Link> </p>
           </div>
         </div>
       </div>

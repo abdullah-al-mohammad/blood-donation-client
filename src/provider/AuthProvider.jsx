@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { app } from "../../firebase.config"
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
@@ -27,6 +27,10 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
+  }
+  // logout user
+  const logout = ()=>{
+    return signOut(auth)
   }
   // check if the user is logged in
   useEffect(() => {
@@ -57,7 +61,8 @@ const AuthProvider = ({ children }) => {
     loading,
     registerUser,
     updateUserProfile,
-    loginUser
+    loginUser,
+    logout
   }
   return (
     <AuthContext.Provider value={userInfo}>

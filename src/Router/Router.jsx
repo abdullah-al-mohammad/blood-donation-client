@@ -18,9 +18,10 @@ import ContentManagementPage from "../pages/dashboard/Admin/ContentManagementPag
 import CreateContentManagement from "../pages/dashboard/Admin/CreateContentManagement";
 import UpdateContent from "../pages/dashboard/Admin/UpdateContent";
 import DonorRoute from "./DonorRoute";
-import Home from "../pages/dashboard/volunteer/VolunteerHome";
 import AllBloodDonation from "../pages/dashboard/volunteer/AllBloodDonation";
 import CreateContent from "../pages/dashboard/volunteer/CreateContent";
+import VolunteerHome from "../pages/dashboard/volunteer/VolunteerHome";
+import Home from "../pages/Home/Home/Home";
 
 
 
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
       {
         path: 'register',
         element: <Register></Register>
@@ -63,7 +68,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'createDonationRequest',
-        element: <DonorRoute><CreateDonationRequest></CreateDonationRequest></DonorRoute>
+        element: <CreateDonationRequest></CreateDonationRequest>
       },
       {
         path: 'updateDonationRequest/:id',
@@ -100,7 +105,7 @@ export const router = createBrowserRouter([
       // Volunteer route page
       {
         path: 'volunteerHome',
-        element: <Home></Home>
+        element: <VolunteerHome></VolunteerHome>
       },
       {
         path: 'allDonation',

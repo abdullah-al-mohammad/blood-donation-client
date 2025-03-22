@@ -2,13 +2,14 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "./../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 
 
 const ContentManagementTable = ({ contentBlog, refetch }) => {
   const { title, image, plainTextContent, status, _id } = contentBlog
   const axiosSecure = useAxiosSecure()
-  const axiosPublic = useAxiosPublic()
+  const {user} = useAuth()
 
   const handleUpdateStatus = async (newStatus) => {
     const res = await axiosSecure.patch(`/blogs/${_id}`, newStatus, {
