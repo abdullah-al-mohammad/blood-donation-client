@@ -2,7 +2,7 @@ import React from 'react'
 
 const Futured = () => {
   return (
-    <div>
+    <div className='te'>
         <h1 className="text-5xl">The Future of Blood Donation</h1>
         <p> Why blood donation matters.</p>
         <div>
