@@ -1,14 +1,10 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "./../../../hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
 
-
-
-const ContentManagementTable = ({ contentBlog, refetch }) => {
+const ContentTable = ({ contentBlog, refetch }) => {
   const { title, image, plainTextContent, status, _id } = contentBlog
   const axiosSecure = useAxiosSecure()
-  const axiosPublic = useAxiosPublic()
 
   const handleUpdateStatus = async (newStatus) => {
     const res = await axiosSecure.patch(`/blogs/${_id}`, newStatus, {
@@ -18,31 +14,6 @@ const ContentManagementTable = ({ contentBlog, refetch }) => {
       refetch()
     }
   };
-
-  const handleDeleteBlog = async (_id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        const res = await axiosSecure.delete(`/blogs/${_id}`)
-        if (res.data.deletedCount > 0) {
-          refetch()
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success"
-          });
-        }
-      }
-    })
-  }
-
   return (
     <tr>
       <td>
@@ -97,17 +68,6 @@ const ContentManagementTable = ({ contentBlog, refetch }) => {
                   Unpublish
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => handleDeleteBlog(_id)}
-                  type="button"
-                >
-                  Delete
-                </button>
-              </li>
-              <li>
-                <Link to={`/dashboard/updateContent/${_id}`}>Update</Link>
-              </li>
             </>
           </ul>
         </details>
@@ -116,4 +76,4 @@ const ContentManagementTable = ({ contentBlog, refetch }) => {
   )
 }
 
-export default ContentManagementTable
+export default ContentTable

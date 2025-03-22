@@ -1,16 +1,13 @@
-import React from 'react'
-import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import { useQuery } from '@tanstack/react-query'
-import AllBloodDonationPageTable from './AllBloodDonationPageTable'
 import useAuth from '../../../hooks/useAuth'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
+import AllDonationTable from './AllDonationTable'
 
-const AllBloodDonationPage = () => {
-  const axiosPublic = useAxiosPublic()
+const AllBloodDonation = () => {
   const axiosSecure = useAxiosSecure()
   const { user } = useAuth()
-  const { data: myDonation = [], isLoading: loading, refetch } = useQuery({
-    queryKey: ['myDonation'],
+  const { data: allDonation = [], isLoading: loading, refetch } = useQuery({
+    queryKey: ['allDonation'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/donations`)
       return res.data
@@ -26,7 +23,7 @@ const AllBloodDonationPage = () => {
       </h1>
       <div>
         <div className="overflow-x-auto">
-          {myDonation.length > 0 ? (
+          {allDonation.length > 0 ? (
             <table className="table">
               {/* head */}
               <thead>
@@ -41,9 +38,7 @@ const AllBloodDonationPage = () => {
                 </tr>
               </thead>
               <tbody className="relative">
-                {myDonation.map((donation) => (
-                  <AllBloodDonationPageTable key={donation._id} donation={donation} refetch={refetch}></AllBloodDonationPageTable>
-                ))}
+                {allDonation.map(donation => <AllDonationTable key={donation._id} donation={donation} refetch={refetch}></AllDonationTable>)}
               </tbody>
             </table>
           ) : (
@@ -57,4 +52,4 @@ const AllBloodDonationPage = () => {
   )
 }
 
-export default AllBloodDonationPage
+export default AllBloodDonation

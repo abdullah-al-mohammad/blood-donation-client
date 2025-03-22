@@ -1,16 +1,18 @@
 import React from 'react'
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllUsersTable = ({ user, loading, refetch }) => {
   const { name, email, status, image, _id, role, district, subDistrict, blood } = user
   console.log(user);
   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
 
   const handleUpdateRole = async (newRole) => {
     const userRole = {
       role: newRole
     };
-    const res = await axiosPublic.patch(`/users/${_id}`, userRole);
+    const res = await axiosSecure.patch(`/users/${_id}`, userRole);
     if (res.data.modifiedCount > 0) {
       refetch()
     }
@@ -20,7 +22,7 @@ const AllUsersTable = ({ user, loading, refetch }) => {
     const userStatus = {
       status: newStatus,
     };
-    const res = await axiosPublic.patch(`/users/${_id}`, userStatus);
+    const res = await axiosSecure.patch(`/users/${_id}`, userStatus);
     if (res.data.modifiedCount > 0) {
       refetch()
     }
@@ -67,7 +69,7 @@ const AllUsersTable = ({ user, loading, refetch }) => {
             {status === "active" ? "block" : status === "block" ? "unBlock" : status === "unBlock" ? "active" : "volunteer"}
           </summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-32 p-2 shadow-sm">
-             <>
+            <>
               <li>
                 <button
                   onClick={() => handleUpdateRole("admin")}

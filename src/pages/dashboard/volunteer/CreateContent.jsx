@@ -1,21 +1,17 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useState, useRef, useMemo } from "react";
 import JoditEditor from "jodit-react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 import striptags from "striptags";
-
-
-
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import ContentTable from "./ContentTable";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const UpdateContent = ({ placeholder }) => {
-  const { title, image, plainTextContent, _id, status } = useLoaderData()
+const CreateContent = ({ placeholder }) => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const axiosPublic = useAxiosPublic();
@@ -61,8 +57,8 @@ const UpdateContent = ({ placeholder }) => {
         image: imageUrl,
         plainTextContent// Include Jodit content
       };
-      await axiosSecure.patch(`/blogs/${_id}`, contentInfo);
-
+      await axiosSecure.post("/blogs", contentInfo);
+      refetch()
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -72,11 +68,21 @@ const UpdateContent = ({ placeholder }) => {
       });
     }
   };
+
+  // fetch data
+  const { data: contents = [], refetch, isLoading: loading } = useQuery({
+    queryKey: ['contents'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/blogs')
+      refetch()
+      return res.data
+    }
+  })
   return (
     <div>
       <section>
         <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
-          Update Content
+          Content Management Page
         </h1>
         <div className="">
           <div className="hero-content">
@@ -88,7 +94,6 @@ const UpdateContent = ({ placeholder }) => {
                     <span className="label-text">Title</span>
                   </label>
                   <input
-                    defaultValue={title}
                     type="text"
                     placeholder="Title"
                     {...register("title")}
@@ -102,7 +107,6 @@ const UpdateContent = ({ placeholder }) => {
                     <span className="label-text">Upload Profile</span>
                   </label>
                   <input
-                    defaultValue={image}
                     type="file"
                     {...register("image")}
                     className="file-input w-full max-w-xs"
@@ -115,7 +119,6 @@ const UpdateContent = ({ placeholder }) => {
                   </label>
                   <div className="relative">
                     <JoditEditor
-                      defaultValue={plainTextContent}
                       ref={editor}
                       value={content}
                       config={config}
@@ -126,9 +129,33 @@ const UpdateContent = ({ placeholder }) => {
                   </div>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Update Blog</button>
+                  <button className="btn btn-primary">Create Blog</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* content table */}
+      <section>
+        <div>
+          <div>
+            <div className="overflow-x-auto">
+              <table className="table">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody className="relative">
+                  {contents.map((contentBlog) => <ContentTable key={contentBlog._id} contentBlog={contentBlog} refetch={refetch}></ContentTable>
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -137,4 +164,4 @@ const UpdateContent = ({ placeholder }) => {
   )
 }
 
-export default UpdateContent
+export default CreateContent

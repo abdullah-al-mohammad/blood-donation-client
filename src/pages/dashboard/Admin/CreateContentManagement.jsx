@@ -59,7 +59,7 @@ const CreateContentManagement = ({ placeholder }) => {
         plainTextContent// Include Jodit content
       };
       await axiosSecure.post("/blogs", contentInfo);
-
+      refetch()
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -75,6 +75,7 @@ const CreateContentManagement = ({ placeholder }) => {
     queryKey: ['contents'],
     queryFn: async () => {
       const res = await axiosSecure.get('/blogs')
+      refetch()
       return res.data
     }
   })

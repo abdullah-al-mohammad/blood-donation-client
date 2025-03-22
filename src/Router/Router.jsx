@@ -17,6 +17,10 @@ import AllBloodDonationPage from "../pages/dashboard/Admin/AllBloodDonationPage"
 import ContentManagementPage from "../pages/dashboard/Admin/ContentManagementPage";
 import CreateContentManagement from "../pages/dashboard/Admin/CreateContentManagement";
 import UpdateContent from "../pages/dashboard/Admin/UpdateContent";
+import DonorRoute from "./DonorRoute";
+import Home from "../pages/dashboard/volunteer/VolunteerHome";
+import AllBloodDonation from "../pages/dashboard/volunteer/AllBloodDonation";
+import CreateContent from "../pages/dashboard/volunteer/CreateContent";
 
 
 
@@ -51,19 +55,19 @@ export const router = createBrowserRouter([
       // donor page route
       {
         path: 'dashboardHome',
-        element: <DonorDashBoard></DonorDashBoard>
+        element: <DonorRoute><DonorDashBoard></DonorDashBoard></DonorRoute>
       },
       {
         path: 'myPage',
-        element: <MyDonationRequestPage></MyDonationRequestPage>
+        element: <DonorRoute><MyDonationRequestPage></MyDonationRequestPage></DonorRoute>
       },
       {
         path: 'createDonationRequest',
-        element: <CreateDonationRequest></CreateDonationRequest>
+        element: <DonorRoute><CreateDonationRequest></CreateDonationRequest></DonorRoute>
       },
       {
         path: 'updateDonationRequest/:id',
-        element: <UpdateDonation></UpdateDonation>,
+        element: <DonorRoute><UpdateDonation></UpdateDonation></DonorRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
       },
       // Admin route page
@@ -89,8 +93,22 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateContent/:id',
-        element: <UpdateContent></UpdateContent>,
+        element: <AdminRoute><UpdateContent></UpdateContent></AdminRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+      },
+
+      // Volunteer route page
+      {
+        path: 'volunteerHome',
+        element: <Home></Home>
+      },
+      {
+        path: 'allDonation',
+        element: <AllBloodDonation></AllBloodDonation>
+      },
+      {
+        path: "contentCreate",
+        element: <CreateContent></CreateContent>
       }
     ]
   }

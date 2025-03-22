@@ -1,10 +1,6 @@
-import React from 'react'
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const AllBloodDonationPageTable = ({ donation, refetch }) => {
+const AllDonationTable = ({ donation, refetch }) => {
   const {
     status,
     email,
@@ -15,7 +11,6 @@ const AllBloodDonationPageTable = ({ donation, refetch }) => {
     subDistrict,
   } = donation;
   const [date, time] = donationDateTime.split("T");
-  const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure()
 
   const handleUpdateStatus = async (newStatus) => {
@@ -25,30 +20,6 @@ const AllBloodDonationPageTable = ({ donation, refetch }) => {
     if (res.data.modifiedCount > 0) {
       refetch()
     }
-    console.log(res.data);
-  };
-  const handleDeleteDonation = async () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        const res = await axiosSecure.delete(`/donations/${_id}`)
-        if (res.data.deletedCount > 0) {
-          refetch()
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-        }
-      }
-    });
   };
   return (
     <tr>
@@ -138,16 +109,6 @@ const AllBloodDonationPageTable = ({ donation, refetch }) => {
                   </button>
                 </li>
               )}
-              <li>
-                <Link to={`/dashboard/updateDonationRequest/${_id}`}>
-                  Edit
-                </Link>
-              </li>
-              <li>
-                <button onClick={handleDeleteDonation} type="button">
-                  Delete
-                </button>
-              </li>
             </ul>
           )}
         </details>
@@ -156,4 +117,4 @@ const AllBloodDonationPageTable = ({ donation, refetch }) => {
   )
 }
 
-export default AllBloodDonationPageTable
+export default AllDonationTable
