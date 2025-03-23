@@ -46,7 +46,6 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="">
       <div className="navbar fixed  z-10 max-w-screen-xl opacity-30 text-white bg-black">
         <div className="navbar-start">
           <div className="dropdown">
@@ -104,7 +103,6 @@ const Navbar = () => {
           </div>}
         </div>
       </div>
-    </div>
   );
 };
 

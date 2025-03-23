@@ -1,50 +1,114 @@
-import React from 'react'
-
+import future1 from '../../../assets/future1.jpg'
+import future2 from '../../../assets/future2.jpg'
+import future3 from '../../../assets/future3.jpg'
+import future4 from '../../../assets/future4.jpg'
+import future5 from '../../../assets/future5.jpg'
+import future6 from '../../../assets/future6.jpg'
 const Futured = () => {
   return (
-    <div className='te'>
-      <h1 className="text-5xl text-center">The Future of Blood Donation</h1>
-      <h5 className='text-center'>🩸 Save Lives with Blood Donation</h5>
-      <div tabIndex={0} className="collapse bg-base-100 border-base-300 border">
-        <div className="collapse-title font-semibold"> Why blood donation matters.?</div>
-        <div className="collapse-content text-sm">
-          Every drop of blood can make a difference. Donating blood is a simple yet powerful way to save lives. Join our mission to ensure that no one has to suffer due to a shortage of blood.
-        </div>
-      </div>
-      <div tabIndex={0} className="collapse bg-base-100 border-base-300 border">
-        <div className="collapse-title font-semibold">Artificial & Lab-Grown Blood?</div>
-        <div className="collapse-content text-sm">
-          Scientists are developing artificial blood (like Hemopure and PolyHeme) that could replace real blood in emergencies.
-        </div>
-      </div>
-      <div tabIndex={0} className="collapse bg-base-100 border-base-300 border">
-        <div className="collapse-title font-semibold">Artificial & Lab-Grown Blood?</div>
-        <div className="collapse-content text-sm">
-          <div>
-            <ul>
-              <li>✅ Saves Lives: One donation can save up to 3 lives.</li>
-              <li>✅ Quick & Safe: The process takes just 15-20 minutes.</li>
-              <li>✅ Health Benefits: Regular donation improves heart health</li>
-              <li>✅ Be a Hero: Your small act can be a lifeline for someone in need.</li>
-            </ul>
+    <div className="mt-5">
+      <section>
+        <h5 className="text-center">Latest Blog & Update</h5>
+        <h1 className="text-5xl tex-center my-3 mx-auto">
+          Stay Connected: News, Events & Blood Drive Updates
+        </h1>
+        <p className="text-center mb-5">
+          Stay informed and engaged with the latest news, upcoming events, and
+          vital blood donation drives happening in your community. <br /> Join
+          us in making a difference—one drop at a time!
+        </p>
+       <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+       <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+              src={future1}
+              alt="blood"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Why blood donation matters.?</h2>
+            <p>
+            Every drop of blood can make a difference. Donating blood is a
+            simple yet powerful way to save lives. br Join our mission to ensure
+            that no one has to suffer due to a shortage of blood.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Read More...</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div tabIndex={0} className="collapse bg-base-100 border-base-300 border">
-        <div className="collapse-title font-semibold">Artificial & Lab-Grown Blood?</div>
-        <div className="collapse-content text-sm">
-          Scientists are developing artificial blood (like Hemopure and PolyHeme) that could replace real blood in emergencies.
+       <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+              src={future2}
+              alt="blood"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Artificial Blood Development</h2>
+            <p>
+            Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Read More...</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div tabIndex={0} className="collapse bg-base-100 border-base-300 border">
-        <div className="collapse-title font-semibold">Artificial & Lab-Grown Blood?</div>
-        <div className="collapse-content text-sm">
-          Scientists are developing artificial blood (like Hemopure and PolyHeme) that could replace real blood in emergencies.
+       <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+              src={future3}
+              alt="blood"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Smart Apps for Donors</h2>
+            <p>
+            Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Read More...</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <h5>🔴 Join the Movement – Be a Donor Today!</h5>
+       <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+              src={future4}
+              alt="blood"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Increasing Accessibility & Awareness</h2>
+            <p>
+            Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Read More...</button>
+            </div>
+          </div>
+        </div>
+       <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+              src={future5}
+              alt="blood"
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">Enhanced Donor Experience</h2>
+            <p>
+            Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
+            </p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Read More...</button>
+            </div>
+          </div>
+        </div>
+       </div>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default Futured
+export default Futured;
