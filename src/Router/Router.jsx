@@ -22,6 +22,9 @@ import AllBloodDonation from "../pages/dashboard/volunteer/AllBloodDonation";
 import CreateContent from "../pages/dashboard/volunteer/CreateContent";
 import VolunteerHome from "../pages/dashboard/volunteer/VolunteerHome";
 import Home from "../pages/Home/Home/Home";
+import Search from "../pages/SearchPage/Search";
+import BloodDonationRequest from "../pages/Home/bloodDonorRequest/BloodDonationRequest";
+import BloodDonationRequestDetails from "../pages/Home/bloodDonationRequestDetails/BloodDonationRequestDetails";
 
 
 
@@ -33,6 +36,19 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: 'search',
+        element: <Search></Search>
+      },
+      {
+        path: 'donation',
+        element: <BloodDonationRequest></BloodDonationRequest>
+      },
+      {
+        path: 'donationDetails/:id',
+        element: <BloodDonationRequestDetails></BloodDonationRequestDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
       },
       {
         path: 'register',
@@ -114,7 +130,7 @@ export const router = createBrowserRouter([
       {
         path: "contentCreate",
         element: <CreateContent></CreateContent>
-      }
+      },
     ]
   }
 ]);
