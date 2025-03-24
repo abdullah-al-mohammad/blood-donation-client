@@ -25,6 +25,8 @@ import Home from "../pages/Home/Home/Home";
 import Search from "../pages/SearchPage/Search";
 import BloodDonationRequest from "../pages/Home/bloodDonorRequest/BloodDonationRequest";
 import BloodDonationRequestDetails from "../pages/Home/bloodDonationRequestDetails/BloodDonationRequestDetails";
+import Blog from "../pages/Blogs/Blog";
+import BlogDetails from "../pages/Blogs/BlogDetails";
 
 
 
@@ -49,6 +51,15 @@ export const router = createBrowserRouter([
         path: 'donationDetails/:id',
         element: <BloodDonationRequestDetails></BloodDonationRequestDetails>,
         loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
+      },
+      {
+        path: 'blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: 'details/:id',
+        element: <BlogDetails></BlogDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
       },
       {
         path: 'register',

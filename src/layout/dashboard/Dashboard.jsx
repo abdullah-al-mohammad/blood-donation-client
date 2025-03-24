@@ -40,7 +40,7 @@ const Dashboard = () => {
             </ul>
           </nav>
         </div>
-        <div className="p-4 w-full shadow-2xl">
+        <div className="p-4 w-full">
           <Outlet></Outlet>
         </div>
       </div>
