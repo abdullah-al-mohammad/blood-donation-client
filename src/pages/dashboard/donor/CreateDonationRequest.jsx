@@ -70,9 +70,9 @@ const CreateDonationRequest = () => {
   return (
     <div>
       <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">Request For Donation</h1>
-      <div className="">
+      <div>
         <div className="hero-content">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 md:shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* date field */}
               <div className="form-control">

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUser } from "react-icons/fa";
 import { MdBloodtype } from "react-icons/md";
@@ -7,44 +7,118 @@ import { BiBookContent } from "react-icons/bi";
 import useAdmin from "../../hooks/useAdmin";
 import { useDonor } from "../../hooks/useDonor";
 import useVolunteer from "../../hooks/useVolunteer";
+import { FiMenu } from "react-icons/fi";
 
 const Dashboard = () => {
-  const [isAdmin] = useAdmin()
-  const [isDonor] = useDonor()
-  const [isVolunteer] = useVolunteer()
+  const [isAdmin] = useAdmin();
+  const [isDonor] = useDonor();
+  const [isVolunteer] = useVolunteer();
   return (
     <div>
       <div className="flex">
-        <div className="w-64 min-h-screen bg-red-500">
-          <nav>
-            <ul className="p-4 menu">
-              <li className="text-black"><NavLink to="profile"><FaUser></FaUser><span>Profile</span></NavLink></li>
-              <div className="divider divider-success">****</div>
-              <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood /><span>Donation Request</span></NavLink></li>
-              {
-                isDonor && <>
-                  <li className="text-black"><NavLink to="/dashboard/dashboardHome"><FaHome></FaHome><span>Donor Home</span></NavLink></li>
-                  <li className="text-black"><NavLink to="/dashboard/myPage"><MdBloodtype /><span>My Donation Page</span></NavLink></li>
-                  {/* <li className="text-black"><NavLink to="/dashboard/createDonationRequest"><BiSolidDonateBlood />Donation Request</NavLink></li> */}
-                </>}
-              {isAdmin && <>
-                <li className="text-black"><NavLink to="/dashboard/adminHome"><FaHome></FaHome><span>Admin Home</span></NavLink></li>
-                <li className="text-black"><NavLink to="/dashboard/allUsers"><FaUser></FaUser><span>All Users</span></NavLink></li>
-                <li className="text-black"><NavLink to="/dashboard/allDonationPage"><BiSolidDonateBlood /><span>All Donation</span></NavLink></li>
-                <li className="text-black"><NavLink to="/dashboard/contentManagement"><BiBookContent /><span>Content Management</span></NavLink></li>
-              </>}
-              {isVolunteer && <>
-                <li className="text-black"><NavLink to="/dashboard/volunteerHome"><FaHome></FaHome><span>Volunteer Home</span></NavLink></li>
-                <li className="text-black"><NavLink to="/dashboard/allDonation"><BiSolidDonateBlood /><span>All Donation Page</span></NavLink></li>
-              </>}
-            </ul>
-          </nav>
-        </div>
+        <nav>
+          <div className="drawer lg:drawer-open bg-slate-200 lg:min-h-screen">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col items-center justify-center">
+              {/* Page content here */}
+              <label
+                htmlFor="my-drawer-2"
+                className="btn swap swap-rotate drawer-button lg:hidden"
+              >
+                <input type="checkbox" />
+                {/* close icon */}
+                <FiMenu></FiMenu>
+              </label>
+            </div>
+            <div className="drawer-side">
+              <label
+                htmlFor="my-drawer-2"
+                aria-label="close sidebar"
+                className="drawer-overlay"
+              ></label>
+              <ul className="p-4 menu bg-slate-200">
+                <li className="lg:text-black">
+                  <NavLink to="profile">
+                    <FaUser></FaUser>
+                    <span>Profile</span>
+                  </NavLink>
+                </li>
+                <div className="divider divider-success">****</div>
+                <li className="lg:text-black">
+                  <NavLink to="/dashboard/createDonationRequest">
+                    <BiSolidDonateBlood />
+                    <span>Donation Request</span>
+                  </NavLink>
+                </li>
+                {isDonor && (
+                  <>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/dashboardHome">
+                        <FaHome></FaHome>
+                        <span>Donor Home</span>
+                      </NavLink>
+                    </li>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/myPage">
+                        <MdBloodtype />
+                        <span>My Donation Page</span>
+                      </NavLink>
+                    </li>
+                  </>
+                )}
+                {isAdmin && (
+                  <>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/adminHome">
+                        <FaHome></FaHome>
+                        <span>Admin Home</span>
+                      </NavLink>
+                    </li>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/allUsers">
+                        <FaUser></FaUser>
+                        <span>All Users</span>
+                      </NavLink>
+                    </li>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/allDonationPage">
+                        <BiSolidDonateBlood />
+                        <span>All Donation</span>
+                      </NavLink>
+                    </li>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/contentManagement">
+                        <BiBookContent />
+                        <span>Content Management</span>
+                      </NavLink>
+                    </li>
+                  </>
+                )}
+                {isVolunteer && (
+                  <>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/volunteerHome">
+                        <FaHome></FaHome>
+                        <span>Volunteer Home</span>
+                      </NavLink>
+                    </li>
+                    <li className="lg:text-black">
+                      <NavLink to="/dashboard/allDonation">
+                        <BiSolidDonateBlood />
+                        <span>All Donation Page</span>
+                      </NavLink>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          </div>
+        </nav>
         <div className="p-4 w-full">
           <Outlet></Outlet>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

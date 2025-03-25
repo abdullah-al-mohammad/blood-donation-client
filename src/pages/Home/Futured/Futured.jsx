@@ -9,15 +9,15 @@ const Futured = () => {
     <div className="mt-5">
       <section>
         <h5 className="text-center">Latest Blog & Update</h5>
-        <h1 className="text-5xl tex-center my-3 mx-auto">
-          Stay Connected: News, Events & Blood Drive Updates
+        <h1 className="text-5xl my-3 text-center">
+          Stay Connected: News, <br /> Events & Blood Drive Updates
         </h1>
         <p className="text-center mb-5">
           Stay informed and engaged with the latest news, upcoming events, and
           vital blood donation drives happening in your community. <br /> Join
           us in making a difference—one drop at a time!
         </p>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
           <div className="card bg-base-100 md:w-96 shadow-sm">
             <figure>
               <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
