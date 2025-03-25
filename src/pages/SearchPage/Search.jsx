@@ -30,7 +30,7 @@ const Search = () => {
   }
   return (
     <div>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 pt-20">
         <div>
           <h1 className="text-5xl font-bold text-center">Search your donor</h1>
           <div>

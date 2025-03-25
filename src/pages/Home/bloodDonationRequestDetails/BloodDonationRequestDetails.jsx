@@ -5,11 +5,11 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 
 const BloodDonationRequestDetails = () => {
-  const {_id, name,email,recipientName,district,subDistrict,bloodGroup,hospitalName,hospitalAddress,message,donationDateTime,status } = useLoaderData()
+  const { _id, name, email, recipientName, district, subDistrict, bloodGroup, hospitalName, hospitalAddress, message, donationDateTime, status } = useLoaderData()
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
 
-  const handleDonate = async()=>{
+  const handleDonate = async () => {
     const { value: formValues } = await Swal.fire({
       title: "Donate",
       html: `
@@ -30,15 +30,16 @@ const BloodDonationRequestDetails = () => {
       const donorInfo = {
         status: 'inprogress'
       }
-      
-      await axiosSecure.patch(`/donations/${_id}`,'inprogress',{
-        headers:  {"Content-Type": "text/plain"}
+
+      await axiosSecure.patch(`/donations/${_id}`, 'inprogress', {
+        headers: { "Content-Type": "text/plain" }
       })
       Swal.fire(JSON.stringify(donorInfo));
     }
   }
   return (
-    <div className="overflow-x-auto pt-20">
+    <div className="overflow-x-auto py-20">
+      <button onClick={handleDonate} type="button" className='btn btn-primary mt-3 flex justify-center'>Donate</button>
       <table className="table">
         <thead>
           <tr>
@@ -58,7 +59,7 @@ const BloodDonationRequestDetails = () => {
         </thead>
         <tbody>
           <tr>
-            <th>1</th>
+            <th></th>
             <td>{name}</td>
             <td>{email}</td>
             <td>{recipientName}</td>
@@ -73,7 +74,6 @@ const BloodDonationRequestDetails = () => {
           </tr>
         </tbody>
       </table>
-      <button onClick={handleDonate} type="button" className='btn btn-primary'>Donate</button>
     </div>
   )
 }
