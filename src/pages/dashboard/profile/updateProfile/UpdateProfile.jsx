@@ -80,7 +80,7 @@ export const UpdateProfile = () => {
   };
   return (
     <div className="bg-base-200 w-full">
-      <div className="">
+      <div>
         <div className="card bg-base-100 w-full shrink-0">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="text-end p-5">

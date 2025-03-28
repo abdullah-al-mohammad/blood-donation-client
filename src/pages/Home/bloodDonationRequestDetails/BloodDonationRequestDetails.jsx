@@ -38,7 +38,7 @@ const BloodDonationRequestDetails = () => {
     }
   }
   return (
-    <div className="overflow-x-auto py-20">
+    <div className="py-20">
       <button onClick={handleDonate} type="button" className='btn btn-primary mt-3 flex justify-center'>Donate</button>
       <table className="table">
         <thead>

@@ -54,9 +54,7 @@ const Login = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Blood donation is a life-saving act that helps patients in need of transfusions due to accidents, surgeries, childbirth complications, cancer treatments, and chronic illnesses like anemia or blood disorders. A single blood donation can save up to three lives
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

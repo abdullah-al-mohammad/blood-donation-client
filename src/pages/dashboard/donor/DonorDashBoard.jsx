@@ -28,7 +28,7 @@ const DonorDashBoard = () => {
         Welcome {user?.displayName}
       </h1>
       <div>
-        <div className="overflow-x-auto">
+        <div>
           {donations.length > 0 ? (
             <table className="table">
               {/* head */}

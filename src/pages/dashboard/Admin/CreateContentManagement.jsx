@@ -141,7 +141,7 @@ const CreateContentManagement = ({ placeholder }) => {
       <section>
         <div>
           <div>
-            <div className="overflow-x-auto">
+            <div>
               <table className="table">
                 {/* head */}
                 <thead>

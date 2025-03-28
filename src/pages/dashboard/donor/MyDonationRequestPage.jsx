@@ -20,7 +20,7 @@ const MyDonationRequestPage = () => {
         Welcome {user?.displayName}
       </h1>
       <div>
-        <div className="overflow-x-auto">
+        <div>
           {myDonation.length > 0 ? (
             <table className="table">
               {/* head */}

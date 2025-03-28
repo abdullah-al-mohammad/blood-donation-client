@@ -18,7 +18,7 @@ const AllUsersPage = () => {
         All Users Profile Details For Admin
       </h1>
       <div>
-        <div className="overflow-x-auto">
+        <div>
           <table className="table">
             {/* head */}
             <thead>

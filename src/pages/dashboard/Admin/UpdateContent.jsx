@@ -78,7 +78,7 @@ const UpdateContent = ({ placeholder }) => {
         <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
           Update Content
         </h1>
-        <div className="">
+        <div>
           <div className="hero-content">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
               <form onSubmit={handleSubmit(onSubmit)} className="card-body">

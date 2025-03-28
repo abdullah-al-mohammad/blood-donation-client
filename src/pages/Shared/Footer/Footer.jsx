@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
       <nav>
         <h6 className="footer-title">Services</h6>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
+        <a href='/dashboard/createDonationRequest' className="link link-hover">Donate Blood</a>
+        <Link to={'/profile'} className="link link-hover">Donor</Link>
         <a className="link link-hover">Marketing</a>
         <a className="link link-hover">Advertisement</a>
       </nav>

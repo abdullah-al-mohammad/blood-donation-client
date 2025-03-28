@@ -22,7 +22,7 @@ const AllBloodDonation = () => {
         Welcome {user?.displayName}
       </h1>
       <div>
-        <div className="overflow-x-auto">
+        <div>
           {allDonation.length > 0 ? (
             <table className="table">
               {/* head */}
