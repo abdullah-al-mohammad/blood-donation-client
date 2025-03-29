@@ -9,7 +9,9 @@ const AdminRoute = ({ children }) => {
   const location = useLocation()
 
   if (loading && isAdminLoading) {
-    return <progress className="progress w-56"></progress>
+    return <div className='flex justify-center items-center h-screen'>
+      <progress className="loading loading-spinner loading-xl"></progress>
+    </div>
   }
   if (isAdmin && user) {
     return children

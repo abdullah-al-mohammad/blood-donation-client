@@ -39,10 +39,7 @@ export const UpdateProfile = () => {
 
   const { districts = [], subDistricts = [] } = data || {};
 
-  console.log(data);
-
   const onSubmit = async (data) => {
-    console.log(data);
     const email = data.email;
     const name = data.name;
     const formData = new FormData();
@@ -50,7 +47,6 @@ export const UpdateProfile = () => {
     const res = await axiosPublic.post(image_hosting_api, formData, {
       headers: { "content-type": "multipart/form-data" },
     });
-    console.log(res);
 
     if (res.data.success) {
       const imageUrl = res.data.data.display_url;

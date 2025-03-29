@@ -25,12 +25,10 @@ const Login = () => {
   // }
 
   const onSubmit = async (data) => {
-    console.log(data)
     const email = data.email;
     const password = data.password;
     loginUser(email, password)
       .then(async (result) => {
-        console.log(result.user);
         if (result.user) {
           reset()
           Swal.fire({

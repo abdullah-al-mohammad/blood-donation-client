@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, set, useForm } from "react-hook-form";
 import Select from "react-select";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 // image hosting api key
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-console.log(image_hosting_api);
 
 const Register = () => {
 
@@ -23,7 +22,7 @@ const Register = () => {
   } = useForm();
   const { registerUser, updateUserProfile } = useAuth();
   const axiosPublic = useAxiosPublic();
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState()
 
   const { data = {}, isLoading: loading } = useQuery({
@@ -53,14 +52,14 @@ const Register = () => {
 
     if (password !== confirmPass) {
       return setError("password don't match");
+    } else {
+      setError("")
     }
     registerUser(email, password)
       .then(async (Result) => {
-        console.log(Result.user);
         const res = await axiosPublic.post(image_hosting_api, formData, {
           headers: { "content-type": "multipart/form-data" },
         });
-        console.log(res.data);
 
         if (res.data.success) {
           const imageUrl = res.data.data.display_url;
@@ -108,7 +107,7 @@ const Register = () => {
                 <input
                   type="name"
                   placeholder="Your Name"
-                  {...register("name")}
+                  {...register("name", { required: true })}
                   className="input input-bordered"
                   required
                 />
@@ -121,7 +120,7 @@ const Register = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  {...register("email")}
+                  {...register("email", { required: true })}
                   className="input input-bordered"
                   required
                 />
@@ -137,6 +136,7 @@ const Register = () => {
                   render={({ field }) => {
                     return (
                       <Select
+                        required
                         {...field}
                         options={districts.map((district) => ({
                           value: district.name,
@@ -158,6 +158,7 @@ const Register = () => {
                   render={({ field }) => {
                     return (
                       <Select
+                        required
                         {...field}
                         options={subDistricts.map((subDistrict) => ({
                           value: subDistrict.name,
@@ -176,7 +177,7 @@ const Register = () => {
                 <select
                   defaultValue={"default"}
                   className="select select-ghost w-full max-w-xs"
-                  {...register("bloodGroup")}
+                  {...register("bloodGroup", { required: true })}
                 >
                   <option value={"default"} disabled>
                     Select Group
@@ -198,7 +199,7 @@ const Register = () => {
                 </label>
                 <input
                   type="file"
-                  {...register("image")}
+                  {...register("image", { required: true })}
                   className="file-input w-full max-w-xs"
                 />
               </div>
@@ -211,7 +212,7 @@ const Register = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
-                    {...register("password", { minLength: 6, maxLength: 20, pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/ })}
+                    {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: { value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/, message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character, and be 6-20 characters long." } })}
                     className="input input-bordered"
                     required
                   />
@@ -232,7 +233,7 @@ const Register = () => {
                 <input
                   type="password"
                   placeholder="confirm password"
-                  {...register("confirmPassword")}
+                  {...register("confirmPassword", { required: true })}
                   className="input input-bordered"
                   required
                 />
@@ -241,13 +242,13 @@ const Register = () => {
                     {errors.confirmPassword.message}
                   </p>
                 )}
-                {error}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
+              {<p className="text-red-500">{error ? error : ''}</p>}
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
               </div>

@@ -31,7 +31,6 @@ const CreateContent = ({ placeholder }) => {
   );
 
   const onSubmit = async (data) => {
-    console.log(data);
 
     // Check if an image is selected
     if (!data.image[0]) {
@@ -45,7 +44,6 @@ const CreateContent = ({ placeholder }) => {
     const res = await axiosPublic.post(image_hosting_api, formData, {
       headers: { "content-type": "multipart/form-data" },
     });
-    console.log(res);
 
     if (res.data.success) {
       const imageUrl = res.data.data.display_url;

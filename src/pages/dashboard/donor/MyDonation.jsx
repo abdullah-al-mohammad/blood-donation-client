@@ -22,7 +22,6 @@ const MyDonation = ({ donation, refetch }) => {
     if (res.data.modifiedCount > 0) {
       refetch()
     }
-    console.log(res.data);
   };
   const handleDeleteDonation = async () => {
     Swal.fire({

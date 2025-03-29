@@ -5,7 +5,6 @@ import DonorDashboardTable from "./DonorDashboardTable";
 
 const DonorDashBoard = () => {
   const { user } = useAuth();
-  console.log(user);
   const axiosPublic = useAxiosPublic();
 
   const { data: donations = [], refetch, isLoading: loading } = useQuery({

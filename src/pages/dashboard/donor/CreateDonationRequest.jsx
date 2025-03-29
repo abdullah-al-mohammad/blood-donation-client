@@ -33,12 +33,10 @@ const CreateDonationRequest = () => {
   }
 
   const { districts = [], subDistricts = [] } = data || {};
-  console.log(data);
 
 
 
   const onSubmit = async (data) => {
-    console.log(data);
 
     const donationInfo = {
       name: user?.displayName,
@@ -53,17 +51,17 @@ const CreateDonationRequest = () => {
       donationDateTime: data.donationDateTime
 
     }
-   const res = await axiosPublic.post('/donations', donationInfo)
-   console.log(res);
-   if(res.data){
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Donation has been Creatated Successfully",
-      showConfirmButton: false,
-      timer: 1500
-    });
-   }
+    const res = await axiosPublic.post('/donations', donationInfo)
+    console.log(res);
+    if (res.data) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Donation has been Creatated Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
 
 
   };
@@ -80,8 +78,8 @@ const CreateDonationRequest = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                aria-label="Date and time"
-                 type="datetime-local"
+                  aria-label="Date and time"
+                  type="datetime-local"
                   placeholder="donation date & time"
                   {...register("donationDateTime")}
                   className="input input-bordered"

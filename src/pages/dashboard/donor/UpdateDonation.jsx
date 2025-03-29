@@ -40,7 +40,6 @@ const UpdateDonation = () => {
 
 
   const onSubmit = async (data) => {
-    console.log(data);
 
     const donationInfo = {
       name: user?.displayName,

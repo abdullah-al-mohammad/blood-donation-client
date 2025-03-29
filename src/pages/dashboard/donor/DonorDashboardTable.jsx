@@ -20,7 +20,6 @@ const DonorDashboardTable = ({ donation, refetch }) => {
     const res = await axiosPublic.patch(`/donations/${_id}`, newStatus, {
       headers: { "Content-Type": "text/plain" },
     });
-    console.log(res.data);
     if (res.data.modifiedCount > 0) {
       refetch()
     }

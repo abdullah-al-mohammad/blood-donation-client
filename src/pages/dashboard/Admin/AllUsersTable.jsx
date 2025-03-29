@@ -4,7 +4,6 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllUsersTable = ({ user, loading, refetch }) => {
   const { name, email, status, image, _id, role, district, subDistrict, blood } = user
-  console.log(user);
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
 
@@ -16,7 +15,6 @@ const AllUsersTable = ({ user, loading, refetch }) => {
     if (res.data.modifiedCount > 0) {
       refetch()
     }
-    console.log(res.data);
   };
   const handleUpdateStatus = async (newStatus) => {
     const userStatus = {
@@ -26,7 +24,6 @@ const AllUsersTable = ({ user, loading, refetch }) => {
     if (res.data.modifiedCount > 0) {
       refetch()
     }
-    console.log(res.data);
   };
 
   return (
