@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import useAuth from "../../../hooks/useAuth";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -46,7 +50,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed  z-10 max-w-screen-xl opacity-30 text-white bg-black">
+    <div className="navbar fixed  z-10 max-w-screen-xl opacity-30 text-white bg-black"
+      data-aos="fade-down"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

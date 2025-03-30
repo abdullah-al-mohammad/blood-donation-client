@@ -3,6 +3,10 @@ import { FaFunnelDollar, FaUser } from "react-icons/fa";
 import useUsersProfile from "../../../hooks/useUsersProfile";
 import { useQuery } from "@tanstack/react-query";
 import { BiSolidDonateBlood } from "react-icons/bi";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const VolunteerHome = () => {
   const { user } = useAuth();
@@ -24,11 +28,11 @@ const VolunteerHome = () => {
   }
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5">
+      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
         Welcome {user?.displayName}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-5">
-        <div className="card card-border bg-base-100 w-64 shadow-xl">
+        <div className="card card-border bg-base-100 w-64 shadow-xl" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -44,7 +48,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 w-64 shadow-xl md:my-0 my-5">
+        <div className="card card-border bg-base-100 w-64 shadow-xl md:my-0 my-5" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -62,7 +66,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 w-64 shadow-xl">
+        <div className="card card-border bg-base-100 w-64 shadow-xl" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>

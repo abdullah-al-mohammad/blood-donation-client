@@ -8,6 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 import ContentManagementTable from "./ContentManagementTable";
 import striptags from "striptags";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -80,7 +84,7 @@ const CreateContentManagement = ({ placeholder }) => {
   return (
     <div>
       <section>
-        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
+        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl" data-aos="fade-left">
           Content Management Page
         </h1>
         <div className="">

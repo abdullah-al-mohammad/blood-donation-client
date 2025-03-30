@@ -2,6 +2,10 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import DonorDashboardTable from "./DonorDashboardTable";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const DonorDashBoard = () => {
   const { user } = useAuth();
@@ -18,12 +22,14 @@ const DonorDashBoard = () => {
   });
 
   if (loading) {
-    return <p>data is loading</p>
+    return <div className='flex justify-center items-center h-screen'>
+      <progress className="loading loading-spinner loading-xl"></progress>
+    </div>
   }
 
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5">
+      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
         Welcome {user?.displayName}
       </h1>
       <div>

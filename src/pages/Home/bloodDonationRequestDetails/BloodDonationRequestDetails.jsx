@@ -3,6 +3,10 @@ import { useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const BloodDonationRequestDetails = () => {
   const { _id, name, email, recipientName, district, subDistrict, bloodGroup, hospitalName, hospitalAddress, message, donationDateTime, status } = useLoaderData()
@@ -58,7 +62,7 @@ const BloodDonationRequestDetails = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr data-aos="fade-left">
             <th></th>
             <td>{name}</td>
             <td>{email}</td>

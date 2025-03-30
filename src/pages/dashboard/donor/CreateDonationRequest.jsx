@@ -5,6 +5,10 @@ import Select from "react-select";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const CreateDonationRequest = () => {
   const {
@@ -29,7 +33,9 @@ const CreateDonationRequest = () => {
   });
 
   if (loading) {
-    return <span>loading....</span>;
+    return <div className='flex justify-center items-center h-screen'>
+      <progress className="loading loading-spinner loading-xl"></progress>
+    </div>
   }
 
   const { districts = [], subDistricts = [] } = data || {};
@@ -67,8 +73,8 @@ const CreateDonationRequest = () => {
   };
   return (
     <div>
-      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">Request For Donation</h1>
-      <div>
+      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl" data-aos="fade-left">Request For Donation</h1>
+      <div data-aos="zoom-in-down">
         <div className="hero-content">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 md:shadow-2xl">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
