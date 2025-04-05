@@ -78,7 +78,7 @@ const AdminHome = () => {
         <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
           Welcome {user?.displayName}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-5" data-aos="zoom-in-down">
+        <div className="grid grid-cols-1 md:grid-cols-4 justify-between gap-64 mt-5" data-aos="zoom-in-down">
           <div className="card card-border bg-base-100 w-64 shadow-xl">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
