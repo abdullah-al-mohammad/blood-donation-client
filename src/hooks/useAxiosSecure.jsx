@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const axiosSecure = axios.create({
-  baseURL: 'https://blood-donation-server-nu-two.vercel.app'
+  baseURL: 'http://localhost:5000'
 })
 const useAxiosSecure = () => {
   const navigate = useNavigate()

@@ -7,7 +7,7 @@ AOS.init();
 const Banner = () => {
   return (
     <div className='bannerBg min-h-screen py-28'>
-      <div className='p-8 text-center md:text-start'>
+      <div className='p-8 md:text-start text-white'>
         <h1 className='text-5xl font-bold'
           data-aos="zoom-in-down"
           data-aos-delay="50"
@@ -23,12 +23,12 @@ const Banner = () => {
             data-aos="fade-left"
             data-aos-delay="50"
             data-aos-duration="1000"
-            data-aos-easing="ease-in-out"> <button type="button" className='btn btn-neutral '> Join as a donor </button> </Link></li>
+            data-aos-easing="ease-in-out"> <button type="button" className='btn btn-primary '> Join as a donor </button> </Link></li>
           <li><Link to={'/search'}
             data-aos="fade-left"
             data-aos-delay="50"
             data-aos-duration="1000"
-            data-aos-easing="ease-in-out"><button type="button" className='btn btn-neutral mt-5'>Search Donors</button></Link></li>
+            data-aos-easing="ease-in-out"><button type="button" className='btn btn-primary mt-5'>Search Donors</button></Link></li>
         </ul>
       </div>
     </div>

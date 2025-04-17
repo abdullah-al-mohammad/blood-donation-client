@@ -50,7 +50,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed  z-10 max-w-screen-xl opacity-30 text-white bg-black"
+    <div className="navbar fixed  z-10 opacity-30 text-white bg-black"
       data-aos="fade-down"
       data-aos-delay="50"
       data-aos-duration="1000"
@@ -81,15 +81,15 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to={'/'} className="btn btn-ghost text-xl">
+        <Link to={'/'} className="btn bg-transparent border-none shadow-none text-xl">
           <img className="w-10 h-10" src={logo} alt="" />
           <h5>Blood Donation</h5>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
-      </div>
       <div className="navbar-end">
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        </div>
         {user && <div className="dropdown dropdown-end">
           <div
             tabIndex={0}

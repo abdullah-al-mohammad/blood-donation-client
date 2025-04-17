@@ -15,14 +15,14 @@ const Dashboard = () => {
   const [isVolunteer] = useVolunteer();
   return (
     <div className="flex">
-      <nav>
+      <nav className="absolute lg:static z-10 lg:w-1/5 bg-slate-200 lg:bg-slate-200">
         <div className="drawer lg:drawer-open bg-slate-200 lg:min-h-screen z-40">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col items-center justify-center">
             {/* Page content here */}
             <label
               htmlFor="my-drawer-2"
-              className="btn swap swap-rotate drawer-button lg:hidden"
+              className="swap swap-rotate drawer-button lg:hidden p-2 text-2xl text-black bg-slate-400"
             >
               <input type="checkbox" />
               {/* close icon */}
@@ -113,7 +113,7 @@ const Dashboard = () => {
           </div>
         </div>
       </nav>
-      <div className="md:p-4 w-full">
+      <div className="md:p-4 w-full  max-w-screen-2xl mx-auto">
         <Outlet></Outlet>
       </div>
     </div>
