@@ -50,7 +50,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed  z-10 opacity-30 text-white bg-black"
+    <div className="navbar fixed  z-10 text-white bg-black/10"
       data-aos="fade-down"
       data-aos-delay="50"
       data-aos-duration="1000"
