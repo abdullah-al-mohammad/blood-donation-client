@@ -52,8 +52,8 @@ const Navbar = () => {
   return (
     <div className="navbar fixed  z-10 text-white bg-black/10"
       data-aos="fade-down"
-      data-aos-delay="50"
-      data-aos-duration="1000"
+      data-aos-delay="10"
+      data-aos-duration="200"
       data-aos-easing="ease-in-out">
       <div className="navbar-start">
         <div className="dropdown">

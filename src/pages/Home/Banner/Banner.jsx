@@ -6,24 +6,14 @@ AOS.init();
 
 const Banner = () => {
   return (
-    <div className='bannerBg min-h-screen py-28'>
-      <div className='container mx-auto md:text-start text-white text-wrap text-center'>
-        <h1 className='text-5xl font-bold mt-10'
-          data-aos="zoom-in-down"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out">Join the Lifesaving Mission <br /> Become a Donor</h1>
+    <div className='bannerBg min-h-screen py-32 bg-fixed'>
+      <div className='container mx-auto md:text-start text-white text-wrap text-center mt-10'>
+        <h1 className='text-5xl font-bold' >Join the Lifesaving Mission <br /> Become a Donor</h1>
         <p className='grid md:grid-cols-2 my-10'
-          data-aos="zoom-in-down"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out">Every drop of blood can make a difference. Donating blood is a simple yet powerful way to save lives. Join our mission to ensure that no one has to suffer due to a shortage of blood.</p>
+        >Every drop of blood can make a difference. Donating blood is a simple yet powerful way to save lives. Join our mission to ensure that no one has to suffer due to a shortage of blood.</p>
         <ul className='mt-5'>
           <li><Link to={'/donation'}
-            data-aos="fade-left"
-            data-aos-delay="50"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in-out"> <button type="button" className='btn btn-primary '> Join as a donor </button> </Link></li>
+          > <button type="button" className='btn btn-primary '> Join as a donor </button> </Link></li>
           {/* <li><Link to={'/search'}
             data-aos="fade-left"
             data-aos-delay="50"
