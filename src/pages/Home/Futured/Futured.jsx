@@ -11,9 +11,9 @@ AOS.init();
 
 const Futured = () => {
   return (
-    <section className="mt-5">
+    <section className="my-10 ">
       <h5 className="text-center">Latest Blog & Update</h5>
-      <h1 className="text-5xl my-3 text-center">
+      <h1 className="text-5xl my-5 text-center">
         Stay Connected: News, <br /> Events & Blood Drive Updates
       </h1>
       <p className="text-center mb-5">
@@ -22,7 +22,7 @@ const Futured = () => {
         us in making a difference—one drop at a time!
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense'>
-        <div className="card bg-base-100 w-full h-full shadow-sm"
+        <div className="card bg-base-100 w-full h-full shadow-2xl"
           data-aos="zoom-in-down"
           data-aos-easing="linear"
           data-aos-duration="200">
@@ -44,7 +44,7 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-sm"
+        <div className="card bg-base-100 w-full h-full shadow-2xl"
           data-aos="zoom-in-down"
           data-aos-easing="linear"
           data-aos-duration="200">
@@ -64,7 +64,7 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-sm"
+        <div className="card bg-base-100 w-full h-full shadow-2xl"
           data-aos="zoom-in-down"
           data-aos-easing="linear"
           data-aos-duration="200">
@@ -84,7 +84,7 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-sm"
+        <div className="card bg-base-100 w-full h-full shadow-2xl"
           data-aos="zoom-in-down"
           data-aos-easing="linear"
           data-aos-duration="200">
@@ -104,7 +104,7 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-sm"
+        <div className="card bg-base-100 w-full h-full shadow-2xl"
           data-aos="zoom-in-down"
           data-aos-easing="linear"
           data-aos-duration="200">
