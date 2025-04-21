@@ -17,7 +17,7 @@ const Futured = () => {
       data-aos-duration='2000'
     >
       <h5 className="text-center">Latest Blog & Update</h5>
-      <h1 className="text-6xl my-5 text-center">
+      <h1 className="text-6xl my-5 text-center font-sans">
         Stay Connected: News, <br /> Events & Blood Drive Updates
       </h1>
       <p className="text-center mb-7 text-2xl">
@@ -38,14 +38,14 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Why blood donation matters.?</h2>
+            <h2 className="card-title text-2xl">Why blood donation matters.?</h2>
             <p>
               Every drop of blood can make a difference. Donating blood is a
               simple yet powerful way to save lives. br Join our mission to ensure
               that no one has to suffer due to a shortage of blood.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Read More...</button>
+              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
             </div>
           </div>
         </div>
@@ -57,12 +57,12 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Artificial Blood Development</h2>
+            <h2 className="card-title text-2xl">Artificial Blood Development</h2>
             <p>
               Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Read More...</button>
+              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
             </div>
           </div>
         </div>
@@ -74,12 +74,12 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Smart Apps for Donors</h2>
+            <h2 className="card-title text-2xl">Smart Apps for Donors</h2>
             <p>
               Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Read More...</button>
+              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
             </div>
           </div>
         </div>
@@ -91,12 +91,12 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Increasing Accessibility & Awareness</h2>
+            <h2 className="card-title text-2xl">Increasing Accessibility & Awareness</h2>
             <p>
               Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Read More...</button>
+              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
             </div>
           </div>
         </div>
@@ -108,12 +108,12 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Enhanced Donor Experience</h2>
+            <h2 className="card-title text-2xl">Enhanced Donor Experience</h2>
             <p>
               Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Read More...</button>
+              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
             </div>
           </div>
         </div>
