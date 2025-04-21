@@ -3,11 +3,23 @@ import logo from "../../../assets/logo.png";
 import useAuth from "../../../hooks/useAuth";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useState, useEffect } from "react";
 // ..
 AOS.init();
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const bannerHeight = document.getElementById('banner')?.offsetHeight || 0;
+      setScrolled(window.scrollY > bannerHeight)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   const handleLogout = () => {
     logout()
       .then((result) => {
@@ -50,11 +62,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar fixed  z-10 text-white bg-black/10"
-      data-aos="fade-down"
-      data-aos-delay="10"
-      data-aos-duration="200"
-      data-aos-easing="ease-in-out">
+    <div className={`navbar fixed z-10 text-white transition-all duration-500 ${scrolled ? "bg-black shadow-md text-white" : "bg-transparent text-white"}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
