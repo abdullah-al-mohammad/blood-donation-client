@@ -11,6 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
+import './admin.css'
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -75,11 +76,11 @@ const AdminHome = () => {
   return (
     <div>
       <section>
-        <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5 font-sans" data-aos="fade-left">
+        <h1 className="text-center font-bold text-3xl uppercase bg-gradient-to-r from-red-500 to-red-300 p-5 font-sans" data-aos="flip-right">
           Welcome {user?.displayName}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 justify-between gap-64 mt-5" data-aos="zoom-in-down">
-          <div className="card card-border bg-base-100 w-64 shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-evenly gap-6 mt-5 grid-flow-dense" data-aos="zoom-in-down">
+          <div className="card card-border bg-base-100 shadow-xl cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
@@ -95,7 +96,7 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="card card-border bg-base-100 w-64 shadow-xl md:my-0 my-5">
+          <div className="card card-border bg-base-100 shadow-xl md:my-0 my-5 cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
@@ -113,7 +114,7 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="card card-border bg-base-100 w-64 shadow-xl">
+          <div className="card card-border bg-base-100 shadow-xl cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>

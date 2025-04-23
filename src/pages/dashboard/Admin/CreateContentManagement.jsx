@@ -84,9 +84,11 @@ const CreateContentManagement = ({ placeholder }) => {
   return (
     <div>
       <section>
-        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl" data-aos="fade-left">
-          Content Management Page
-        </h1>
+        <div className="bg-gradient-to-r from-red-500 to-red-300">
+          <h1 className="text-center p-5 uppercase text-3xl" data-aos="flip-left">
+            Content Management Page
+          </h1>
+        </div>
         <div className="">
           <div className="hero-content">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

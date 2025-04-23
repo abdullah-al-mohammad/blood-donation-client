@@ -27,9 +27,11 @@ const AllBloodDonationPage = () => {
   }
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
-        Welcome {user?.displayName}
-      </h1>
+      <div className='bg-gradient-to-r from-red-500 to-red-300'>
+        <h1 className="text-center font-bold text-3xl uppercase p-5" data-aos="flip-right">
+          Welcome {user?.displayName}
+        </h1>
+      </div>
       <div>
         <div>
           {myDonation.length > 0 ? (
