@@ -15,8 +15,8 @@ const Dashboard = () => {
   const [isVolunteer] = useVolunteer();
   return (
     <div className="flex">
-      <nav className="absolute lg:static z-10 lg:w-1/5 bg-slate-200 lg:bg-slate-200">
-        <div className="drawer lg:drawer-open bg-slate-200 lg:min-h-screen z-40">
+      <nav className="absolute lg:static z-10 lg:w-1/5 lg:[background:linear-gradient(to_bottom,_#8b00006a,_#b2222273,_#3b000073)]">
+        <div className="drawer lg:drawer-open lg:min-h-screen z-40">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col items-center justify-center">
             {/* Page content here */}
@@ -35,15 +35,15 @@ const Dashboard = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="p-4 menu bg-neutral lg:bg-slate-200">
-              <li className="lg:text-black btn btn-info">
+            <ul className="p-4 menu [background:linear-gradient(to_bottom,_#8b000088,_#b2222286,_#3b00008b)] lg:bg-none">
+              <li className="btn btn-active btn-error">
                 <NavLink to="profile">
                   <FaUser></FaUser>
                   <span>Profile</span>
                 </NavLink>
               </li>
               <div className="divider divider-success">****</div>
-              <li className="lg:text-black">
+              <li>
                 <NavLink to="/dashboard/createDonationRequest">
                   <BiSolidDonateBlood />
                   <span>Donation Request</span>
@@ -51,13 +51,13 @@ const Dashboard = () => {
               </li>
               {isDonor && (
                 <>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/dashboardHome">
                       <FaHome></FaHome>
                       <span>Donor Home</span>
                     </NavLink>
                   </li>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/myPage">
                       <MdBloodtype />
                       <span>My Donation Page</span>
@@ -67,25 +67,25 @@ const Dashboard = () => {
               )}
               {isAdmin && (
                 <>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/adminHome">
                       <FaHome></FaHome>
                       <span>Admin Home</span>
                     </NavLink>
                   </li>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/allUsers">
                       <FaUser></FaUser>
                       <span>All Users</span>
                     </NavLink>
                   </li>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/allDonationPage">
                       <BiSolidDonateBlood />
                       <span>All Donation</span>
                     </NavLink>
                   </li>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/contentManagement">
                       <BiBookContent />
                       <span>Content Management</span>
@@ -95,13 +95,13 @@ const Dashboard = () => {
               )}
               {isVolunteer && (
                 <>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/volunteerHome">
                       <FaHome></FaHome>
                       <span>Volunteer Home</span>
                     </NavLink>
                   </li>
-                  <li className="lg:text-black">
+                  <li>
                     <NavLink to="/dashboard/allDonation">
                       <BiSolidDonateBlood />
                       <span>All Donation Page</span>

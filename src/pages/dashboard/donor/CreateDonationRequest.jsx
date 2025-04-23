@@ -77,7 +77,9 @@ const CreateDonationRequest = () => {
   };
   return (
     <div>
-      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl" data-aos="fade-left">Request For Donation</h1>
+      <div className="bg-gradient-to-r from-red-500 to-red-300">
+        <h1 className="text-center p-5 uppercase text-3xl font-sans" data-aos="flip-right">Request For Donation</h1>
+      </div>
       <div data-aos="zoom-in-down">
         <div>
           <div className="card bg-base-100 max-w-screen-xl shrink md:shadow-2xl container mx-auto">

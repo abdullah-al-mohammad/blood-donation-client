@@ -9,8 +9,8 @@ const Home = () => {
       <Banner></Banner>
       <div className="max-w-screen-xl mx-auto">
         <Futured></Futured>
-        <Contact></Contact>
       </div>
+      <Contact></Contact>
     </div>
   )
 }

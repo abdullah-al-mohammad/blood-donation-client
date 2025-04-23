@@ -7,11 +7,12 @@ import future6 from '../../../assets/future6.jpg'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
+import './futured.css'
 AOS.init();
 
 const Futured = () => {
   return (
-    <section className="my-10 "
+    <section className="my-10 border-box"
       data-aos="fade-up"
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
@@ -25,14 +26,14 @@ const Futured = () => {
         vital blood donation drives happening in your community. <br /> Join
         us in making a difference—one drop at a time!
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense'
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden'
         data-aos="fade-up"
         data-aos-easing='ease-in-sine'
-        data-aos-duration='2000'
+        data-aos-duration='1000'
       >
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 hover:border-b">
+        <div className="card bg-base-100 h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard">
           <figure>
-            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future1}
               alt="blood"
             />
@@ -49,9 +50,9 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 hover:border-b">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
           <figure>
-            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future2}
               alt="blood"
             />
@@ -66,9 +67,9 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 hover:border-b">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
           <figure>
-            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future3}
               alt="blood"
             />
@@ -83,9 +84,9 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 hover:border-b">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
           <figure>
-            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future4}
               alt="blood"
             />
@@ -100,9 +101,9 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 hover:border-b">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
           <figure>
-            <img className='transform hover:scale-[1.5] transition delay-150 duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future5}
               alt="blood"
             />

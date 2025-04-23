@@ -1,7 +1,7 @@
 .contactBg{
-    background: url('../../../assets/contact.jpg');
+    background:  url('../../../assets/contact1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 112px 120px;
+    padding: 100px 120px;
 }
