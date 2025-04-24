@@ -7,12 +7,13 @@ AOS.init();
 const Contact = () => {
   return (
     <div className='contactBg bg-fixed mb-5'>
-      <div className='container mx-auto bg-opacity-50 bg-black py-32'
+      <div className='container mx-auto'
         data-aos="fade-up"
         data-aos-easing='ease-in-sine'
         data-aos-duration='1000'>
-        <h1 className='text-3xl text-center font-bold font-sans pt-5 mb-5'>Contact with us 📞 <br /> Save Lives with Blood Donation</h1>
-        <p className='text-center font-bold'>contact: 017825432653223</p>
+        <h1 className='text-5xl text-center font-bold pt-5 mb-5'>Contact with us 📞 <br /> Save Lives with Blood Donation</h1>
+        <p className='text-center font-bold mb-5 text-2xl'>Call Now: 017825432653223</p>
+        <address className='text-center'><span>manikganj,</span><span>dhaka,</span> <span>Bangladesh</span></address>
       </div>
     </div>
   )

@@ -17,14 +17,13 @@ const Futured = () => {
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
     >
-      <h5 className="text-center">Latest Blog & Update</h5>
-      <h1 className="text-6xl my-5 text-center font-sans">
+      <h5 className="text-center font-rubik_storm">Latest Blog & Update</h5>
+      <h1 className="text-6xl my-5 text-center font-rubik_storm">
         Stay Connected: News, <br /> Events & Blood Drive Updates
       </h1>
-      <p className="text-center mb-7 text-2xl">
+      <p className="text-center mb-7 text-2xl font-rubik_storm">
         Stay informed and engaged with the latest news, upcoming events, and
-        vital blood donation drives happening in your community. <br /> Join
-        us in making a difference—one drop at a time!
+        vital blood donation drives happening in your community
       </p>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden'
         data-aos="fade-up"
