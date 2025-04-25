@@ -8,6 +8,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
+import './admin.css'
+import { Link } from 'react-router-dom'
 
 const AllBloodDonationPage = () => {
   const axiosPublic = useAxiosPublic()
@@ -27,10 +29,18 @@ const AllBloodDonationPage = () => {
   }
   return (
     <div>
-      <div className='bg-gradient-to-r from-red-500 to-red-300'>
+      <div className='adminBG'>
         <h1 className="text-center font-bold text-3xl uppercase p-5" data-aos="flip-right">
           Welcome {user?.displayName}
         </h1>
+      </div>
+      <div className="adminBannerBG">
+        <h1 className="capitalize text-4xl text-center mb-5">all donor</h1>
+        <div className="text-center">
+          <Link to={'/'}><button>Home</button></Link>
+          <span className="mx-2">/</span>
+          <button className="btn-active btn-info text-[#ef3d32]">donor</button>
+        </div>
       </div>
       <div>
         <div>

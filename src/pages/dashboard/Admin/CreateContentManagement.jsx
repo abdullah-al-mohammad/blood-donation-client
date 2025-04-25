@@ -10,6 +10,7 @@ import striptags from "striptags";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { Link } from "react-router-dom";
 // ..
 AOS.init();
 
@@ -84,10 +85,18 @@ const CreateContentManagement = ({ placeholder }) => {
   return (
     <div>
       <section>
-        <div className="bg-gradient-to-r from-red-500 to-red-300">
+        <div className="adminBG">
           <h1 className="text-center p-5 uppercase text-3xl" data-aos="flip-left">
-            Content Management Page
+            Create, Update & Organize Content
           </h1>
+        </div>
+        <div className="adminBannerBG">
+          <h1 className="capitalize text-4xl text-center mb-5">Admin Content Panel</h1>
+          <div className="text-center">
+            <Link to={'/'}><button>Home</button></Link>
+            <span className="mx-2">/</span>
+            <button className="btn-active btn-info text-[#ef3d32]">content</button>
+          </div>
         </div>
         <div className="">
           <div className="hero-content">

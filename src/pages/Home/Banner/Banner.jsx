@@ -7,7 +7,7 @@ AOS.init();
 const Banner = () => {
   return (
     <div id='banner' className='bannerBg min-h-screen py-32 relative'>
-      <div className='container mx-auto md:text-start text-white text-wrap text-center mt-10'>
+      <div className='container mx-auto md:text-start text-white text-wrap text-center mt-10 p-3'>
         <h1 className='text-6xl font-bold font-rubik_storm'
           data-aos="fade-right"
           data-aos-easing="ease-in-sine"

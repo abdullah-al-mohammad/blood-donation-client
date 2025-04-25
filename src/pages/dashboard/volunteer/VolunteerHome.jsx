@@ -7,6 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
+import './volunteer.css'
 
 const VolunteerHome = () => {
   const { user } = useAuth();
@@ -28,9 +29,19 @@ const VolunteerHome = () => {
   }
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
-        Welcome {user?.displayName}
-      </h1>
+      <div className="adminBG">
+        <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+          Welcome {user?.displayName}
+        </h1>
+      </div>
+      <div className="adminBannerBG">
+        <h1 className="capitalize text-4xl text-center mb-5">volunteer home page</h1>
+        <div className="text-center">
+          <Link to={'/'}><button>Home</button></Link>
+          <span className="mx-2">/</span>
+          <button className="btn-active btn-info text-[#ef3d32]">volunteer</button>
+        </div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-5">
         <div className="card card-border bg-base-100 w-64 shadow-xl" data-aos="zoom-in-down">
           <div className="card-body">

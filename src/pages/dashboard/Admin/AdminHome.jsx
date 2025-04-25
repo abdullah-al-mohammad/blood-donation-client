@@ -12,6 +12,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 import './admin.css'
+import { Link } from "react-router-dom";
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -76,9 +77,19 @@ const AdminHome = () => {
   return (
     <div>
       <section>
-        <h1 className="text-center font-bold text-3xl uppercase bg-gradient-to-r from-red-500 to-red-300 p-5 font-sans" data-aos="flip-right">
-          Welcome {user?.displayName}
-        </h1>
+        <div className="adminBG">
+          <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+            Welcome {user?.displayName}
+          </h1>
+        </div>
+        <div className="adminBannerBG">
+          <h1 className="capitalize text-4xl text-center mb-5">admin home page</h1>
+          <div className="text-center">
+            <Link to={'/'}><button>Home</button></Link>
+            <span className="mx-2">/</span>
+            <button className="btn-active btn-info text-[#ef3d32]">admin</button>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-evenly gap-6 mt-5 grid-flow-dense" data-aos="zoom-in-down">
           <div className="card card-border bg-base-100 shadow-xl cardBorder">
             <div className="card-body">

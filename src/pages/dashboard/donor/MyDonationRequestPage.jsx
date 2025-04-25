@@ -3,6 +3,7 @@ import React from 'react'
 import useAxiosPublic from '../../../hooks/useAxiosPublic'
 import useAuth from '../../../hooks/useAuth'
 import MyDonation from './MyDonation'
+import { Link } from 'react-router-dom'
 
 const MyDonationRequestPage = () => {
   const axiosPublic = useAxiosPublic()
@@ -16,9 +17,19 @@ const MyDonationRequestPage = () => {
   })
   return (
     <div>
-      <h1 className="text-center font-bold text-3xl uppercase bg-slate-400 p-5" data-aos="fade-left">
-        Welcome {user?.displayName}
-      </h1>
+      <div className="adminBG">
+        <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+          Welcome {user?.displayName}
+        </h1>
+      </div>
+      <div className="adminBannerBG">
+        <h1 className="capitalize text-4xl text-center mb-5">my donation page</h1>
+        <div className="text-center">
+          <Link to={'/'}><button>Home</button></Link>
+          <span className="mx-2">/</span>
+          <button className="btn-active btn-info text-[#ef3d32]">donor</button>
+        </div>
+      </div>
       <div>
         <div>
           {myDonation.length > 0 ? (

@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [isVolunteer] = useVolunteer();
   return (
     <div className="flex">
-      <nav className="absolute lg:static z-10 lg:w-1/5 lg:[background:linear-gradient(to_bottom,_#8b00006a,_#b2222273,_#3b000073)]">
+      <nav className="absolute lg:static z-10 lg:w-1/5 lg:[background:linear-gradient(90deg,_black,_black,_#ef3d32)]">
         <div className="drawer lg:drawer-open lg:min-h-screen z-40">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col items-center justify-center">
@@ -35,7 +35,7 @@ const Dashboard = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="p-4 menu [background:linear-gradient(to_bottom,_#8b000088,_#b2222286,_#3b00008b)] lg:bg-none">
+            <ul className="p-4 menu [background:linear-gradient(90deg,_black,_black,_#ef3d32)] lg:bg-none">
               <li className="btn btn-active btn-error">
                 <NavLink to="profile">
                   <FaUser></FaUser>

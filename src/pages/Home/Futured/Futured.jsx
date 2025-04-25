@@ -12,14 +12,13 @@ AOS.init();
 
 const Futured = () => {
   return (
-    <section className="my-10 border-box"
+    <section className="my-10 border-box p-3"
       data-aos="fade-up"
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
     >
       <h5 className="text-center font-rubik_storm">Latest Blog & Update</h5>
-      <h1 className="text-6xl my-5 text-center font-rubik_storm">
-        Stay Connected: News, <br /> Events & Blood Drive Updates
+      <h1 className="text-6xl my-5 text-center font-rubik_storm">Events & Blood Drive Updates
       </h1>
       <p className="text-center mb-7 text-2xl font-rubik_storm">
         Stay informed and engaged with the latest news, upcoming events, and
@@ -38,7 +37,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl">Why blood donation matters.?</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Why blood donation matters.?</h2>
             <p>
               Every drop of blood can make a difference. Donating blood is a
               simple yet powerful way to save lives. br Join our mission to ensure
@@ -57,7 +56,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl">Artificial Blood Development</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Artificial Blood Development</h2>
             <p>
               Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
             </p>
@@ -74,7 +73,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl">Smart Apps for Donors</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 hover:text-[#ef3d32]">Smart Apps for Donors</h2>
             <p>
               Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
             </p>
@@ -91,7 +90,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl">Increasing Accessibility & Awareness</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Increasing Accessibility & Awareness</h2>
             <p>
               Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
             </p>
@@ -108,7 +107,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl">Enhanced Donor Experience</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 ease-in-out hover:text-[#ef3d32]">Enhanced Donor Experience</h2>
             <p>
               Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
             </p>

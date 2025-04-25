@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import striptags from "striptags";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ContentTable from "./ContentTable";
+import './volunteer.css'
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -79,9 +80,19 @@ const CreateContent = ({ placeholder }) => {
   return (
     <div>
       <section>
-        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
-          Content Management Page
-        </h1>
+        <div className="adminBG">
+          <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+            Welcome {user?.displayName}
+          </h1>
+        </div>
+        <div className="adminBannerBG">
+          <h1 className="capitalize text-4xl text-center mb-5">Content Management Page</h1>
+          <div className="text-center">
+            <Link to={'/'}><button>Home</button></Link>
+            <span className="mx-2">/</span>
+            <button className="btn-active btn-info text-[#ef3d32]">volunteer</button>
+          </div>
+        </div>
         <div>
           <div className="hero-content">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

@@ -7,6 +7,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { Link } from "react-router-dom";
 // ..
 AOS.init();
 
@@ -77,8 +78,14 @@ const CreateDonationRequest = () => {
   };
   return (
     <div>
-      <div className="bg-gradient-to-r from-red-500 to-red-300">
-        <h1 className="text-center p-5 uppercase text-3xl font-sans" data-aos="flip-right">Request For Donation</h1>
+      <div className="adminBannerBG">
+        <h1 className="text-center p-5 uppercase text-3xl font-sans" data-aos="flip-right">Emergency Blood Request</h1>
+        <p className="text-center mb-5">Your information helps us find the right donor for your needs.</p>
+        <div className="text-center">
+          <Link to={'/'}><button>Home</button></Link>
+          <span className="mx-2">/</span>
+          <button className="btn-active btn-info text-[#ef3d32]">admin</button>
+        </div>
       </div>
       <div data-aos="zoom-in-down">
         <div>
