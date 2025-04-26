@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password)
   }
   // logout user
-  const logout = ()=>{
+  const logout = () => {
     return signOut(auth)
   }
   // check if the user is logged in
@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false); // Stop loading once auth state is confirmed
     }))
     return () => unsubsCribe(); // Properly clean up listener
-  }, [auth])
+  }, [])
 
   const userInfo = {
     user,

@@ -2,8 +2,6 @@
 import { Link } from 'react-router-dom'
 export const ProfileTable = ({ user }) => {
   const { name, email, image, district, subDistrict, blood, _id } = user
-  console.log(user);
-
 
   return (
     <tr>

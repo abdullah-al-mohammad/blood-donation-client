@@ -110,7 +110,7 @@ const Navbar = () => {
             className="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm"
           >
             <li>
-              <NavLink to={'/dashboard'}>Dashboard</NavLink>
+              <NavLink to={'dashboard/profile'}>Dashboard</NavLink>
             </li>
             <li>
               <button onClick={handleLogout} type="button">Logout</button>
