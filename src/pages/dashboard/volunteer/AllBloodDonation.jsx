@@ -36,7 +36,7 @@ const AllBloodDonation = () => {
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>
-          <button className="btn-active btn-info text-[#ef3d32]">admin</button>
+          <button className="btn-active btn-info text-[#ef3d32]">volunteer</button>
         </div>
       </div>
       <div>

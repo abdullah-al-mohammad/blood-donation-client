@@ -26,7 +26,9 @@ const VolunteerHome = () => {
     },
   });
   if (loading) {
-    return <span className="loading loading-spinner loading-xl"></span>;
+    return <div className='flex justify-center items-center h-screen z-10'>
+      <progress className="loading loading-ring loading-xl"></progress>
+    </div>
   }
   return (
     <div>
@@ -43,8 +45,8 @@ const VolunteerHome = () => {
           <button className="btn-active btn-info text-[#ef3d32]">volunteer</button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-5">
-        <div className="card card-border bg-base-100 w-64 shadow-xl" data-aos="zoom-in-down">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-5">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -60,7 +62,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 w-64 shadow-xl md:my-0 my-5" data-aos="zoom-in-down">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl md:my-0 my-5" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -78,7 +80,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 w-64 shadow-xl" data-aos="zoom-in-down">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
