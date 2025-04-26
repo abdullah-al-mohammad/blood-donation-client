@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
       {
         path: 'donationDetails/:id',
         element: <BloodDonationRequestDetails></BloodDonationRequestDetails>,
-        loader: ({ params }) => fetch(`https://blood-donation-77604.web.app/donations/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5173/donations/${params.id}`)
       },
       {
         path: 'blog',
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
       {
         path: 'details/:id',
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://blood-donation-77604.web.app/blogs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5173/blogs/${params.id}`)
       },
       {
         path: 'register',
@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateProfile/:id',
         element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://blood-donation-77604.web.app/users/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5173/users/${params.id}`)
       },
       // donor page route
       {
@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateDonationRequest/:id',
         element: <DonorRoute><UpdateDonation></UpdateDonation></DonorRoute>,
-        loader: ({ params }) => fetch(`https://blood-donation-77604.web.app/donations/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5173/donations/${params.id}`)
       },
       // Admin route page
       {
@@ -126,7 +126,7 @@ export const router = createBrowserRouter([
       {
         path: 'updateContent/:id',
         element: <AdminRoute><UpdateContent></UpdateContent></AdminRoute>,
-        loader: ({ params }) => fetch(`https://blood-donation-77604.web.app/blogs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5173/blogs/${params.id}`)
       },
 
       // Volunteer route page
