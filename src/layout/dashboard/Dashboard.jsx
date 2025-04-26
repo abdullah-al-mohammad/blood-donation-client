@@ -113,7 +113,7 @@ const Dashboard = () => {
           </div>
         </div>
       </nav>
-      <div className="w-full max-w-screen-2xl mx-auto">
+      <div className="lg:w-full max-w-screen-xl lg:mx-auto p-3">
         <Outlet></Outlet>
       </div>
     </div>
