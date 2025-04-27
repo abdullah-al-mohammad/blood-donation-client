@@ -1,4 +1,5 @@
 
+import Search from '../../SearchPage/Search'
 import Banner from '../Banner/Banner'
 import Contact from '../Contact/Contact'
 import Futured from '../Futured/Futured'
@@ -11,6 +12,7 @@ const Home = () => {
       <div className="max-w-screen-xl mx-auto">
         <OurServices></OurServices>
         <Futured></Futured>
+        <Search></Search>
       </div>
       <Contact></Contact>
     </div>

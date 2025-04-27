@@ -5,3 +5,9 @@
     background-size: cover;
     padding: 100px 120px;
 }
+
+@media screen and (max-width: 768px){
+    .contactBg{
+        padding: 50px 20px;
+    }
+}

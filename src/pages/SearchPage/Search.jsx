@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useState, useRef } from "react";
 import html2pdf from "html2pdf.js";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [blood, setBlood] = useState("");
@@ -9,7 +10,7 @@ const Search = () => {
   const [subDistrict, setSubDistrict] = useState("");
   const [filteredResult, setFilteredResult] = useState([])
   const axiosPublic = useAxiosPublic()
-  const pdfRef = useRef()
+  const navigate = useNavigate()
 
   const { data: search = [] } = useQuery({
     queryKey: ['search'],
@@ -28,12 +29,9 @@ const Search = () => {
       );
     });
 
-    setFilteredResult(filteredData);
-  }
-  // pdf download function
-  const downloadPDF = () => {
-    const element = pdfRef.current;
-    html2pdf().from(element).save("search-results.pdf")
+    // setFilteredResult(filteredData);
+    // Navigate to /search-results page with filtered data
+    navigate('/search-results', { state: { results: filteredData } });
   }
 
   return (
@@ -55,34 +53,6 @@ const Search = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* filter result display */}
-      <div className="mt-4">
-        <h3 className="text-lg font-semibold">Search Results:</h3>
-        <div ref={pdfRef} className="p-4 rounded shadow">
-          {filteredResult.length > 0 ? (
-            <ul className="list-disc pl-4">
-              {filteredResult.map((result, index) => (
-                <li key={index} className="border p-2 rounded-md shadow-sm">
-                  <strong>Blood Group:</strong> {result.bloodGroup} <br />
-                  <strong>District:</strong> {result?.district?.value} <br />
-                  <strong>Sub-District:</strong> {result?.subDistrict?.value}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500">No results found.</p>
-          )}
-        </div>
-        {/* Download PDF Button */}
-        {filteredResult.length > 0 && (
-          <button
-            onClick={downloadPDF}
-            className="mt-4 px-4 py-2 bg-red-600 text-white rounded shadow hover:bg-red-700"
-          >
-            Download PDF
-          </button>
-        )}
       </div>
     </div>
   );

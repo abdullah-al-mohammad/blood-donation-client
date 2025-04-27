@@ -12,15 +12,15 @@ AOS.init();
 
 const Futured = () => {
   return (
-    <section className="my-10 border-box p-3"
+    <section className="mb-40 border-box p-3"
       data-aos="fade-up"
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
     >
       <h5 className="text-center font-rubik_storm">Latest Blog & Update</h5>
-      <h1 className="text-6xl my-5 text-center font-rubik_storm">Events & Blood Drive Updates
+      <h1 className="text-4xl md:text-6xl py-10 text-center font-rubik_storm">Events & Blood Drive Updates
       </h1>
-      <p className="text-center mb-7 text-2xl font-rubik_storm">
+      <p className="text-center pb-16 md:text-2xl font-rubik_storm">
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>
@@ -43,8 +43,8 @@ const Futured = () => {
               simple yet powerful way to save lives. br Join our mission to ensure
               that no one has to suffer due to a shortage of blood.
             </p>
-            <div className="card-actions justify-end">
-              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
+            <div className="card-actions justify-end border-b">
+              {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ const Futured = () => {
               Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
             </p>
             <div className="card-actions justify-end">
-              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
+              {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Futured = () => {
               Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
+              {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ const Futured = () => {
               Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
+              {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ const Futured = () => {
               Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
             </p>
             <div className="card-actions justify-end">
-              <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button>
+              {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
         </div>

@@ -27,6 +27,7 @@ import BloodDonationRequest from "../pages/Home/bloodDonorRequest/BloodDonationR
 import BloodDonationRequestDetails from "../pages/Home/bloodDonationRequestDetails/BloodDonationRequestDetails";
 import Blog from "../pages/Blogs/Blog";
 import BlogDetails from "../pages/Blogs/BlogDetails";
+import SearchResult from "../pages/SearchPage/SearchResult";
 
 
 
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: 'search',
         element: <Search></Search>
+      },
+      {
+        path: 'search-results',
+        element: <SearchResult></SearchResult>
       },
       {
         path: 'donation',
