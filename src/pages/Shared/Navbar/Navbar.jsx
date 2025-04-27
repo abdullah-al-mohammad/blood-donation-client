@@ -62,7 +62,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className={`navbar fixed z-10 text-white transition-all duration-500 ${scrolled ? "bg-black shadow-md text-white" : "bg-transparent text-white"}`}>
+    <div className={`navbar fixed z-10 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white" : "bg-transparent text-white"}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

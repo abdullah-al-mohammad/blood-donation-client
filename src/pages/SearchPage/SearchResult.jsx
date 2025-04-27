@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRef } from "react";
+import html2pdf from "html2pdf.js";
 
 const SearchResult = () => {
   const location = useLocation();
@@ -13,17 +14,20 @@ const SearchResult = () => {
     html2pdf().from(element).save("search-results.pdf")
   }
   return (
-    <div>{/* filter result display */}
-      <div className="mt-4">
-        <h3 className="text-lg font-semibold">Search Results:</h3>
+    <div className='container mx-auto'>{/* filter result display */}
+      <div className="pt-16">
+        <div className='text-center mb-10'>
+        <h3 className="text-4xl md:text-6xl font-semibold mb-10">Available Blood Donors</h3>
+        <p className='md:text-2xl'>We found <span className='text-bold_red-0'>{results.length}</span> items matching your search</p>
+        </div>
         <div ref={pdfRef} className="p-4 rounded shadow">
           {results.length > 0 ? (
-            <ul className="list-disc pl-4">
+            <ul className='max-w-screen-xl'>
               {results.map((result, index) => (
                 <li key={index} className="border p-2 rounded-md shadow-sm">
-                  <strong>Blood Group:</strong> {result.bloodGroup} <br />
-                  <strong>District:</strong> {result?.district?.value} <br />
-                  <strong>Sub-District:</strong> {result?.subDistrict?.value}
+                  <strong>Blood Group : </strong><span className='text-bold_red-0'>{result.bloodGroup}</span>
+                  <strong className='ml-3'>District : </strong><span className='text-bold_red-0'>{result?.district?.value}</span>
+                  <strong className='ml-3'>Sub-District : </strong><span className='text-bold_red-0'>{result?.subDistrict?.value}</span>
                 </li>
               ))}
             </ul>
@@ -40,7 +44,8 @@ const SearchResult = () => {
             Download PDF
           </button>
         )}
-      </div></div>
+      </div>
+      </div>
   )
 }
 

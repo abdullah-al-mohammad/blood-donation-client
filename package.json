@@ -16,7 +16,7 @@
     "axios": "^1.8.2",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
-    "firebase": "^11.4.0",
+    "firebase": "^11.6.1",
     "html2pdf.js": "^0.10.3",
     "icons": "^1.0.0",
     "jodit-react": "^5.2.15",

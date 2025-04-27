@@ -17,7 +17,7 @@ const Futured = () => {
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
     >
-      <h5 className="text-center font-rubik_storm">Latest Blog & Update</h5>
+      <h5 className="text-center font-rubik_storm text-bold_red-0">Latest Blog & Update</h5>
       <h1 className="text-4xl md:text-6xl py-10 text-center font-rubik_storm">Events & Blood Drive Updates
       </h1>
       <p className="text-center pb-16 md:text-2xl font-rubik_storm">
@@ -37,13 +37,13 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Why blood donation matters.?</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Why blood donation matters.?</h2>
             <p>
               Every drop of blood can make a difference. Donating blood is a
               simple yet powerful way to save lives. br Join our mission to ensure
               that no one has to suffer due to a shortage of blood.
             </p>
-            <div className="card-actions justify-end border-b">
+            <div className="card-actions justify-end">
               {/* <button className="btn [background:linear-gradient(25deg,_red_5%,_white_90%)]">Read More...</button> */}
             </div>
           </div>
@@ -56,7 +56,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Artificial Blood Development</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Artificial Blood Development</h2>
             <p>
               Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
             </p>
@@ -73,7 +73,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all duration-500 hover:text-[#ef3d32]">Smart Apps for Donors</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 hover:text-bold_red-0">Smart Apps for Donors</h2>
             <p>
               Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
             </p>
@@ -90,7 +90,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-[#ef3d32]">Increasing Accessibility & Awareness</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Increasing Accessibility & Awareness</h2>
             <p>
               Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
             </p>
@@ -107,7 +107,7 @@ const Futured = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all duration-500 ease-in-out hover:text-[#ef3d32]">Enhanced Donor Experience</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 ease-in-out hover:text-bold_red-0">Enhanced Donor Experience</h2>
             <p>
               Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
             </p>

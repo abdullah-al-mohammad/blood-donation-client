@@ -1,14 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useState, useRef } from "react";
-import html2pdf from "html2pdf.js";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import searchimg from '../../assets/search.jpg'
 
 const Search = () => {
   const [blood, setBlood] = useState("");
   const [district, setDistrict] = useState("");
   const [subDistrict, setSubDistrict] = useState("");
-  const [filteredResult, setFilteredResult] = useState([])
   const axiosPublic = useAxiosPublic()
   const navigate = useNavigate()
 
@@ -35,20 +34,24 @@ const Search = () => {
   }
 
   return (
-    <div>
-      <div className="hero bg-base-200 pt-20">
-        <div>
-          <h1 className="text-5xl font-bold text-center">Search your donor</h1>
-          <div>
+    <div className="hero bg-bold_red-0 mb-16">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="text-center">
+          {/* <img className="max-w-screen-sm" src={searchimg} alt="" /> */}
+          <h1 className="text-4xl md:text-6xl font-bold text-center text-[#f]">Find a Lifesaver Near You</h1>
+          <p className="md:text-2xl">Search by blood group, district, or sub-district and connect with donors instantly</p>
+        </div>
+      <div>
+          <div className="card bg-[#eaedf1] w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
               <fieldset>
                 <label className="fieldset-label">Blood-Group</label>
-                <input type="text" value={blood} onChange={(e) => setBlood(e.target.value)} className="input" placeholder="blood-group" />
+                <input type="text" value={blood} onChange={(e) => setBlood(e.target.value)} className="input" placeholder="Enter blood group (e.g., A+, O-)" />
                 <label className="fieldset-label">District</label>
-                <input type="text" value={district} onChange={(e) => setDistrict(e.target.value)} className="input" placeholder="district" />
+                <input type="text" value={district} onChange={(e) => setDistrict(e.target.value)} className="input" placeholder="Enter your district" />
                 <label className="fieldset-label">sub-District</label>
-                <input type="text" value={subDistrict} onChange={(e) => setSubDistrict(e.target.value)} className="input" placeholder="subDistrict" />
-                <button onClick={handleSearch} className="btn btn-neutral mt-4">search</button>
+                <input type="text" value={subDistrict} onChange={(e) => setSubDistrict(e.target.value)} className="input" placeholder="Enter your sub-district" />
+                <button onClick={handleSearch} className="btn bg-[#ef3d32] mt-4 border-[#ef3d32]">Find Donors</button>
               </fieldset>
             </div>
           </div>
