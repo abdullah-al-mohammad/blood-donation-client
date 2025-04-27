@@ -20,7 +20,7 @@ const Futured = () => {
       <h5 className="text-center font-rubik_storm text-bold_red-0">Latest Blog & Update</h5>
       <h1 className="text-4xl md:text-6xl py-10 text-center font-rubik_storm">Events & Blood Drive Updates
       </h1>
-      <p className="text-center pb-16 md:text-2xl font-rubik_storm">
+      <p className="text-center pb-16 md:text-2xl font-rubik_storm ">
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>
