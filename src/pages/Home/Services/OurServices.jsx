@@ -5,9 +5,10 @@ import service3 from '../../../assets/service3.jpg'
 const OurServices = () => {
   return (
     <div className='font-rubik_storm mb-40'>
-      <div className='text-center'>
+      <div className='text-center pb-16'>
         <p className='font-bold pb-10 text-bold_red-0'>What We Do</p>
-        <h1 className='text-4xl md:text-6xl capitalize font-bold pb-16'>our best services</h1>
+        <h1 className='text-4xl md:text-6xl capitalize font-bold pb-10'>our best services</h1>
+        <p>Discover the services that make us stand out and help you achieve your goals with ease</p>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5 place-content-center place-items-center'>
         <div className="overflow-hidden md:order-1 p-3">
