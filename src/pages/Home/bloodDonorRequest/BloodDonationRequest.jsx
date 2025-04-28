@@ -8,7 +8,7 @@ const BloodDonationRequest = () => {
   const { data: donors = [], refetch } = useQuery({
     queryKey: ['donors'],
     queryFn: async () => {
-      const res = await axiosPublic.get('donations')
+      const res = await axiosPublic.get('/donations')
       return res.data
     }
   })

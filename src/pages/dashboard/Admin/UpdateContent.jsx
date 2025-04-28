@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useState, useRef, useMemo } from "react";
@@ -72,9 +72,19 @@ const UpdateContent = ({ placeholder }) => {
   };
   return (
     <section>
-      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
-        Update Content
-      </h1>
+      <div className="adminBG">
+        <h1 className="text-center font-bold text-3xl uppercase p-5" data-aos="flip-right">
+          Update Your Content
+        </h1>
+      </div>
+      <div className="adminBannerBG">
+        <h1 className="capitalize text-4xl text-center mb-5">all users</h1>
+        <div className="text-center">
+          <Link to={'/'}><button>Home</button></Link>
+          <span className="mx-2">/</span>
+          <button className="btn-active btn-info text-[#ef3d32]">update</button>
+        </div>
+      </div>
       <div className="hero-content">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -98,7 +108,7 @@ const UpdateContent = ({ placeholder }) => {
                 <span className="label-text">Upload Profile</span>
               </label>
               <input
-                defaultValue={image}
+                // defaultValue={image}
                 type="file"
                 {...register("image")}
                 className="file-input w-full max-w-xs"
@@ -122,7 +132,7 @@ const UpdateContent = ({ placeholder }) => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Update Blog</button>
+              <button className="btn bg-bold_red-0 hover:bg-white hover:border-bold_red-0 hover:text-bold_red-0">Update Blog</button>
             </div>
           </form>
         </div>
