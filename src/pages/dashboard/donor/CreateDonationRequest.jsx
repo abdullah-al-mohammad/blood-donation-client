@@ -231,7 +231,7 @@ const CreateDonationRequest = () => {
                 </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Create Donation</button>
+                <button className="btn bg-bold_red-0 hover:bg-white hover:text-bold_red-0 hover:border-bold_red-0 transition duration-500 ease-in-out">Create Donation</button>
               </div>
             </form>
           </div>
