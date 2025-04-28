@@ -14,7 +14,7 @@ const Dashboard = () => {
   const [isDonor] = useDonor();
   const [isVolunteer] = useVolunteer();
   return (
-    <div className="flex">
+    <div className="lg:flex">
       <nav className="absolute lg:static z-10 lg:w-1/5 lg:[background:linear-gradient(90deg,_black,_black,_#ef3d32)]">
         <div className="drawer lg:drawer-open lg:min-h-screen z-40">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
