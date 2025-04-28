@@ -46,7 +46,7 @@ const VolunteerHome = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-5">
-        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl" data-aos="zoom-in-down">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl cardBorder" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -62,7 +62,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl md:my-0 my-5" data-aos="zoom-in-down">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl md:my-0 my-5 cardBorder" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>
@@ -80,7 +80,7 @@ const VolunteerHome = () => {
             </div>
           </div>
         </div>
-        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl" data-aos="zoom-in-down">
+        <div className="card card-border bg-base-100 min-w-full min-h-full shadow-xl cardBorder" data-aos="zoom-in-down">
           <div className="card-body">
             <div className="flex align-middle justify-between items-center gap-5">
               <div>

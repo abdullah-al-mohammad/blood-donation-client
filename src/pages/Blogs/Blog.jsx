@@ -25,7 +25,7 @@ const Blog = () => {
               <h2 className="card-title">{blog.title}</h2>  {/* Show blog title */}
               <p>{blog.plainTextContent}</p>  {/* Show blog content */}
               <div className="card-actions justify-end">
-                <Link to={`/details/${blog._id}`}><button className="btn btn-primary">Read More</button></Link>
+                <Link to={`/details/${blog._id}`}><button className="btn bg-bold_red-0 hover:bg-white hover:border-bold_red-0 hover:text-bold_red-0 transition duration-500 ease-in-out">Read More</button></Link>
               </div>
             </div>
           </div>

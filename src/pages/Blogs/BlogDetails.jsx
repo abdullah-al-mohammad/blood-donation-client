@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import './blog.css'
 
 const BlogDetails = () => {
   const { title, plainTextContent, image, status } = useLoaderData();
   return (
-    <div>
+    <div className="cardBorder">
       <div className="card bg-base-100 shadow-sm pt-20">
         <figure>
           <img src={image} alt="Shoes" />
