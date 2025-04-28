@@ -16,11 +16,12 @@ const Futured = () => {
       data-aos="fade-up"
       data-aos-easing='ease-in-sine'
       data-aos-duration='2000'
+      data-aos-once='true'
     >
-      <h5 className="text-center font-rubik_storm text-bold_red-0">Latest Blog & Update</h5>
-      <h1 className="text-4xl md:text-6xl py-10 text-center font-rubik_storm">Events & Blood Drive Updates
+      <h5 className="text-center font-rubik_storm text-bold_red-0 font-bold">Latest Blog & Update</h5>
+      <h1 className="text-4xl md:text-6xl py-6 text-center font-rubik_storm font-bold">Events & Blood Drive Updates
       </h1>
-      <p className="text-center pb-16 md:text-2xl font-rubik_storm ">
+      <p className="text-center pb-16 md:text-2xl font-rubik_storm lg:px-28">
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>
@@ -28,6 +29,7 @@ const Futured = () => {
         data-aos="fade-up"
         data-aos-easing='ease-in-sine'
         data-aos-duration='1000'
+        data-aos-once='true'
       >
         <div className="card bg-base-100 h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard">
           <figure>

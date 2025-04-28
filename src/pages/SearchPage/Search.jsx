@@ -34,14 +34,19 @@ const Search = () => {
   }
 
   return (
-    <div className="hero bg-bold_red-0 mb-16">
+    <div className="hero bg-bold_red-0 mb-16"
+      data-aos="zoom-in"
+      data-aos-easing='ease-in-sine'
+      data-aos-duration='2000'
+      data-aos-once="true"
+    >
       <div className="hero-content flex-col lg:flex-row-reverse">
-      <div className="text-center">
+        <div className="text-center">
           {/* <img className="max-w-screen-sm" src={searchimg} alt="" /> */}
-          <h1 className="text-4xl md:text-6xl font-bold text-center text-[#f]">Find a Lifesaver Near You</h1>
-          <p className="md:text-2xl">Search by blood group, district, or sub-district and connect with donors instantly</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-center pb-6">Find a Lifesaver Near You</h2>
+          <p className="md:text-2xl lg:px-14">Search by blood group, district, or sub-district and connect with donors instantly</p>
         </div>
-      <div>
+        <div>
           <div className="card bg-[#eaedf1] w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
               <fieldset>

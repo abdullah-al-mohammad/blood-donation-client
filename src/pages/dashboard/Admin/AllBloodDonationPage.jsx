@@ -42,34 +42,32 @@ const AllBloodDonationPage = () => {
           <button className="btn-active btn-info text-[#ef3d32]">donor</button>
         </div>
       </div>
-      <div>
-        <div>
-          {myDonation.length > 0 ? (
-            <table className="table" data-aos="zoom-in-down">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Location</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="relative">
-                {myDonation.map((donation) => (
-                  <AllBloodDonationPageTable key={donation._id} donation={donation} refetch={refetch}></AllBloodDonationPageTable>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <h3 className="text-center font-light py-56 pl-56">
-              Donations Request is not Found...
-            </h3>
-          )}
-        </div>
+      <div className='overflow-x-auto'>
+        {myDonation.length > 0 ? (
+          <table className="table" data-aos="zoom-in-down">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className="relative">
+              {myDonation.map((donation) => (
+                <AllBloodDonationPageTable key={donation._id} donation={donation} refetch={refetch}></AllBloodDonationPageTable>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <h3 className="text-center font-light py-56 pl-56">
+            Donations Request is not Found...
+          </h3>
+        )}
       </div>
     </div>
   )

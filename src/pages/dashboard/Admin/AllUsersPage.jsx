@@ -32,31 +32,29 @@ const AllUsersPage = () => {
           <button className="btn-active btn-info text-[#ef3d32]">users</button>
         </div>
       </div>
-      <div>
-        <div>
-          <table className="table" data-aos="zoom-in-down">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>image</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody className="relative">
-              {users.map((user) => (
-                <AllUsersTable
-                  key={user._id}
-                  user={user}
-                  loading={loading}
-                  refetch={refetch}
-                ></AllUsersTable>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="overflow-x-auto">
+        <table className="table" data-aos="zoom-in-down">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody className="relative">
+            {users.map((user) => (
+              <AllUsersTable
+                key={user._id}
+                user={user}
+                loading={loading}
+                refetch={refetch}
+              ></AllUsersTable>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

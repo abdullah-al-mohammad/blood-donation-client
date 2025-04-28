@@ -71,67 +71,63 @@ const UpdateContent = ({ placeholder }) => {
     }
   };
   return (
-    <div>
-      <section>
-        <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
-          Update Content
-        </h1>
-        <div>
-          <div className="hero-content">
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-              <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                {/* title field */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Title</span>
-                  </label>
-                  <input
-                    defaultValue={title}
-                    type="text"
-                    placeholder="Title"
-                    {...register("title")}
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-                {/* upload photo */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Upload Profile</span>
-                  </label>
-                  <input
-                    defaultValue={image}
-                    type="file"
-                    {...register("image")}
-                    className="file-input w-full max-w-xs"
-                  />
-                </div>
-                {/* blog content */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Full Address</span>
-                  </label>
-                  <div className="relative">
-                    <JoditEditor
-                      defaultValue={plainTextContent}
-                      ref={editor}
-                      value={content}
-                      config={config}
-                      tabIndex={1} // tabIndex of textarea
-                      onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                      onChange={(newContent) => { }}
-                    />
-                  </div>
-                </div>
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Update Blog</button>
-                </div>
-              </form>
+    <section>
+      <h1 className="text-center bg-slate-400 p-5 uppercase text-3xl">
+        Update Content
+      </h1>
+      <div className="hero-content">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            {/* title field */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Title</span>
+              </label>
+              <input
+                defaultValue={title}
+                type="text"
+                placeholder="Title"
+                {...register("title")}
+                className="input input-bordered"
+                required
+              />
             </div>
-          </div>
+            {/* upload photo */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Upload Profile</span>
+              </label>
+              <input
+                defaultValue={image}
+                type="file"
+                {...register("image")}
+                className="file-input w-full max-w-xs"
+              />
+            </div>
+            {/* blog content */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Full Address</span>
+              </label>
+              <div className="relative">
+                <JoditEditor
+                  defaultValue={plainTextContent}
+                  ref={editor}
+                  value={content}
+                  config={config}
+                  tabIndex={1} // tabIndex of textarea
+                  onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                  onChange={(newContent) => { }}
+                />
+              </div>
+            </div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary">Update Blog</button>
+            </div>
+          </form>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
 

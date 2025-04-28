@@ -39,32 +39,30 @@ const AllBloodDonation = () => {
           <button className="btn-active btn-info text-[#ef3d32]">volunteer</button>
         </div>
       </div>
-      <div>
-        <div>
-          {allDonation.length > 0 ? (
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Date</th>
-                  <th>Time</th>
-                  <th>Location</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody className="relative">
-                {allDonation.map(donation => <AllDonationTable key={donation._id} donation={donation} refetch={refetch}></AllDonationTable>)}
-              </tbody>
-            </table>
-          ) : (
-            <h3 className="text-center font-light py-56 pl-56">
-              Donations Request is not Found...
-            </h3>
-          )}
-        </div>
+      <div className='overflow-x-auto'>
+        {allDonation.length > 0 ? (
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className="relative">
+              {allDonation.map(donation => <AllDonationTable key={donation._id} donation={donation} refetch={refetch}></AllDonationTable>)}
+            </tbody>
+          </table>
+        ) : (
+          <h3 className="text-center font-light py-56 pl-56">
+            Donations Request is not Found...
+          </h3>
+        )}
       </div>
     </div>
   )

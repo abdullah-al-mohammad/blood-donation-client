@@ -45,7 +45,7 @@ const DonorDashBoard = () => {
         </div>
       </div>
       <div>
-        <div>
+        <div className="overflow-x-auto">
           {donations.length > 0 ? (
             <table className="table">
               {/* head */}

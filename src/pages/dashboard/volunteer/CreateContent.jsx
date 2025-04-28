@@ -147,26 +147,22 @@ const CreateContent = ({ placeholder }) => {
       </section>
       {/* content table */}
       <section>
-        <div>
-          <div>
-            <div className="overflow-x-auto">
-              <table className="table">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody className="relative">
-                  {contents.map((contentBlog) => <ContentTable key={contentBlog._id} contentBlog={contentBlog} refetch={refetch}></ContentTable>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody className="relative">
+              {contents.map((contentBlog) => <ContentTable key={contentBlog._id} contentBlog={contentBlog} refetch={refetch}></ContentTable>
+              )}
+            </tbody>
+          </table>
         </div>
       </section>
     </div>

@@ -143,7 +143,7 @@ const CreateContentManagement = ({ placeholder }) => {
                   </div>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Create Blog</button>
+                  <button className="btn bg-bold_red-0 hover:bg-white hover:text-bold_red-0 hover:border duration-500 ease-in-out transition">Post Blog</button>
                 </div>
               </form>
             </div>
@@ -152,32 +152,28 @@ const CreateContentManagement = ({ placeholder }) => {
       </section>
       {/* content table */}
       <section>
-        <div>
-          <div>
-            <div>
-              <table className="table">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody className="relative">
-                  {contents.map((contentBlog) => (
-                    <ContentManagementTable
-                      key={contentBlog._id}
-                      contentBlog={contentBlog}
-                      loading={loading}
-                      refetch={refetch}
-                    ></ContentManagementTable>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody className="relative">
+              {contents.map((contentBlog) => (
+                <ContentManagementTable
+                  key={contentBlog._id}
+                  contentBlog={contentBlog}
+                  loading={loading}
+                  refetch={refetch}
+                ></ContentManagementTable>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
     </div>

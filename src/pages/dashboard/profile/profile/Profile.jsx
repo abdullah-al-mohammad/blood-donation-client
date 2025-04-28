@@ -7,7 +7,6 @@ const Profile = () => {
 
 
   return (
-    // <div>
     <table className="table">
       {/* head */}
       <thead>
@@ -23,7 +22,6 @@ const Profile = () => {
         {users.map(user => <ProfileTable key={user._id} user={user}></ProfileTable>)}
       </tbody>
     </table>
-    // </div>
   )
 }
 
