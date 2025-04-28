@@ -37,7 +37,7 @@ const DonorDashBoard = () => {
         </h1>
       </div>
       <div className="adminBannerBG">
-        <h1 className="capitalize text-4xl text-center mb-5">donor dashboard</h1>
+        <h1 className="capitalize text-2xl md:text-4xl text-center mb-5">donor dashboard</h1>
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>

@@ -79,7 +79,7 @@ const CreateDonationRequest = () => {
   return (
     <div>
       <div className="adminBannerBG">
-        <h1 className="text-center p-5 uppercase text-3xl font-sans" data-aos="flip-right">Emergency Blood Request</h1>
+        <h1 className="text-center p-5 uppercase text-2xl md:text-4xl font-sans" data-aos="flip-right">Emergency Blood Request</h1>
         <p className="text-center mb-5">Your information helps us find the right donor for your needs.</p>
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
