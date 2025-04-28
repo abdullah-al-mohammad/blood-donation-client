@@ -104,7 +104,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'updateDonationRequest/:id',
-        element: <DonorRoute><UpdateDonation></UpdateDonation></DonorRoute>,
+        element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
       },
       // Admin route page
