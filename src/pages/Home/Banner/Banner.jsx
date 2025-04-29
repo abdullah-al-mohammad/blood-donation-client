@@ -6,7 +6,7 @@ AOS.init();
 
 const Banner = () => {
   return (
-    <div id='banner' className='bannerBg min-h-screen pt-40 mb-40'>
+    <div id='banner' className='bannerBg min-h-screen pt-40 mb-40 pb-10 lg:pb-0'>
       <div className='container mx-auto md:text-start text-white text-wrap text-center p-3'>
         <h1 className='text-4xl md:text-6xl font-bold font-rubik_storm'
           data-aos="fade-top"

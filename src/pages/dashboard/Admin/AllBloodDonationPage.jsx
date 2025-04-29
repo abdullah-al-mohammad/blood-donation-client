@@ -24,7 +24,7 @@ const AllBloodDonationPage = () => {
   })
   if (loading) {
     return <div className='flex justify-center items-center h-screen'>
-      <progress className="loading loading-spinner loading-xl"></progress>
+      <progress className="loading loading-ring loading-xl"></progress>
     </div>
   }
   return (
@@ -42,7 +42,7 @@ const AllBloodDonationPage = () => {
           <button className="btn-active btn-info text-[#ef3d32]">donor</button>
         </div>
       </div>
-      <div className='overflow-x-auto'>
+      <div className='overflow-x-scroll'>
         {myDonation.length > 0 ? (
           <table className="table" data-aos="zoom-in-down">
             {/* head */}

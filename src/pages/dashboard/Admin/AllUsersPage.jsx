@@ -21,7 +21,7 @@ const AllUsersPage = () => {
     <div>
       <div className="adminBG">
         <h1 className="text-center font-bold text-3xl uppercase p-5" data-aos="flip-right">
-          All Users Profile Details For Admin
+          All Users Profile Details
         </h1>
       </div>
       <div className="adminBannerBG">

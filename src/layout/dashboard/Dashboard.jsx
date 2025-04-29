@@ -22,7 +22,7 @@ const Dashboard = () => {
             {/* Page content here */}
             <label
               htmlFor="my-drawer-2"
-              className="swap swap-rotate drawer-button lg:hidden p-2 text-2xl text-black bg-slate-400"
+              className="swap swap-rotate drawer-button lg:hidden p-2 text-2xl text-bold_red-0 absolute top-3 left-3"
             >
               <input type="checkbox" />
               {/* close icon */}
@@ -113,7 +113,7 @@ const Dashboard = () => {
           </div>
         </div>
       </nav>
-      <div className="lg:w-full max-w-screen-sm lg:max-w-screen-xl lg:mx-auto p-3 overflow-x-hidden">
+      <div className="lg:w-full max-w-screen-xl lg:mx-auto p-3 overflow-x-auto">
         <Outlet></Outlet>
       </div>
     </div>
