@@ -62,61 +62,63 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className={`navbar fixed z-10 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white" : "bg-transparent text-white"}`}>
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className={`navbar fixed z-50 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white transition duration-500 ease-in-out" : "bg-black opacity-30 text-white"}`}>
+      <div className="container mx-auto">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />{" "}
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+              {navLinks}
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {navLinks}
-          </ul>
+          <Link to={'/'} className="btn bg-transparent border-none shadow-none text-xl">
+            <img className="w-10 h-10" src={logo} alt="" />
+            <h5>Blood Donation</h5>
+          </Link>
         </div>
-        <Link to={'/'} className="btn bg-transparent border-none shadow-none text-xl">
-          <img className="w-10 h-10" src={logo} alt="" />
-          <h5>Blood Donation</h5>
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
-        </div>
-        {user && <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-          >
-            <img className="w-8 h-8 rounded-full" src={user?.photoURL} alt="" />
+        <div className="navbar-end">
+          <div className="hidden lg:flex">
+            <ul className="menu menu-horizontal px-1">{navLinks}</ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm"
-          >
-            <li>
-              <NavLink to={'dashboard/profile'}>Dashboard</NavLink>
-            </li>
-            <li>
-              <button onClick={handleLogout} type="button">Logout</button>
-            </li>
-          </ul>
-        </div>}
+          {user && <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+            >
+              <img className="w-8 h-8 rounded-full" src={user?.photoURL} alt="" />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm"
+            >
+              <li>
+                <NavLink to={'dashboard/profile'}>Dashboard</NavLink>
+              </li>
+              <li>
+                <button onClick={handleLogout} type="button">Logout</button>
+              </li>
+            </ul>
+          </div>}
+        </div>
       </div>
     </div>
   );
