@@ -62,7 +62,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className={`navbar fixed z-50 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white transition duration-500 ease-in-out" : "bg-black opacity-30 text-white"}`}>
+    <div className={`navbar fixed z-50 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white transition duration-500 ease-in-out" : "bg-transparent text-white"}`}>
       <div className="container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

@@ -250,7 +250,7 @@ const Register = () => {
               </div>
               {<p className="text-red-500">{error ? error : ''}</p>}
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                <button className="btn  bg-bold_red-0 border-bold_red-0 transition duration-500 ease-in-out hover:bg-white hover:text-bold_red-0 px-8">Register</button>
               </div>
             </form>
             <p className="p-5">Already have an account please ? <Link className="text-success" to={'/login'}>Login</Link> </p>

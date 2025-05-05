@@ -43,7 +43,7 @@ const Search = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center">
           {/* <img className="max-w-screen-sm" src={searchimg} alt="" /> */}
-          <h2 className="text-4xl md:text-6xl font-bold text-center pb-6">Find a Lifesaver Near You</h2>
+          <h2 className="text-4xl md:text-6xl  text-center pb-6">Find a Lifesaver Near You</h2>
           <p className="md:text-2xl lg:px-14">Search by blood group, district, or sub-district and connect with donors instantly</p>
         </div>
         <div>

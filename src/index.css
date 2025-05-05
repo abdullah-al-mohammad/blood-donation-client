@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+h1,h2,h3,h4,h5{
+     font-family: "IM Fell English SC", serif;
+}
+p, span, li, a, button, input, textarea div{
+  font-family: "Tagesschrift", system-ui;
+}
+.btn{
+  font-weight: 500;
+}

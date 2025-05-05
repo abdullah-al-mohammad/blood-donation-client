@@ -10,6 +10,7 @@ export default {
         sans: ['poppins', 'sans-serif'],
         rubik_storm: ["Rubik Storm", 'system-ui'],
         oswald: ["Oswald", 'sans-serif'],
+        tagesschrift: ["Tagesschrift", 'system-ui']
       },
       colors: {
         bold_red: ['#ef3d32']

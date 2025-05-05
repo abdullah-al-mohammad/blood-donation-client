@@ -18,10 +18,10 @@ const Futured = () => {
       data-aos-duration='2000'
       data-aos-once='true'
     >
-      <h5 className="text-center font-rubik_storm text-bold_red-0 font-bold">Latest Blog & Update</h5>
-      <h1 className="text-4xl md:text-6xl py-6 text-center font-rubik_storm font-bold">Events & Blood Drive Updates
+      <h5 className="text-center text-bold_red-0 font-bold">Latest Blog & Update</h5>
+      <h1 className="text-4xl md:text-6xl py-6 text-center">Events & Blood Drive Updates
       </h1>
-      <p className="text-center pb-16 md:text-2xl font-rubik_storm lg:px-28">
+      <p className="text-center pb-16 md:text-2xl lg:px-28">
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>

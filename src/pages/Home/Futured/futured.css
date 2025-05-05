@@ -15,6 +15,3 @@
 .futuredCard:hover::after{
   width: 100%;
 }
-h1,h2,h3,h5,p{
-  font-family: "Rubik Storm", system-ui;
-}
