@@ -18,7 +18,7 @@ const Futured = () => {
       data-aos-duration='2000'
       data-aos-once='true'
     >
-      <h5 className="text-center text-bold_red-0 font-bold">Latest Blog & Update</h5>
+      <h5 className="text-center text-bold_red-0 ">Latest Blog & Update</h5>
       <h1 className="text-4xl md:text-6xl py-6 text-center">Events & Blood Drive Updates
       </h1>
       <p className="text-center pb-16 md:text-2xl lg:px-28">
