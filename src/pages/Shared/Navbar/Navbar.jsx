@@ -104,7 +104,7 @@ const Navbar = () => {
               tabIndex={0}
               role="button"
             >
-              <img className="w-8 h-8 rounded-full" src={user?.photoURL} alt="" />
+              <img className="w-8 h-8 rounded-full inline" src={user?.photoURL} alt="" />
             </div>
             <ul
               tabIndex={0}
