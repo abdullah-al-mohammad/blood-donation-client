@@ -1,5 +1,3 @@
-import React from 'react'
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -15,7 +13,6 @@ const AllBloodDonationPageTable = ({ donation, refetch }) => {
     subDistrict,
   } = donation;
   const [date, time] = donationDateTime.split("T");
-  const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure()
 
   const handleUpdateStatus = async (newStatus) => {

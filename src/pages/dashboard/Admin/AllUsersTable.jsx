@@ -1,10 +1,7 @@
-import React from 'react'
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const AllUsersTable = ({ user, loading, refetch }) => {
   const { name, email, status, image, _id, role, district, subDistrict, blood } = user
-  const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
 
   const handleUpdateRole = async (newRole) => {

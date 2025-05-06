@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 
-h1,h2,h3,h4,h5{
-     font-family: "IM Fell English SC", serif;
+h1, h2, h3, h4, h5, h6{
+    /* font-family: "Josefin Sans", sans-serif; */
+     font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
 }
-p, span, li, a, button, input, textarea div{
-  font-family: "Tagesschrift", system-ui;
-}
-.btn{
-  font-weight: 500;
+p, span, a, li, button{
+   font-family: "Roboto", sans-serif;
+  
 }

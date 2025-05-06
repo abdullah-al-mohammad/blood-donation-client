@@ -32,7 +32,9 @@ const UpdateDonation = () => {
   });
 
   if (loading) {
-    return <span>loading....</span>;
+    return <div className='flex justify-center items-center h-screen'>
+      <progress className="loading loading-ring loading-xl"></progress>
+    </div>
   }
 
   const { districts = [], subDistricts = [] } = data || {};

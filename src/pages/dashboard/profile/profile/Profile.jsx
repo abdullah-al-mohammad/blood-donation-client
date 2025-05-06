@@ -16,7 +16,7 @@ const Profile = () => {
   return (
     <div>
       <div className="adminBG">
-        <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+        <h1 className="text-center font-bold text-3xl uppercase p-5 " data-aos="flip-right">
           Welcome {user?.displayName}
         </h1>
       </div>

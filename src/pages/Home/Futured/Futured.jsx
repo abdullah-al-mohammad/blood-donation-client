@@ -28,10 +28,14 @@ const Futured = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden'
         data-aos="fade-up"
         data-aos-easing='ease-in-sine'
-        data-aos-duration='1000'
+        data-aos-duration='2000'
         data-aos-once='true'
       >
-        <div className="card bg-base-100 h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard">
+        <div className="card bg-base-100 h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard"
+          data-aos="fade-up"
+          data-aos-easing='ease-in-sine'
+          data-aos-duration='2000'
+          data-aos-once='true'>
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future1}
@@ -50,7 +54,11 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
+          data-aos="fade-up"
+          data-aos-easing='ease-in-sine'
+          data-aos-duration='2000'
+          data-aos-once='true'>
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future2}
@@ -67,7 +75,11 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
+          data-aos="fade-up"
+          data-aos-easing='ease-in-sine'
+          data-aos-duration='2000'
+          data-aos-once='true'>
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future3}
@@ -84,7 +96,11 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
+          data-aos="fade-up"
+          data-aos-easing='ease-in-sine'
+          data-aos-duration='2000'
+          data-aos-once='true'>
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future4}
@@ -101,7 +117,11 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
+        <div className="card bg-base-100 w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
+          data-aos="fade-up"
+          data-aos-easing='ease-in-sine'
+          data-aos-duration='2000'
+          data-aos-once='true'>
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future5}

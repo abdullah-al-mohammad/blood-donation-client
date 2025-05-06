@@ -25,14 +25,14 @@ const DonorDashBoard = () => {
 
   if (loading) {
     return <div className='flex justify-center items-center h-screen'>
-      <progress className="loading loading-spinner loading-xl"></progress>
+      <progress className="loading loading-ring loading-xl"></progress>
     </div>
   }
 
   return (
     <div>
       <div className="adminBG">
-        <h1 className="text-center font-bold text-3xl uppercase p-5 font-sans" data-aos="flip-right">
+        <h1 className="text-center font-bold text-3xl uppercase p-5 " data-aos="flip-right">
           Welcome {user?.displayName}
         </h1>
       </div>
