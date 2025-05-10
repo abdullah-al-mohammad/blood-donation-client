@@ -15,6 +15,22 @@
 .cardBorder:hover::after{
   width: 100%;
 }
+.cardBorder:hover .card-title{
+  color: #ef3d32;
+  transition:0.5s ease-in-out ;
+  -webkit-transition:0.5s ease-in-out ;
+  -moz-transition:0.5s ease-in-out ;
+  -ms-transition:0.5s ease-in-out ;
+  -o-transition:0.5s ease-in-out ;
+}
+.cardBorder:hover .icon{
+  color: #ef3d32;
+  transition:0.5s ease-in-out ;
+  -webkit-transition:0.5s ease-in-out ;
+  -moz-transition:0.5s ease-in-out ;
+  -ms-transition:0.5s ease-in-out ;
+  -o-transition:0.5s ease-in-out ;
+}
 .adminBG{
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0.397), #ef3d32), url('../../../assets/b.jpg');
   background-position: center;

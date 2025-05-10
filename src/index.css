@@ -22,12 +22,12 @@ body {
 }
 
 /* If user's system is in dark mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   body {
     background-color: #121212;
     color: #ffffff;
   }
-} */
+}
 
 /* If user's system is in light mode */
 @media (prefers-color-scheme: light) {

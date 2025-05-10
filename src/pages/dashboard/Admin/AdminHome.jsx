@@ -95,7 +95,7 @@ const AdminHome = () => {
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
-                  <FaUser className="text-3xl"></FaUser>
+                  <FaUser className="text-3xl icon"></FaUser>
                 </div>
                 <div>
                   <h2 className="card-title">Total User : {users.length}</h2>
@@ -111,7 +111,7 @@ const AdminHome = () => {
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
-                  <BiSolidDonateBlood className="text-3xl"></BiSolidDonateBlood>
+                  <BiSolidDonateBlood className="text-3xl icon"></BiSolidDonateBlood>
                 </div>
                 <div>
                   <h2 className="card-title">
@@ -129,7 +129,7 @@ const AdminHome = () => {
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
-                  <FaFunnelDollar className="text-3xl"></FaFunnelDollar>
+                  <FaFunnelDollar className="text-3xl icon"></FaFunnelDollar>
                 </div>
                 <div>
                   <h2 className="card-title">
