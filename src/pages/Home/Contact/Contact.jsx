@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 const Contact = () => {
   return (
-    <div className='contactBg bg-fixed mb-16'>
+    <div className='contactBg bg-fixed'>
       <div className='container mx-auto'
         data-aos="fade-up"
         data-aos-easing="ease-in-sine"
