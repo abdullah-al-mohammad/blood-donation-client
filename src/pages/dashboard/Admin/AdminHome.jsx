@@ -78,7 +78,7 @@ const AdminHome = () => {
     <div className="overflow-x-hidden">
       <section>
         <div className="adminBG">
-          <h1 className="text-center font-bold text-3xl uppercase p-5 " data-aos="flip-right">
+          <h1 className="text-center font-bold text-3xl uppercase p-5" data-aos="flip-right">
             Welcome {user?.displayName}
           </h1>
         </div>
@@ -90,8 +90,8 @@ const AdminHome = () => {
             <button className="btn-active btn-info text-[#ef3d32]">admin</button>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 justify-evenly gap-6 mt-5 grid-flow-dense" data-aos="zoom-in-down">
-          <div className="card card-border bg-base-100 shadow-xl cardBorder">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-evenly gap-6 mt-5 grid-flow-dense p-10" data-aos="zoom-in-down">
+          <div className="card rounded-none shadow-xl cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
@@ -107,7 +107,7 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="card card-border bg-base-100 shadow-xl md:my-0 my-5 cardBorder">
+          <div className="card rounded-none shadow-xl md:my-0 my-5 cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>
@@ -125,7 +125,7 @@ const AdminHome = () => {
               </div>
             </div>
           </div>
-          <div className="card card-border bg-base-100 shadow-xl cardBorder">
+          <div className="card rounded-none shadow-xl cardBorder">
             <div className="card-body">
               <div className="flex align-middle justify-between items-center gap-5">
                 <div>

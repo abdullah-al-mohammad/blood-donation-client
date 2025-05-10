@@ -35,7 +35,7 @@ const Dashboard = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="p-4 menu [background:linear-gradient(90deg,_black,_black,_#ef3d32)] lg:bg-none">
+            <ul className="p-4 menu [background:linear-gradient(90deg,_black,_black,_#ef3d32)] lg:bg-none text-white">
               <li className="btn btn-active btn-error">
                 <NavLink to="profile">
                   <FaUser></FaUser>

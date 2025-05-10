@@ -3,6 +3,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  color: white;
 }
 .adminBannerBG{
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.658)), url('../../../assets/b.jpg');
@@ -10,6 +11,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   padding: 100px 10px;
+  color: white;
 }
 .cardBorder::after{
   content: '';

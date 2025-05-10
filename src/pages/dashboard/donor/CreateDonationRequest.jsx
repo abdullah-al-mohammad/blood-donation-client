@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Link } from "react-router-dom";
+import './donor.css'
 // ..
 AOS.init();
 
@@ -77,9 +78,9 @@ const CreateDonationRequest = () => {
     return localTime.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:MM"
   };
   return (
-    <div>
+    <div className="text-white">
       <div className="adminBannerBG">
-        <h1 className="text-center p-5 uppercase text-2xl md:text-4xl " data-aos="flip-right">Emergency Blood Request</h1>
+        <h1 className="text-center p-5 uppercase text-2xl md:text-4xl" data-aos="flip-right">Emergency Blood Request</h1>
         <p className="text-center mb-5">Your information helps us find the right donor for your needs.</p>
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>

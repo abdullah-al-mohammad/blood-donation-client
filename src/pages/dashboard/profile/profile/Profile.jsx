@@ -16,11 +16,11 @@ const Profile = () => {
   return (
     <div>
       <div className="adminBG">
-        <h1 className="text-center font-bold text-3xl uppercase p-5 " data-aos="flip-right">
+        <h1 className="text-center font-bold text-3xl uppercase p-5 text-white" data-aos="flip-right">
           Welcome {user?.displayName}
         </h1>
       </div>
-      <div className="adminBannerBG">
+      <div className="adminBannerBG text-white">
         <h1 className="capitalize text-2xl md:text-4xl text-center mb-5">profile users</h1>
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>

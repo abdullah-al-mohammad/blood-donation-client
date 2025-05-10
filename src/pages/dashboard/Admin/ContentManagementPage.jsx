@@ -21,7 +21,7 @@ const ContentManagementPage = () => {
         </div>
         <div className="flex justify-center p-6">
           <button
-            className="btn btn-error px-8 py-7 text-lg text-white btn-ripple hover:text-red-500 font-rubik_storm"
+            className="btn bg-bold_red-0 px-8 py-7 text-lg text-white btn-ripple hover:text-bold_red-0"
             onClick={() => navigate("/dashboard/CreateContent")}
           >
             Add Blog

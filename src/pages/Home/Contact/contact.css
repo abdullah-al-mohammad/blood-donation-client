@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 100px 120px;
+    color: white;
 }
 
 @media screen and (max-width: 768px){
