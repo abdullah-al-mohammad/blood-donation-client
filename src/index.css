@@ -15,24 +15,31 @@ p, span, a, li, button{
    font-family: "Roboto", sans-serif;
   
 }
-/* Default (optional) */
-body {
-  background-color: white;
-  color: black;
-}
-
-/* If user's system is in dark mode */
-@media (prefers-color-scheme: dark) {
+/* body{
+    background-color: #ffffff;
+   color: #000000;
+}  */
+/* Dark mode */
+ /* @media (prefers-color-scheme: dark) {
   body {
     background-color: #121212;
     color: #ffffff;
   }
+} */
+
+:root {
+  --bg-color: white;
+  --text-color: black;
 }
 
-/* If user's system is in light mode */
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #ffffff;
-    color: #000000;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
   }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }

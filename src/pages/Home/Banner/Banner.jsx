@@ -6,7 +6,7 @@ AOS.init();
 
 const Banner = () => {
   return (
-    <div id='banner' className='bannerBg md:min-h-[67.5rem] pt-40 mb-40 pb-96 lg:pb-0'>
+    <div id='banner' className='bannerBg md:h-screen pt-40 mb-40 pb-96 lg:pb-0'>
       <div className='container mx-auto md:text-start text-white text-wrap text-center p-3'>
         <h1 className='text-4xl md:text-6xl'
           data-aos="zoom-in"
@@ -22,7 +22,12 @@ const Banner = () => {
           data-aos-duration="2000"
           data-aos-once="true"
         >Every drop of blood can make a difference. Donating blood is a simple yet powerful way to save lives. Join our mission to ensure that no one has to suffer due to a shortage of blood.</p>
-        <ul>
+        <ul
+          data-aos="zoom-in"
+          data-aos-easing="ease-in-sine"
+          data-aos-offset="200"
+          data-aos-duration="2000"
+          data-aos-once="true">
           <li><Link to={'/donation'}
           > <button type="button" className='btn bg-bold_red-0 border-bold_red-0 py-5 px-5 md:px-8 md:py-7 text-base text-white btn-ripple hover:text-bold_red-0'> Join as a donor </button> </Link></li>
         </ul>
