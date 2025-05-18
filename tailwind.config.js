@@ -13,7 +13,7 @@ export default {
         tagesschrift: ["Tagesschrift", 'system-ui']
       },
       colors: {
-        bold_red: ['#ef3d32']
+        bold_red: ['#8a0303']
       }
     },
   },
