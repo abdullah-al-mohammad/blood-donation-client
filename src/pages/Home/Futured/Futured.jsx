@@ -12,12 +12,7 @@ AOS.init();
 
 const Futured = () => {
   return (
-    <section className="mb-40 border-box"
-      data-aos="fade-up"
-      data-aos-easing='ease-in-sine'
-      data-aos-duration='2000'
-      data-aos-once='true'
-    >
+    <section className="mb-40 border-box">
       <h5 className="text-center text-bold_red-0 ">Latest Blog & Update</h5>
       <h1 className="text-4xl md:text-6xl py-6 text-center">Events & Blood Drive Updates
       </h1>
@@ -25,12 +20,7 @@ const Futured = () => {
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden p-10'
-        data-aos="fade-up"
-        data-aos-easing='ease-in-sine'
-        data-aos-duration='2000'
-        data-aos-once='true'
-      >
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden p-10'>
         <div className="card rounded-none h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard"
           data-aos="fade-up"
           data-aos-easing='ease-in-sine'
@@ -75,11 +65,7 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
-          data-aos="fade-up"
-          data-aos-easing='ease-in-sine'
-          data-aos-duration='2000'
-          data-aos-once='true'>
+        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
           <figure>
             <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
               src={future3}
