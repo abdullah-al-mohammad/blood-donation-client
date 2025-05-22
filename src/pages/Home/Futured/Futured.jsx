@@ -12,7 +12,7 @@ AOS.init();
 
 const Futured = () => {
   return (
-    <section className="mb-40 border-box">
+    <section className="mb-16 border-box p-10 md:p-0">
       <h5 className="text-center text-bold_red-0 ">Latest Blog & Update</h5>
       <h1 className="text-4xl md:text-6xl py-6 text-center">Events & Blood Drive Updates
       </h1>
@@ -20,20 +20,16 @@ const Futured = () => {
         Stay informed and engaged with the latest news, upcoming events, and
         vital blood donation drives happening in your community
       </p>
-      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden p-10'>
-        <div className="card rounded-none h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futuredCard"
-          data-aos="fade-up"
-          data-aos-easing='ease-in-sine'
-          data-aos-duration='2000'
-          data-aos-once='true'>
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 place-content-center place-items-center grid-flow-dense overflow-hidden'>
+        <div className="card rounded-none h-full w-full shadow-2xl border-error transition-all duration-500 ease-in-out hover:-translate-y-2 futureCard group">
           <figure>
-            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
-              src={future1}
+            <img className='transform hover:scale-[1.2] transition duration-300 ease-in-out'
+              src={future6}
               alt="blood"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Why blood donation matters.?</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 group-hover:text-bold_red-0">Why blood donation matters.?</h2>
             <p>
               Every drop of blood can make a difference. Donating blood is a
               simple yet powerful way to save lives. br Join our mission to ensure
@@ -44,19 +40,15 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
-          data-aos="fade-up"
-          data-aos-easing='ease-in-sine'
-          data-aos-duration='2000'
-          data-aos-once='true'>
+        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futureCard group">
           <figure>
-            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.2] transition duration-300 ease-in-out'
               src={future2}
               alt="blood"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Artificial Blood Development</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 group-hover:text-bold_red-0">Artificial Blood Development</h2>
             <p>
               Scientists are exploring lab-grown blood cells to help address shortages and rare blood type needs
             </p>
@@ -65,15 +57,15 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard">
+        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futureCard group">
           <figure>
-            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.2] transition duration-300 ease-in-out'
               src={future3}
               alt="blood"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all duration-500 hover:text-bold_red-0">Smart Apps for Donors</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 group-hover:text-bold_red-0">Smart Apps for Donors</h2>
             <p>
               Mobile applications now allow users to find nearby blood drives, schedule appointments, and receive real-time alerts on urgent needs.
             </p>
@@ -82,19 +74,15 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
-          data-aos="fade-up"
-          data-aos-easing='ease-in-sine'
-          data-aos-duration='2000'
-          data-aos-once='true'>
+        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futureCard group">
           <figure>
-            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.2] transition duration-300 ease-in-out'
               src={future4}
               alt="blood"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 hover:text-bold_red-0">Increasing Accessibility & Awareness</h2>
+            <h2 className="card-title text-2xl transition-all ease-in-out duration-500 group-hover:text-bold_red-0">Increasing Accessibility & Awareness</h2>
             <p>
               Online campaigns and social media initiatives are encouraging more people to donate and spread awareness.
             </p>
@@ -103,19 +91,15 @@ const Futured = () => {
             </div>
           </div>
         </div>
-        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futuredCard"
-          data-aos="fade-up"
-          data-aos-easing='ease-in-sine'
-          data-aos-duration='2000'
-          data-aos-once='true'>
+        <div className="card rounded-none w-full h-full shadow-2xl border-error transition-all duration-500 hover:-translate-y-2 futureCard group">
           <figure>
-            <img className='transform hover:scale-[1.5] transition duration-300 ease-in-out'
+            <img className='transform hover:scale-[1.2] transition duration-300 ease-in-out'
               src={future5}
               alt="blood"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title text-2xl transition-all duration-500 ease-in-out hover:text-bold_red-0">Enhanced Donor Experience</h2>
+            <h2 className="card-title text-2xl transition-all duration-500 ease-in-out group-hover:text-bold_red-0">Enhanced Donor Experience</h2>
             <p>
               Devices that monitor donor health could soon improve eligibility assessments and post-donation care.
             </p>

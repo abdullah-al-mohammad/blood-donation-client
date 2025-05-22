@@ -9,7 +9,7 @@ AOS.init();
 
 const Footer = () => {
   return (
-    <footer className="text-neutral-content p-10 border-t bg-base-100">
+    <footer className="text-neutral-content p-10 border-t-4 bg-base-100 border-bold_red-0">
       <div className='container mx-auto footer footer-horizontal footer-center '>
         <aside>
           <div className='flip-container'>
@@ -25,7 +25,7 @@ const Footer = () => {
         </aside>
         <nav>
           <div className="grid grid-flow-col gap-4">
-            <h5 className='text-error'>Follow Us:</h5>
+            <h5 className='text-bold_red-0'>Follow Us:</h5>
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
