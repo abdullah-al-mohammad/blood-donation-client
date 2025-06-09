@@ -87,7 +87,7 @@ const AdminHome = () => {
           <div className="text-center">
             <Link to={'/'}><button>Home</button></Link>
             <span className="mx-2">/</span>
-            <button className="btn-active btn-info text-[#ef3d32]">admin</button>
+            <button className="btn-active btn-info text-bold_red-0">admin</button>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-evenly gap-6 mt-5 grid-flow-dense p-10" data-aos="zoom-in-down">

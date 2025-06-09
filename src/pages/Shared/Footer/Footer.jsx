@@ -23,8 +23,8 @@ const Footer = () => {
           <p>Copyright © {new Date().getFullYear()} - Lifesaver Blood Donation | All rights reserved.</p>
           <p>Contact Us: lifesaver@blooddonation.org | +880-1234-567890</p>
         </aside>
-        <nav>
-          <div className="grid grid-flow-col gap-4">
+        <nav id='social'>
+          <div className="grid grid-flow-col gap-4 items-center">
             <h5 className='text-bold_red-0'>Follow Us:</h5>
             <a>
               <svg

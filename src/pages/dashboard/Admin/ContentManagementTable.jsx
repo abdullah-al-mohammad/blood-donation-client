@@ -24,7 +24,7 @@ const ContentManagementTable = ({ contentBlog, refetch }) => {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      cancelButtonColor: "#630808",
       confirmButtonText: "Yes, delete it!"
     }).then(async (result) => {
       if (result.isConfirmed) {
@@ -71,7 +71,7 @@ const ContentManagementTable = ({ contentBlog, refetch }) => {
             className={`btn m-1 ${status === "draft"
               ? "text-success"
               : status === "published"
-                ? "text-red-500"
+                ? "text-bold_red-0"
                 : "text-primary"
               }`}
           >

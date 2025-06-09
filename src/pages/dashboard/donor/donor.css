@@ -1,5 +1,5 @@
 .adminBG{
-  background: linear-gradient(90deg, black, black, #ef3d32), url('../../../assets/b.jpg');
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.438), #740707, rgba(0, 0, 0, 0.397));
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

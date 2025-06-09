@@ -88,7 +88,7 @@ const DonorDashboardTable = ({ donation, refetch }) => {
             className={`btn m-1 ${status === "done"
               ? "text-success"
               : status === "cancelled"
-                ? "text-red-500"
+                ? "text-bold_red-0"
                 : "text-primary"
               }`}
           >

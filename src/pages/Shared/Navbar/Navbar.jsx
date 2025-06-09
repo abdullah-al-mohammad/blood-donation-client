@@ -30,39 +30,28 @@ const Navbar = () => {
   }
   const navLinks = (
     <>
-      {user ? (
-        <>
-          <li>
-            <NavLink to="/dashboard/createDonationRequest">
-              Donate Blood
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/blog">Blogs</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/adminHome">Funding</NavLink>
-          </li>
-        </>
-      ) : (
-        <>
-          <li>
-            <NavLink to="/dashboard/createDonationRequest">
-              Donate Blood
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/blog">Blogs</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-        </>
-      )}
+      <li>
+        <NavLink to="/dashboard/createDonationRequest">
+          Donate Blood
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/blog">Blogs</NavLink>
+      </li>
+      {user ? <li>
+        <NavLink to="/dashboard/adminHome">Funding</NavLink>
+      </li> :
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>}
     </>
   );
   return (
-    <div className={`navbar fixed z-50 text-white transition-all duration-500 ${scrolled ? "[background:linear-gradient(90deg,_black,_black,_#ef3d32)] shadow-md text-white transition duration-500 ease-in-out" : "bg-transparent text-white"}`}>
+    <div className={`navbar fixed z-50 text-white transition-all duration-700 ${scrolled ? "shadow-md opacity-100" : "opacity-70"}`} style={{
+      background: scrolled
+        ? 'linear-gradient(180deg, black, black, #740707)'
+        : 'transparent',
+    }}>
       <div className="container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

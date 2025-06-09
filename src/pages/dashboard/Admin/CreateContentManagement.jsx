@@ -95,10 +95,10 @@ const CreateContentManagement = ({ placeholder }) => {
           <div className="text-center">
             <Link to={'/'}><button>Home</button></Link>
             <span className="mx-2">/</span>
-            <button className="btn-active btn-info text-[#ef3d32]">content</button>
+            <button className="btn-active btn-info text-bold_red-0">content</button>
           </div>
         </div>
-        <div className="">
+        <div>
           <div className="hero-content">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
               <form onSubmit={handleSubmit(onSubmit)} className="card-body">

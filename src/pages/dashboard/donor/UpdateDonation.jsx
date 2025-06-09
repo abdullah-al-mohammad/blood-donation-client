@@ -88,7 +88,7 @@ const UpdateDonation = () => {
                 type="datetime-local"
                 placeholder="donation date & time"
                 {...register("donationDateTime")}
-                className="input input-bordered"
+                className="input input-bordered p-10"
               />
             </div>
             {/* name field */}
@@ -121,6 +121,7 @@ const UpdateDonation = () => {
                         value: district.name,
                         label: district.name,
                       }))}
+                      styles={{ backgroundColor: "black", color: "black" }}
                     ></Select>
                   );
                 }}

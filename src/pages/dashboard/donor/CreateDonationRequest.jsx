@@ -85,12 +85,12 @@ const CreateDonationRequest = () => {
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>
-          <button className="btn-active btn-info text-[#ef3d32]">request donor</button>
+          <button className="btn-active btn-info text-bold_red-0">request donor</button>
         </div>
       </div>
       <div data-aos="zoom-in-down">
         <div>
-          <div className="card bg-base-100 max-w-screen-xl shrink md:shadow-2xl container mx-auto">
+          <div className="card bg-base-100 max-w-screen-2xl shrink md:shadow-2xl container mx-auto rounded-none">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* date field */}
               <div className="form-control">

@@ -29,7 +29,7 @@ const AllUsersPage = () => {
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>
-          <button className="btn-active btn-info text-[#ef3d32]">users</button>
+          <button className="btn-active btn-info text-bold_red-0">users</button>
         </div>
       </div>
       <div className="overflow-x-auto">

@@ -82,7 +82,7 @@ const UpdateContent = ({ placeholder }) => {
         <div className="text-center">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>
-          <button className="btn-active btn-info text-[#ef3d32]">update</button>
+          <button className="btn-active btn-info text-bold_red-0">update</button>
         </div>
       </div>
       <div className="hero-content">

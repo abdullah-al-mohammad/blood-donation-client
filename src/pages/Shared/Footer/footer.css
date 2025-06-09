@@ -15,3 +15,16 @@
   -ms-transform: rotateY(360deg);
   -o-transform: rotateY(360deg);
 }
+#social a{
+  background-color: #ffffff1c;
+  padding: 10px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+#social a:hover svg{
+  color: #910a0a;
+  transition: all 0.5s ease-in-out;
+}

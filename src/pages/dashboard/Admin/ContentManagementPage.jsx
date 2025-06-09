@@ -17,7 +17,7 @@ const ContentManagementPage = () => {
         <div className="text-center mb-5">
           <Link to={'/'}><button>Home</button></Link>
           <span className="mx-2">/</span>
-          <button className="btn-active btn-info text-[#ef3d32]">admin</button>
+          <button className="btn-active btn-info text-bold_red-0">admin</button>
         </div>
         <div className="flex justify-center p-6">
           <button

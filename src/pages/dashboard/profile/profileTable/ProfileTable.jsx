@@ -24,7 +24,7 @@ export const ProfileTable = ({ user }) => {
         </div>
       </td>
       <td>{email}</td>
-      <td>{blood}</td>
+      <td className='text-bold_red-0'>{blood}</td>
       <th>
         <Link to={`/dashboard/updateProfile/${_id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
       </th>
