@@ -6,6 +6,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./login.css"
 
 
 
@@ -31,13 +32,13 @@ const Login = () => {
       .then(async (result) => {
         if (result.user) {
           reset()
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Login successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          // Swal.fire({
+          //   position: "center",
+          //   icon: "success",
+          //   title: "Login successfully",
+          //   showConfirmButton: false,
+          //   timer: 1500
+          // });
         }
         navigate('/')
       })
@@ -51,11 +52,11 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold text-bold_red-0">Login now!</h1>
-            <p className="py-6">
+            <p className="py-6 loginBG">
               Blood donation is a life-saving act that helps patients in need of transfusions due to accidents, surgeries, childbirth complications, cancer treatments, and chronic illnesses like anemia or blood disorders. A single blood donation can save up to three lives
             </p>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl loginBG">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* email field */}
               <div className="form-control">

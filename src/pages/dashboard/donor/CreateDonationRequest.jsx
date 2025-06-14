@@ -125,7 +125,7 @@ const CreateDonationRequest = () => {
                 </div>
               </div>
               {/* district dropdown */}
-              <div className="form-control">
+              <div className="form-control district">
                 <label className="label mb-2">
                   <span className="label-text">District</span>
                 </label>
@@ -140,6 +140,32 @@ const CreateDonationRequest = () => {
                           value: district.name,
                           label: district.name,
                         }))}
+                        styles={{
+                          control: (base) => ({
+                            ...base,
+                            backgroundColor: "#1e293b", // bg-slate-800
+                            color: "white",
+                            borderColor: "#334155", // optional
+                          }),
+                          singleValue: (base) => ({
+                            ...base,
+                            color: "white",
+                          }),
+                          menu: (base) => ({
+                            ...base,
+                            backgroundColor: "#1e293b", // bg-slate-800
+                          }),
+                          option: (base, state) => ({
+                            ...base,
+                            backgroundColor: state.isFocused ? "#334155" : "#1e293b", // hover and normal
+                            color: "white",
+                            cursor: "pointer",
+                          }),
+                          placeholder: (base) => ({
+                            ...base,
+                            color: "#cbd5e1", // text-slate-300
+                          }),
+                        }}
                       ></Select>
                     );
                   }}
@@ -161,6 +187,32 @@ const CreateDonationRequest = () => {
                           value: subDistrict.name,
                           label: subDistrict.name,
                         }))}
+                        styles={{
+                          control: (base) => ({
+                            ...base,
+                            backgroundColor: "#1e293b", // bg-slate-800
+                            color: "white",
+                            borderColor: "#334155", // optional
+                          }),
+                          singleValue: (base) => ({
+                            ...base,
+                            color: "white",
+                          }),
+                          menu: (base) => ({
+                            ...base,
+                            backgroundColor: "#1e293b", // bg-slate-800
+                          }),
+                          option: (base, state) => ({
+                            ...base,
+                            backgroundColor: state.isFocused ? "#334155" : "#1e293b", // hover and normal
+                            color: "white",
+                            cursor: "pointer",
+                          }),
+                          placeholder: (base) => ({
+                            ...base,
+                            color: "#cbd5e1", // text-slate-300
+                          }),
+                        }}
                       ></Select>
                     );
                   }}

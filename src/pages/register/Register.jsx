@@ -5,15 +5,16 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./register.css"
 
 // image hosting api key
 const image_hosting_key = import.meta.env.VITE_IMAGE_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
-
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -62,10 +63,11 @@ const Register = () => {
         });
 
         if (res.data.success) {
+          // navigate("")
           const imageUrl = res.data.data.display_url;
           updateUserProfile(name, imageUrl);
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "success",
             title: "Your account has been created successfully",
             showConfirmButton: false,
@@ -92,36 +94,36 @@ const Register = () => {
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Register as a donor!</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold text-bold_red-0">Register as a donor!</h1>
+            <p className="py-6 registerBG">
               Blood donation is a life-saving act that helps patients in need of transfusions due to accidents, surgeries, childbirth complications, cancer treatments, and chronic illnesses like anemia or blood disorders. A single blood donation can save up to three lives
             </p>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card bg-base-100 w-full max-w-screen-md shrink-0 shadow-2xl registerBG">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* name field */}
               <div className="form-control">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="name"
                   placeholder="Your Name"
                   {...register("name", { required: true })}
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   required
                 />
               </div>
               {/* email field */}
               <div className="form-control">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="email"
                   {...register("email", { required: true })}
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   required
                 />
               </div>
@@ -194,7 +196,7 @@ const Register = () => {
               </div>
               {/* upload photo */}
               <div className="form-control">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Upload Profile</span>
                 </label>
                 <input
@@ -213,7 +215,7 @@ const Register = () => {
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
                     {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: { value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/, message: "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character, and be 6-20 characters long." } })}
-                    className="input input-bordered"
+                    className="input input-bordered w-full"
                     required
                   />
                   <p className="absolute right-7 bottom-3" onClick={() => setShowPassword(!showPassword)}>
@@ -227,14 +229,14 @@ const Register = () => {
               </div>
               {/* confirm password field */}
               <div className="form-control">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Confirm Password</span>
                 </label>
                 <input
                   type="password"
                   placeholder="confirm password"
                   {...register("confirmPassword", { required: true })}
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   required
                 />
                 {errors.confirmPassword && (
@@ -250,7 +252,7 @@ const Register = () => {
               </div>
               {<p className="text-red-500">{error ? error : ''}</p>}
               <div className="form-control mt-6">
-                <button className="btn  bg-bold_red-0 border-bold_red-0 transition duration-500 ease-in-out hover:bg-white hover:text-bold_red-0 px-8">Register</button>
+                <button className="btn bg-bold_red-0 border-bold_red-0 transition duration-500 ease-in-out hover:bg-white hover:text-bold_red-0 px-8">Register</button>
               </div>
             </form>
             <p className="p-5">Already have an account please ? <Link className="text-success" to={'/login'}>Login</Link> </p>
