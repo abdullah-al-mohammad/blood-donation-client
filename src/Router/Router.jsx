@@ -1,152 +1,210 @@
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main/Main";
-import Register from "../pages/register/Register";
-import Login from "../pages/login/Login";
-import Dashboard from "../layout/dashboard/Dashboard";
-import Profile from "../pages/dashboard/profile/profile/Profile";
-import { UpdateProfile } from "../pages/dashboard/profile/updateProfile/UpdateProfile";
-import DonorDashBoard from "../pages/dashboard/donor/DonorDashBoard";
-import MyDonationRequestPage from "../pages/dashboard/donor/MyDonationRequestPage";
-import CreateDonationRequest from "../pages/dashboard/donor/CreateDonationRequest";
-import UpdateDonation from "../pages/dashboard/donor/UpdateDonation";
-import AdminHome from "../pages/dashboard/Admin/AdminHome";
-import AllUsersPage from "../pages/dashboard/Admin/AllUsersPage";
-import PrivateRoute from "./PrivateRoute";
-import AdminRoute from "./AdminRoute";
-import AllBloodDonationPage from "../pages/dashboard/Admin/AllBloodDonationPage";
-import ContentManagementPage from "../pages/dashboard/Admin/ContentManagementPage";
-import CreateContentManagement from "../pages/dashboard/Admin/CreateContentManagement";
-import UpdateContent from "../pages/dashboard/Admin/UpdateContent";
-import DonorRoute from "./DonorRoute";
-import AllBloodDonation from "../pages/dashboard/volunteer/AllBloodDonation";
-import CreateContent from "../pages/dashboard/volunteer/CreateContent";
-import VolunteerHome from "../pages/dashboard/volunteer/VolunteerHome";
-import Home from "../pages/Home/Home/Home";
-import Search from "../pages/SearchPage/Search";
-import BloodDonationRequest from "../pages/Home/bloodDonorRequest/BloodDonationRequest";
-import BloodDonationRequestDetails from "../pages/Home/bloodDonationRequestDetails/BloodDonationRequestDetails";
-import Blog from "../pages/Blogs/Blog";
-import BlogDetails from "../pages/Blogs/BlogDetails";
-import SearchResult from "../pages/SearchPage/SearchResult";
-
-
+import { createBrowserRouter, Outlet } from 'react-router-dom';
+import Login from '../auth/login/Login';
+import Register from '../auth/register/Register';
+import AdminDashboard from '../layout/AdminDashboard';
+import DashboardRedirect from '../layout/DashboardRedirect';
+import DonorDashboard from '../layout/DonorDashboard';
+import Main from '../layout/Public';
+import VolunteerDashboard from '../layout/VolunteerDashboard';
+import Blog from '../pages/Blogs/Blog';
+import BlogDetails from '../pages/Blogs/BlogDetails';
+import AdminHomePage from '../pages/dashboard/Admin/AdminHomePage';
+import ContentHome from '../pages/dashboard/Admin/ContentHome';
+import CreateContentPage from '../pages/dashboard/Admin/CreateContentPage';
+import DonationsPage from '../pages/dashboard/Admin/DonationsPage';
+import EditContentPage from '../pages/dashboard/Admin/EditContentPage';
+import UsersPage from '../pages/dashboard/Admin/UsersPage';
+import DonationRequest from '../pages/dashboard/donor/DonationRequest';
+import MyDonationRequestPage from '../pages/dashboard/donor/MyDonationRequestPage';
+import UpdateDonation from '../pages/dashboard/donor/UpdateDonation';
+import Profile from '../pages/dashboard/profile/profile/Profile';
+import { UpdateProfile } from '../pages/dashboard/profile/updateProfile/UpdateProfile';
+import CreateContent from '../pages/dashboard/volunteer/CreateContent';
+import VolunteerHome from '../pages/dashboard/volunteer/VolunteerHome';
+import ErrorPage from '../pages/errorPage/ErrorPage';
+import DonationsRequest from '../pages/Home/DonationsRequest';
+import DonationsRequestDetails from '../pages/Home/DonationsRequestDetails';
+import Home from '../pages/Home/Home';
+import Search from '../pages/SearchPage/Search';
+import SearchResult from '../pages/SearchPage/SearchResult';
+import AdminRoute from './AdminRoute';
+import DonorRoute from './DonorRoute';
+import PrivateRoute from './PrivateRoute';
+import VolunteerRout from './VolunteerRout';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Main></Main>,
+    path: '/',
+    element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home />,
       },
       {
         path: 'search',
-        element: <Search></Search>
+        element: <Search />,
       },
       {
         path: 'search-results',
-        element: <SearchResult></SearchResult>
+        element: <SearchResult />,
       },
       {
         path: 'donation',
-        element: <BloodDonationRequest></BloodDonationRequest>
+        element: <DonationsRequest />,
       },
       {
         path: 'donationDetails/:id',
-        element: <BloodDonationRequestDetails></BloodDonationRequestDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
+        element: <DonationsRequestDetails />,
+        loader: async ({ params }) => await fetch(`http://localhost:5000/donations/${params.id}`),
       },
       {
         path: 'blog',
-        element: <Blog></Blog>
+        element: <Blog />,
       },
       {
         path: 'details/:id',
-        element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        element: <BlogDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`),
       },
+    ],
+  },
+  {
+    path: '/',
+    element: <Outlet />,
+    children: [
       {
         path: 'register',
-        element: <Register></Register>
+        element: <Register />,
       },
       {
         path: 'login',
-        element: <Login></Login>
-      }
+        element: <Login />,
+      },
     ],
   },
   {
     path: 'dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Outlet />
+      </PrivateRoute>
+    ),
     children: [
       {
-        path: 'profile',
-        element: <PrivateRoute><Profile></Profile></PrivateRoute>
+        index: true,
+        element: <DashboardRedirect />,
       },
       {
-        path: 'updateProfile/:id',
-        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
-      },
-      // donor page route
-      {
-        path: 'dashboardHome',
-        element: <DonorRoute><DonorDashBoard></DonorDashBoard></DonorRoute>
-      },
-      {
-        path: 'myPage',
-        element: <DonorRoute><MyDonationRequestPage></MyDonationRequestPage></DonorRoute>
-      },
-      {
-        path: 'createDonationRequest',
-        element: <CreateDonationRequest></CreateDonationRequest>
-      },
-      {
-        path: 'updateDonationRequest/:id',
-        element: <PrivateRoute><UpdateDonation></UpdateDonation></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`)
-      },
-      // Admin route page
-      {
-        path: 'adminHome',
-        element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-      },
-      {
-        path: 'allUsers',
-        element: <AdminRoute><AllUsersPage></AllUsersPage></AdminRoute>
+        path: 'donor',
+        element: (
+          <DonorRoute>
+            <DonorDashboard />
+          </DonorRoute>
+        ),
+        children: [
+          {
+            path: 'donation-request',
+            element: <DonationRequest />,
+          },
+          {
+            path: 'myPage',
+            element: <MyDonationRequestPage />,
+          },
+          {
+            path: 'updateDonationRequest/:id',
+            element: (
+              <PrivateRoute>
+                <UpdateDonation />
+              </PrivateRoute>
+            ),
+            loader: ({ params }) => fetch(`http://localhost:5000/donations/${params.id}`),
+          },
+        ],
       },
       {
-        path: "allDonationPage",
-        element: <AdminRoute><AllBloodDonationPage></AllBloodDonationPage></AdminRoute>
+        path: 'admin',
+        element: (
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
+        ),
+        children: [
+          {
+            path: 'donation-request',
+            element: <DonationRequest />,
+          },
+          {
+            index: true,
+            element: <AdminHomePage />,
+          },
+          {
+            path: 'home',
+            element: <AdminHomePage />,
+          },
+          {
+            path: 'profile',
+            element: <Profile />,
+          },
+          {
+            path: 'updateProfile/:id',
+            element: <UpdateProfile />,
+            loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`),
+          },
+          {
+            path: 'users',
+            element: <UsersPage />,
+          },
+          {
+            path: 'donations',
+            element: <DonationsPage />,
+          },
+          {
+            path: 'content-list',
+            element: <ContentHome />,
+          },
+          {
+            path: 'create-content',
+            element: <CreateContentPage />,
+          },
+          {
+            path: 'updateContent/:id',
+            element: <EditContentPage />,
+            loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`),
+          },
+        ],
       },
       {
-        path: "contentManagement",
-        element: <AdminRoute><ContentManagementPage></ContentManagementPage></AdminRoute>
+        path: 'volunteer',
+        element: (
+          <VolunteerRout>
+            <VolunteerDashboard />
+          </VolunteerRout>
+        ),
+        children: [
+          {
+            path: 'home',
+            element: <VolunteerHome />,
+          },
+          {
+            path: 'profile',
+            element: <Profile />,
+          },
+          {
+            path: 'donation-request',
+            element: <DonationRequest />,
+          },
+          {
+            path: 'donations',
+            element: <DonationsPage />,
+          },
+          {
+            path: 'content-create',
+            element: <CreateContent />,
+          },
+        ],
       },
-      {
-        path: "CreateContent",
-        element: <AdminRoute> <CreateContentManagement></CreateContentManagement></AdminRoute>
-      },
-      {
-        path: 'updateContent/:id',
-        element: <AdminRoute><UpdateContent></UpdateContent></AdminRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
-      },
-
-      // Volunteer route page
-      {
-        path: 'volunteerHome',
-        element: <VolunteerHome></VolunteerHome>
-      },
-      {
-        path: 'allDonation',
-        element: <AllBloodDonation></AllBloodDonation>
-      },
-      {
-        path: "contentCreate",
-        element: <CreateContent></CreateContent>
-      },
-    ]
-  }
+    ],
+  },
 ]);

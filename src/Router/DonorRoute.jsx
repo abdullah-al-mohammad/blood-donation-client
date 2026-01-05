@@ -1,21 +1,18 @@
-import React from 'react'
-import { useDonor } from '../hooks/useDonor'
-import useAuth from '../hooks/useAuth'
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import useRole from '../hooks/useRole';
 
 const DonorRoute = ({ children }) => {
-  const [isDonor, isAdminLoading] = useDonor()
-  const { user, loading } = useAuth()
+  const { role } = useRole();
+  const { user, loading } = useAuth();
 
-  if (loading && isAdminLoading) {
-    return <div className='flex justify-center items-center h-screen'>
-      <progress className="loading loading-spinner loading-xl"></progress>
-    </div>
+  if (loading) {
+    return null;
   }
-  if (user && isDonor) {
-    return children
+  if (user && role === 'donor') {
+    return children;
   }
-  return <Navigate to={'/login'} state={{ from: location }} replace></Navigate>
-}
+  return <Navigate to={'/login'} state={{ from: location }} replace />;
+};
 
-export default DonorRoute
+export default DonorRoute;

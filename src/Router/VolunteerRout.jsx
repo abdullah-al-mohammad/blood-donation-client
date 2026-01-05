@@ -1,20 +1,18 @@
-import useAuth from '../hooks/useAuth'
-import { Navigate } from 'react-router-dom'
-import useVolunteer from '../hooks/useVolunteer'
+import { Navigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import useRole from '../hooks/useRole';
 
-const VolunteerRout = () => {
-  const [isVolunteer, isAdminLoading] = useVolunteer()
-  const { user, loading } = useAuth()
+const VolunteerRout = ({ children }) => {
+  const { role } = useRole();
+  const { user, loading } = useAuth();
 
-  if (loading && isAdminLoading) {
-    return <div className='flex justify-center items-center h-screen'>
-      <progress className="loading loading-spinner loading-xl"></progress>
-    </div>
+  if (loading) {
+    return null;
   }
-  if (user && isVolunteer) {
-    return children
+  if (user && role === 'volunteer') {
+    return children;
   }
-  return <Navigate to={'/login'} state={{ from: location }} replace></Navigate>
-}
+  return <Navigate to={'/login'} state={{ from: location }} replace />;
+};
 
-export default VolunteerRout
+export default VolunteerRout;
